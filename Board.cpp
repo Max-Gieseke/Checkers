@@ -17,12 +17,14 @@ Board::Board(){
     for(int i = 12; i < 20; i++){
         board[i] = 0;
     }
+    currentPlayer = 1;
 }
 
 Board::Board(small * temple) {
     for(int i = 0; i < 32; i++){
         board[i] = temple[i];
     }
+    currentPlayer = 1;
 
 }
 
@@ -121,12 +123,12 @@ vector<pair<small, small>> Board::singleJump(small square, small * currB){
 }
 
 vector<Move> Board::getJumps(small square) {
-    MoveTree* root = new MoveTree(square, board);
-    queue<MoveTree*> nodes;
+    JumpTree* root = new JumpTree(square, board);
+    queue<JumpTree*> nodes;
     nodes.push(root);
     //Create tree of moves
     while(!nodes.empty()){
-        MoveTree* cur = nodes.front();
+        JumpTree* cur = nodes.front();
         nodes.pop();
         //cout << cur;
         auto jumps = singleJump(cur->getSquare(), cur->getBoard());
@@ -134,9 +136,9 @@ vector<Move> Board::getJumps(small square) {
             //cout << "here " << (int)p.first << " " << (int)p.second << endl;
             bool newKing = false;
             small* b= doMove(cur->getSquare(), p.second, p.first, cur->getBoard(), newKing);
-            //MoveTree tmp = MoveTree(p.second, cur->getDepth() + 1, p.first, cur, b);
+            //JumpTree tmp = JumpTree(p.second, cur->getDepth() + 1, p.first, cur, b);
             //cout << tmp;
-            MoveTree* newChild = new MoveTree(p.second, cur->getDepth() + 1, p.first, cur, b);
+            JumpTree* newChild = new JumpTree(p.second, cur->getDepth() + 1, p.first, cur, b);
             cur->addChild(newChild);
             //cout << cur.getNext().back();
             if(!newKing){
@@ -144,7 +146,7 @@ vector<Move> Board::getJumps(small square) {
             }
         }
     }
-    return MoveTree::jumpMoves(*root);
+    return JumpTree::jumpMoves(*root);
 }
 
 vector<Move> Board::possibleMoves(small color) {
@@ -370,6 +372,14 @@ Board Board::randomBoard() {
 
 small *Board::getBoard() {
     return board;
+}
+
+void Board::switchPlayer() {
+    currentPlayer = 1 - currentPlayer;
+}
+
+small Board::getPlayer() {
+    return currentPlayer;
 }
 
 

@@ -26,5 +26,6 @@ unsigned long long int ZobristHash::calcHash(Board b) {
             cVal ^= zTable[i][b.getBoard()[i] - 1];
         }
     }
+    cVal ^= b.getPlayer();
     return cVal;
 }

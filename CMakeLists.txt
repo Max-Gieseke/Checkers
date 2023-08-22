@@ -6,12 +6,12 @@ set(CMAKE_CXX_STANDARD 17)
 add_executable(MoveTester
         MoveTester.cpp
         Board.cpp Board.h
-        MoveTree.cpp MoveTree.h
+        JumpTree.cpp JumpTree.h
         Move.cpp Move.h)
 
 add_executable(MoveExplorer
         MoveTester.cpp
         Board.cpp Board.h
-        MoveTree.cpp MoveTree.h
+        JumpTree.cpp JumpTree.h
         Move.cpp Move.h
         ZobristHash.cpp ZobristHash.h TranspositionTable.cpp TranspositionTable.h)

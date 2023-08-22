@@ -9,34 +9,34 @@
 #include <iostream>
 
 using namespace std;
-class MoveTree {
+class JumpTree {
     using small = unsigned char;
 private:
      small square;
      small depth;
      small jumped;
-     vector<MoveTree*> next;
-     MoveTree* parent;
+     vector<JumpTree*> next;
+     JumpTree* parent;
      small board[32];
 public:
-    MoveTree();
-    MoveTree(small, small*);
-    MoveTree(small, small, MoveTree*, small*);
-    MoveTree(small, small, small, MoveTree*, small*);
+    JumpTree();
+    JumpTree(small, small*);
+    JumpTree(small, small, JumpTree*, small*);
+    JumpTree(small, small, small, JumpTree*, small*);
     small getSquare();
     small getDepth();
     small* getBoard();
-    void addChild(MoveTree*);
-    vector<MoveTree*> getNext();
-    MoveTree* getParent();
+    void addChild(JumpTree*);
+    vector<JumpTree*> getNext();
+    JumpTree* getParent();
     small maxDepth();
     void getRemainingSequence(vector<small>&);
     void maxSequences(small, vector<vector<small>>&);
-    static vector<Move> jumpMoves(MoveTree);
+    static vector<Move> jumpMoves(JumpTree);
     small getJumped(small, small);
-//    vector<MoveTree>* getSquare(small, small);
+//    vector<JumpTree>* getSquare(small, small);
 //    void addSquare(small, small);
-    friend ostream &operator<<(ostream &out, MoveTree m);
+    friend ostream &operator<<(ostream &out, JumpTree m);
 
 
 };

@@ -2,49 +2,49 @@
 // Created by maxgi on 12/21/2022.
 //
 
-#include "MoveTree.h"
+#include "JumpTree.h"
 using small = unsigned char;
 
-MoveTree::MoveTree() {
+JumpTree::JumpTree() {
     square = 64;
     depth = 0;
-    next = vector<MoveTree*>();
+    next = vector<JumpTree*>();
     parent = nullptr;
 }
-MoveTree::MoveTree(small square, small* board) {
+JumpTree::JumpTree(small square, small* board) {
     this->square = square;
     depth = 0;
     jumped = 64;
-    next = vector<MoveTree*>();
+    next = vector<JumpTree*>();
     parent = nullptr;
     copy(board, board+32, this->board);
 }
 
-MoveTree::MoveTree(small square, small depth, MoveTree* p, small* board) {
+JumpTree::JumpTree(small square, small depth, JumpTree* p, small* board) {
     this->square = square;
     this->depth = depth;
     parent = p;
-    next = vector<MoveTree*>();
+    next = vector<JumpTree*>();
     copy(board, board+32, this->board);
 }
 
-MoveTree::MoveTree(small square, small depth, small jumped, MoveTree* p, small* board) {
+JumpTree::JumpTree(small square, small depth, small jumped, JumpTree* p, small* board) {
     this->square = square;
     this->depth = depth;
     this->jumped = jumped;
     parent = p;
-    next = vector<MoveTree*>();
+    next = vector<JumpTree*>();
     copy(board, board+32, this->board);
 }
 
-//bool MoveTree::hasSquare(small check){
+//bool JumpTree::hasSquare(small check){
 //    if(check == square){
 //        return true;
 //    }
 //    if(next == nullptr){
 //        return false;
 //    }
-//    for(MoveTree m : *next){
+//    for(JumpTree m : *next){
 //        if(m.hasSquare(check)){
 //            return true;
 //        }
@@ -52,44 +52,44 @@ MoveTree::MoveTree(small square, small depth, small jumped, MoveTree* p, small* 
 //    return false;
 //}
 
-//vector<MoveTree>* MoveTree::getSquare(small check, small jumps){
+//vector<JumpTree>* JumpTree::getSquare(small check, small jumps){
 //    if(check == square && depth == jumps){
 //        return next;
 //    }
-//    for(MoveTree m : *next){
-//        vector<MoveTree>* tmp = m.getSquare(check, jumps);
+//    for(JumpTree m : *next){
+//        vector<JumpTree>* tmp = m.getSquare(check, jumps);
 //        if(tmp != nullptr){
 //            return tmp;
 //        }
 //    }
 //}
 
-MoveTree::small MoveTree::getSquare() {
+JumpTree::small JumpTree::getSquare() {
     return square;
 }
 
-MoveTree::small MoveTree::getDepth() {
+JumpTree::small JumpTree::getDepth() {
     return depth;
 }
 
-vector<MoveTree*> MoveTree::getNext() {
+vector<JumpTree*> JumpTree::getNext() {
     return next;
 }
 
-MoveTree* MoveTree::getParent() {
+JumpTree* JumpTree::getParent() {
     return parent;
 }
 
-void MoveTree::addChild(MoveTree* child) {
+void JumpTree::addChild(JumpTree* child) {
     this->next.push_back(child);
 }
 
-small MoveTree::maxDepth() {
+small JumpTree::maxDepth() {
     if(this->next.empty()){
         return depth;
     }
     small max = 0;
-    for(MoveTree* n : next){
+    for(JumpTree* n : next){
         if(n->maxDepth() > max){
             max = n->maxDepth();
         }
@@ -97,7 +97,7 @@ small MoveTree::maxDepth() {
     return max;
 }
 
-void MoveTree::getRemainingSequence(vector<small>& holder){
+void JumpTree::getRemainingSequence(vector<small>& holder){
     if(depth == 0){
         holder.push_back(square);
     }
@@ -107,7 +107,7 @@ void MoveTree::getRemainingSequence(vector<small>& holder){
     }
 }
 
-void MoveTree::maxSequences(small depth, vector<vector<small>>& holder) {
+void JumpTree::maxSequences(small depth, vector<vector<small>>& holder) {
     if(this->depth == depth){
         holder.push_back(vector<small>());
         holder.back().push_back(this->square);
@@ -115,7 +115,7 @@ void MoveTree::maxSequences(small depth, vector<vector<small>>& holder) {
         cout << endl;
     }
     else{
-        for(MoveTree* node : this->next){
+        for(JumpTree* node : this->next){
             node->maxSequences(depth, holder);
         }
     }
@@ -124,7 +124,7 @@ void MoveTree::maxSequences(small depth, vector<vector<small>>& holder) {
 
 
 
-vector<Move> MoveTree::jumpMoves(MoveTree head) {
+vector<Move> JumpTree::jumpMoves(JumpTree head) {
     small longest = head.maxDepth();
     if(longest == 0){
         return vector<Move>();
@@ -144,11 +144,11 @@ vector<Move> MoveTree::jumpMoves(MoveTree head) {
     return holder;
 }
 
-small *MoveTree::getBoard() {
+small *JumpTree::getBoard() {
     return this->board;
 }
 
-ostream &operator<<(ostream &out, MoveTree m) {
+ostream &operator<<(ostream &out, JumpTree m) {
     out << "Current: " << (int)m.square << " Captured " << (int)m.jumped << endl;
     if(m.parent == nullptr){
         out << "Parent Square " << "none\n";

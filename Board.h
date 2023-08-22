@@ -6,7 +6,7 @@
 #include <iterator>
 #include <hash_map>
 #include <queue>
-#include "MoveTree.h"
+#include "JumpTree.h"
 #include "Move.h"
 #include <random>
 #include <ctime>
@@ -19,6 +19,7 @@ class Board {
     using small = unsigned char;
 private:
     small board[32];
+    small currentPlayer;
     bool king(small, small*);
 
     /*
@@ -37,6 +38,7 @@ public:
     Board(); // Initialize checkerboard with black on squares 0-11 and red on squares 20-31
     Board(small[]);
     static void initializeMaps();
+    void switchPlayer();
     /*
      * Moves are kept track of through an array of strings
      * where each move is "xyza", where x is start square, y is square to move to,
@@ -63,6 +65,7 @@ public:
     void updateBoard(Move move);
     static Board randomBoard();
     small* getBoard();
+    small getPlayer();
     friend ostream& operator<<(ostream& out, Board b);
 
 };

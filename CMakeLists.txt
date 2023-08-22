@@ -8,3 +8,10 @@ add_executable(MoveTester
         Board.cpp Board.h
         MoveTree.cpp MoveTree.h
         Move.cpp Move.h)
+
+add_executable(MoveExplorer
+        MoveTester.cpp
+        Board.cpp Board.h
+        MoveTree.cpp MoveTree.h
+        Move.cpp Move.h
+        ZobristHash.cpp ZobristHash.h TranspositionTable.cpp TranspositionTable.h)

@@ -8,6 +8,8 @@
 #include <queue>
 #include "MoveTree.h"
 #include "Move.h"
+#include <random>
+#include <ctime>
 using namespace std;
 #ifndef CHECKERS_BOARD_H
 #define CHECKERS_BOARD_H
@@ -59,6 +61,8 @@ public:
     small* doMove(small, small, small, small *, bool& newKing);
     static small maxJumps(vector<Move>);
     void updateBoard(Move move);
+    static Board randomBoard();
+    small* getBoard();
     friend ostream& operator<<(ostream& out, Board b);
 
 };

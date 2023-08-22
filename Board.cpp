@@ -329,8 +329,11 @@ ostream &operator<<(ostream &out, Board b) {
         else if(b.board[i] == 3){
             out << "_B_";
         }
-        else{
+        else if(b.board[i] == 4){
             out << "_W_";
+        }
+        else{
+            out << "_" << b.board[i] << "_";
         }
         out << "   ";
         if(i % 4 == 3){
@@ -341,8 +344,32 @@ ostream &operator<<(ostream &out, Board b) {
             i++;
         }
     }
-    out << endl;
     return out;
+}
+
+Board Board::randomBoard() {
+    small fill[32];
+    small whiteCount = 12;
+    small blackCount = 12;
+    for(int i = 0; i < 32; i++){
+        int r = rand() % 6;
+        if((r == 1 || r == 3) && blackCount > 0){
+            blackCount--;
+            fill[i] = r;
+        }
+        else if((r == 2 || r == 4) && whiteCount > 0){
+            whiteCount--;
+            fill[i] = r;
+        }
+        else{
+            fill[i] = 0;
+        }
+    }
+    return Board(fill);
+}
+
+small *Board::getBoard() {
+    return board;
 }
 
 

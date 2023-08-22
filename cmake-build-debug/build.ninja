@@ -91,6 +91,69 @@ build MoveTester.exe: CXX_EXECUTABLE_LINKER__MoveTester_Debug CMakeFiles/MoveTes
   TARGET_IMPLIB = libMoveTester.dll.a
   TARGET_PDB = MoveTester.exe.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target MoveExplorer
+
+
+#############################################
+# Order-only phony target for MoveExplorer
+
+build cmake_object_order_depends_target_MoveExplorer: phony || CMakeFiles/MoveExplorer.dir
+
+build CMakeFiles/MoveExplorer.dir/MoveTester.cpp.obj: CXX_COMPILER__MoveExplorer_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/MoveTester.cpp || cmake_object_order_depends_target_MoveExplorer
+  DEP_FILE = CMakeFiles\MoveExplorer.dir\MoveTester.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\MoveExplorer.dir
+  OBJECT_FILE_DIR = CMakeFiles\MoveExplorer.dir
+
+build CMakeFiles/MoveExplorer.dir/Board.cpp.obj: CXX_COMPILER__MoveExplorer_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/Board.cpp || cmake_object_order_depends_target_MoveExplorer
+  DEP_FILE = CMakeFiles\MoveExplorer.dir\Board.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\MoveExplorer.dir
+  OBJECT_FILE_DIR = CMakeFiles\MoveExplorer.dir
+
+build CMakeFiles/MoveExplorer.dir/MoveTree.cpp.obj: CXX_COMPILER__MoveExplorer_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/MoveTree.cpp || cmake_object_order_depends_target_MoveExplorer
+  DEP_FILE = CMakeFiles\MoveExplorer.dir\MoveTree.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\MoveExplorer.dir
+  OBJECT_FILE_DIR = CMakeFiles\MoveExplorer.dir
+
+build CMakeFiles/MoveExplorer.dir/Move.cpp.obj: CXX_COMPILER__MoveExplorer_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/Move.cpp || cmake_object_order_depends_target_MoveExplorer
+  DEP_FILE = CMakeFiles\MoveExplorer.dir\Move.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\MoveExplorer.dir
+  OBJECT_FILE_DIR = CMakeFiles\MoveExplorer.dir
+
+build CMakeFiles/MoveExplorer.dir/ZobristHash.cpp.obj: CXX_COMPILER__MoveExplorer_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/ZobristHash.cpp || cmake_object_order_depends_target_MoveExplorer
+  DEP_FILE = CMakeFiles\MoveExplorer.dir\ZobristHash.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\MoveExplorer.dir
+  OBJECT_FILE_DIR = CMakeFiles\MoveExplorer.dir
+
+build CMakeFiles/MoveExplorer.dir/TranspositionTable.cpp.obj: CXX_COMPILER__MoveExplorer_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/TranspositionTable.cpp || cmake_object_order_depends_target_MoveExplorer
+  DEP_FILE = CMakeFiles\MoveExplorer.dir\TranspositionTable.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\MoveExplorer.dir
+  OBJECT_FILE_DIR = CMakeFiles\MoveExplorer.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target MoveExplorer
+
+
+#############################################
+# Link the executable MoveExplorer.exe
+
+build MoveExplorer.exe: CXX_EXECUTABLE_LINKER__MoveExplorer_Debug CMakeFiles/MoveExplorer.dir/MoveTester.cpp.obj CMakeFiles/MoveExplorer.dir/Board.cpp.obj CMakeFiles/MoveExplorer.dir/MoveTree.cpp.obj CMakeFiles/MoveExplorer.dir/Move.cpp.obj CMakeFiles/MoveExplorer.dir/ZobristHash.cpp.obj CMakeFiles/MoveExplorer.dir/TranspositionTable.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\MoveExplorer.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = MoveExplorer.exe
+  TARGET_IMPLIB = libMoveExplorer.dll.a
+  TARGET_PDB = MoveExplorer.exe.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -117,6 +180,8 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
+build MoveExplorer: phony MoveExplorer.exe
+
 build MoveTester: phony MoveTester.exe
 
 # =============================================================================
@@ -127,7 +192,7 @@ build MoveTester: phony MoveTester.exe
 #############################################
 # Folder: C:/Users/maxgi/CS Stuff/Personal Projects/Checkers/cmake-build-debug
 
-build all: phony MoveTester.exe
+build all: phony MoveTester.exe MoveExplorer.exe
 
 # =============================================================================
 # Built-in targets

@@ -7,11 +7,11 @@ add_executable(MoveTester
         MoveTester.cpp
         Board.cpp Board.h
         JumpTree.cpp JumpTree.h
-        Move.cpp Move.h)
+        Move.cpp Move.h Scores.cpp Scores.h)
 
 add_executable(MoveExplorer
         MoveTester.cpp
         Board.cpp Board.h
         JumpTree.cpp JumpTree.h
         Move.cpp Move.h
-        ZobristHash.cpp ZobristHash.h TranspositionTable.cpp TranspositionTable.h)
+        ZobristHash.cpp ZobristHash.h TranspositionTable.cpp TranspositionTable.h Scores.cpp Scores.h)

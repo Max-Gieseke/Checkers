@@ -1,13 +1,13 @@
 //
-// Created by maxgi on 12/21/2022.
+// Created by Max Gieseke on 12/21/2022.
 //
 #include <string>
 #include <vector>
 #include <iterator>
-#include <hash_map>
 #include <queue>
 #include "JumpTree.h"
 #include "Move.h"
+#include "Scores.h"
 #include <random>
 #include <ctime>
 using namespace std;
@@ -39,12 +39,6 @@ public:
     Board(small[]);
     static void initializeMaps();
     void switchPlayer();
-    /*
-     * Moves are kept track of through an array of strings
-     * where each move is "xyza", where x is start square, y is square to move to,
-     * and z and a are optional squares to remove a piece from
-     * first element in array is how long it is
-     */
     small getColor(small);
     vector<small>* getMoveMap(small);
     /**
@@ -67,12 +61,18 @@ public:
     small* getBoard();
     small getPlayer();
     friend ostream& operator<<(ostream& out, Board b);
+    /**
+     * Evaluates the board based on the values in the Score Class, positive favors black, negative favors white
+     * @return a double showing who the board favors
+     */
+    double scoreBoard();
 
 };
 
 extern vector<small> whiteMoveMap[32];
 extern vector<small> blackMoveMap[32];
 extern vector<small> kingMoveMap[32];
+extern Scores points;
 
 
 

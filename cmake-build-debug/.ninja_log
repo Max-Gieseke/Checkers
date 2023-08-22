@@ -1,8 +1,21 @@
 # ninja log v5
 3	945	7144311261967344	CMakeFiles/MoveTester.dir/MoveTester.cpp.obj	f0cacdb03a1c9710
-1	222	7144336538097701	build.ninja	bf2c827c07c71aae
+1	222	7144474186756406	build.ninja	bf2c827c07c71aae
 3	442	7143824883243235	CMakeFiles/MoveTester.dir/Move.cpp.obj	172355c8f83009dc
 22	500	7143682407968008	CMakeFiles/MoveTester.dir/Utils.cpp.obj	4bb8493e9d9e1ff9
 7	716	7143887733802184	CMakeFiles/MoveTester.dir/MoveTree.cpp.obj	e7a0ac2bdaaafff4
 8	1433	7144311266806148	CMakeFiles/MoveTester.dir/Board.cpp.obj	fefe3dad783420f0
 1433	1686	7144311269307722	MoveTester.exe	76303664bd0de682
+19	188	7144485903906958	CMakeFiles/MoveTester.dir/Scores.cpp.obj	956ebc1ee433017
+15	1040	7144485912388563	CMakeFiles/MoveTester.dir/MoveTester.cpp.obj	f0cacdb03a1c9710
+9	1063	7144485912570706	CMakeFiles/MoveTester.dir/JumpTree.cpp.obj	14178bf0b1f2fa08
+4	1575	7144485917747594	CMakeFiles/MoveTester.dir/Board.cpp.obj	fefe3dad783420f0
+1575	1825	7144485920198453	MoveTester.exe	fb66c8669a3306
+9	754	7144487373282301	CMakeFiles/MoveTester.dir/MoveTester.cpp.obj	f0cacdb03a1c9710
+3	1108	7144487376797144	CMakeFiles/MoveTester.dir/Board.cpp.obj	fefe3dad783420f0
+1108	1312	7144487378778957	MoveTester.exe	fb66c8669a3306
+5	588	7144489177980182	CMakeFiles/MoveTester.dir/MoveTester.cpp.obj	f0cacdb03a1c9710
+589	791	7144489179952064	MoveTester.exe	fb66c8669a3306
+9	684	7144490817341989	CMakeFiles/MoveTester.dir/MoveTester.cpp.obj	f0cacdb03a1c9710
+3	1131	7144490821778040	CMakeFiles/MoveTester.dir/Board.cpp.obj	fefe3dad783420f0
+1131	1346	7144490823887331	MoveTester.exe	fb66c8669a3306

@@ -57,7 +57,8 @@
 				3,
 				5,
 				7,
-				9
+				9,
+				11
 			]
 		}
 	],
@@ -99,7 +100,8 @@
 				3,
 				5,
 				7,
-				9
+				9,
+				11
 			]
 		},
 		{
@@ -110,7 +112,8 @@
 				4,
 				6,
 				8,
-				10
+				10,
+				12
 			]
 		}
 	],
@@ -136,12 +139,12 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "MoveTree.cpp",
+			"path" : "JumpTree.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"path" : "MoveTree.h",
+			"path" : "JumpTree.h",
 			"sourceGroupIndex" : 1
 		},
 		{
@@ -175,6 +178,17 @@
 		{
 			"backtrace" : 1,
 			"path" : "TranspositionTable.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "Scores.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "Scores.h",
 			"sourceGroupIndex" : 1
 		}
 	],

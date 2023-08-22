@@ -7,6 +7,7 @@
 std::vector<small> whiteMoveMap[32];
 std::vector<small> blackMoveMap[32];
 std::vector<small> kingMoveMap[32];
+Scores points;
 
 Board::Board(){
     // Initialize squares to starting values
@@ -274,6 +275,7 @@ void Board::updateBoard(Move move) {
 }
 
 void Board::initializeMaps() {
+    points = Scores();
     for(int i = 0; i < 32; i++){
         if(i < 28){
             kingMoveMap[i].push_back(i + 4);
@@ -380,6 +382,42 @@ void Board::switchPlayer() {
 
 small Board::getPlayer() {
     return currentPlayer;
+}
+/**
+ * Currently uses two vars to track black and white, but can use one in future
+ * @return a double representing the evaluation of the position
+ */
+double Board::scoreBoard() {
+    //double curScore;
+    double curBlack = 0;
+    double curWhite = 0;
+    for(int i = 0; i < 32; i ++){
+        //black pawn
+        if(board[i] == 1){
+            curBlack += points.pawnVal;
+            curBlack += points.rankBonus * (i / 4);
+        }
+        //white pawn
+        else if(board[i] == 2){
+            curWhite += points.pawnVal;
+            curWhite += points.rankBonus * (7 - (i / 4));
+        }
+        //black king
+        else if(board[i] == 3){
+            curBlack += points.kingVal;
+        }
+        //white king
+        else if(board[i] == 3){
+            curWhite += points.kingVal;
+        }
+    }
+    if(curBlack == 0){
+        return -100;
+    }
+    if(curWhite == 0){
+        return 100;
+    }
+    return curBlack - curWhite;
 }
 
 

@@ -37,33 +37,6 @@ JumpTree::JumpTree(small square, small depth, small jumped, JumpTree* p, small* 
     copy(board, board+32, this->board);
 }
 
-//bool JumpTree::hasSquare(small check){
-//    if(check == square){
-//        return true;
-//    }
-//    if(next == nullptr){
-//        return false;
-//    }
-//    for(JumpTree m : *next){
-//        if(m.hasSquare(check)){
-//            return true;
-//        }
-//    }
-//    return false;
-//}
-
-//vector<JumpTree>* JumpTree::getSquare(small check, small jumps){
-//    if(check == square && depth == jumps){
-//        return next;
-//    }
-//    for(JumpTree m : *next){
-//        vector<JumpTree>* tmp = m.getSquare(check, jumps);
-//        if(tmp != nullptr){
-//            return tmp;
-//        }
-//    }
-//}
-
 JumpTree::small JumpTree::getSquare() {
     return square;
 }
@@ -112,7 +85,6 @@ void JumpTree::maxSequences(small depth, vector<vector<small>>& holder) {
         holder.push_back(vector<small>());
         holder.back().push_back(this->square);
         getRemainingSequence(holder.back());
-        cout << endl;
     }
     else{
         for(JumpTree* node : this->next){

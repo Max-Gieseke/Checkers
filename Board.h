@@ -20,7 +20,7 @@ class Board {
 private:
     small board[32];
     small currentPlayer;
-    bool king(small, small*);
+    static bool king(small, small*);
 
     /*
      * Pieces:
@@ -36,7 +36,7 @@ private:
 
 public:
     Board(); // Initialize checkerboard with black on squares 0-11 and red on squares 20-31
-    Board(small[]);
+    Board(small[], small);
     static void initializeMaps();
     void switchPlayer();
     small getColor(small);
@@ -49,8 +49,8 @@ public:
      */
     vector<pair<small, small>> singleJump(small square, small* board);
     int finalJump(small, small);
-    vector<Move> possibleMoves(small);
-    small* doMove(Move, small[]);
+    vector<Move> possibleMoves();
+    static Board doMove(Move, Board);
     void doMove(Move);
     vector<Move> getJumps(small);
     //vector<small> getStop(small, vector<small>);

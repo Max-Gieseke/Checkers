@@ -1,5 +1,5 @@
 //
-// Created by maxgi on 8/22/2023.
+// Created by Max Gieseke on 8/22/2023.
 //
 
 #ifndef CHECKERS_TRANSPOSITIONTABLE_H
@@ -7,21 +7,20 @@
 #include "ZobristHash.h"
 #include <unordered_map>
 #include "Move.h"
+#include "MoveNode.h"
 
 
 class TranspositionTable {
 private:
-    struct info_t {
-        Move nextMove;
-        double score;
-        int depthSearched;
-    };
     ZobristHash hash;
-    std::unordered_map<long long int, info_t> table;
+    std::unordered_map<unsigned long long int, MoveNode*> table;
 public:
     TranspositionTable();
-    info_t getValue(long long int);
-    void addValue(long long int, Move, double, int);
+    MoveNode* getValue(unsigned long long int);
+    void addValue(MoveNode*);
+    unsigned long long int computeHash(Board);
+    bool isIn(Board, int);
+    MoveNode* getNode(Board);
 
 };
 

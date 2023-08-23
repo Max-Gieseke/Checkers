@@ -106,8 +106,8 @@ build MoveTester.exe: CXX_EXECUTABLE_LINKER__MoveTester_Debug CMakeFiles/MoveTes
 
 build cmake_object_order_depends_target_MoveExplorer: phony || CMakeFiles/MoveExplorer.dir
 
-build CMakeFiles/MoveExplorer.dir/MoveTester.cpp.obj: CXX_COMPILER__MoveExplorer_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/MoveTester.cpp || cmake_object_order_depends_target_MoveExplorer
-  DEP_FILE = CMakeFiles\MoveExplorer.dir\MoveTester.cpp.obj.d
+build CMakeFiles/MoveExplorer.dir/ExplorerTester.cpp.obj: CXX_COMPILER__MoveExplorer_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/ExplorerTester.cpp || cmake_object_order_depends_target_MoveExplorer
+  DEP_FILE = CMakeFiles\MoveExplorer.dir\ExplorerTester.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\MoveExplorer.dir
   OBJECT_FILE_DIR = CMakeFiles\MoveExplorer.dir
@@ -148,6 +148,18 @@ build CMakeFiles/MoveExplorer.dir/Scores.cpp.obj: CXX_COMPILER__MoveExplorer_Deb
   OBJECT_DIR = CMakeFiles\MoveExplorer.dir
   OBJECT_FILE_DIR = CMakeFiles\MoveExplorer.dir
 
+build CMakeFiles/MoveExplorer.dir/MoveTree.cpp.obj: CXX_COMPILER__MoveExplorer_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/MoveTree.cpp || cmake_object_order_depends_target_MoveExplorer
+  DEP_FILE = CMakeFiles\MoveExplorer.dir\MoveTree.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\MoveExplorer.dir
+  OBJECT_FILE_DIR = CMakeFiles\MoveExplorer.dir
+
+build CMakeFiles/MoveExplorer.dir/MoveNode.cpp.obj: CXX_COMPILER__MoveExplorer_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/MoveNode.cpp || cmake_object_order_depends_target_MoveExplorer
+  DEP_FILE = CMakeFiles\MoveExplorer.dir\MoveNode.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\MoveExplorer.dir
+  OBJECT_FILE_DIR = CMakeFiles\MoveExplorer.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target MoveExplorer
@@ -156,7 +168,7 @@ build CMakeFiles/MoveExplorer.dir/Scores.cpp.obj: CXX_COMPILER__MoveExplorer_Deb
 #############################################
 # Link the executable MoveExplorer.exe
 
-build MoveExplorer.exe: CXX_EXECUTABLE_LINKER__MoveExplorer_Debug CMakeFiles/MoveExplorer.dir/MoveTester.cpp.obj CMakeFiles/MoveExplorer.dir/Board.cpp.obj CMakeFiles/MoveExplorer.dir/JumpTree.cpp.obj CMakeFiles/MoveExplorer.dir/Move.cpp.obj CMakeFiles/MoveExplorer.dir/ZobristHash.cpp.obj CMakeFiles/MoveExplorer.dir/TranspositionTable.cpp.obj CMakeFiles/MoveExplorer.dir/Scores.cpp.obj
+build MoveExplorer.exe: CXX_EXECUTABLE_LINKER__MoveExplorer_Debug CMakeFiles/MoveExplorer.dir/ExplorerTester.cpp.obj CMakeFiles/MoveExplorer.dir/Board.cpp.obj CMakeFiles/MoveExplorer.dir/JumpTree.cpp.obj CMakeFiles/MoveExplorer.dir/Move.cpp.obj CMakeFiles/MoveExplorer.dir/ZobristHash.cpp.obj CMakeFiles/MoveExplorer.dir/TranspositionTable.cpp.obj CMakeFiles/MoveExplorer.dir/Scores.cpp.obj CMakeFiles/MoveExplorer.dir/MoveTree.cpp.obj CMakeFiles/MoveExplorer.dir/MoveNode.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\MoveExplorer.dir

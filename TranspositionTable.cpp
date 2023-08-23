@@ -8,12 +8,31 @@ TranspositionTable::TranspositionTable() {
     hash = ZobristHash();
 }
 
-void TranspositionTable::addValue(long long int key, Move next, double score, int depth) {
-    info_t tmp = {next, score, depth};
-    table[key] = tmp;
+void TranspositionTable::addValue(MoveNode* node) {
+    unsigned long long int key = hash.calcHash(node->getBoard());
+    table[key] = node;
 }
 
-TranspositionTable::info_t TranspositionTable::getValue(long long int key) {
+MoveNode* TranspositionTable::getValue(unsigned long long int key) {
     return table[key];
+}
+
+unsigned long long int TranspositionTable::computeHash(Board b) {
+    return hash.calcHash(b);
+}
+
+bool TranspositionTable::isIn(Board b, int depth) {
+    unsigned long long int key = hash.calcHash(b);
+    if(table.count(key) == 0){
+        return false;
+    }
+    if(table[key]->getDepth() < depth){
+        return false;
+    }
+    return true;
+}
+
+MoveNode *TranspositionTable::getNode(Board b) {
+    return table[hash.calcHash(b)];
 }
 

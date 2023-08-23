@@ -15,7 +15,7 @@ private:
 public:
     ZobristHash();
     unsigned long long int randomInt();
-    unsigned long long int calcHash(Board)
+    unsigned long long int calcHash(Board);
 
 };
 

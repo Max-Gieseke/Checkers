@@ -21,11 +21,11 @@ Board::Board(){
     currentPlayer = 1;
 }
 
-Board::Board(small * temple) {
+Board::Board(small * temple, small turn) {
     for(int i = 0; i < 32; i++){
         board[i] = temple[i];
     }
-    currentPlayer = 1;
+    currentPlayer = turn;
 
 }
 
@@ -150,7 +150,7 @@ vector<Move> Board::getJumps(small square) {
     return JumpTree::jumpMoves(*root);
 }
 
-vector<Move> Board::possibleMoves(small color) {
+vector<Move> Board::possibleMoves() {
     vector<Move> moves;
     small numJumps = 0;
     small king;
@@ -162,12 +162,9 @@ vector<Move> Board::possibleMoves(small color) {
         if(board[i] == 0){
             continue;
         }
-        else if(color == board[i] % 2){
+        else if(this->currentPlayer == board[i] % 2){
             //cout << i << endl;
             jumps = getJumps(i);
-//            if(i == 10){
-//                cout << jumps[0];
-//            }
         }
         else{
             continue;
@@ -188,7 +185,7 @@ vector<Move> Board::possibleMoves(small color) {
     if(!moves.empty()){
         return moves;
     }
-    if(color == 0){
+    if(this->currentPlayer == 0){
         king = 4;
         piece = 2;
         pieceMap = whiteMoveMap;
@@ -219,16 +216,16 @@ vector<Move> Board::possibleMoves(small color) {
 }
 
 
-small *Board::doMove(Move move, small* curBoard) {
+Board Board::doMove(Move move, Board b) {
     auto *cBoard = new small[32];
-    copy(curBoard,curBoard + 32,cBoard);
+    copy(b.board,b.board + 32,cBoard);
     cBoard[move.getEnd()] = cBoard[move.getStart()];
     cBoard[move.getStart()] = 0;
     for(small square : move.getRemove()){
         cBoard[square] = 0;
     }
-    king(move.getEnd(), curBoard);
-    return cBoard;
+    king(move.getEnd(), cBoard);
+    return Board(cBoard, 1 - b.currentPlayer);
 }
 
 void Board::doMove(Move move) {
@@ -246,7 +243,7 @@ small* Board::doMove(small start, small end, small remove, small * curBoard, boo
     cBoard[end] = cBoard[start];
     cBoard[start] = 0;
     cBoard[remove] = 0;
-    newKing = king(end, curBoard);
+    newKing = king(end, cBoard);
     return cBoard;
 }
 
@@ -353,8 +350,8 @@ ostream &operator<<(ostream &out, Board b) {
 
 Board Board::randomBoard() {
     small fill[32];
-    small whiteCount = 12;
-    small blackCount = 12;
+    small whiteCount = 4;
+    small blackCount = 4;
     for(int i = 0; i < 32; i++){
         int r = rand() % 6;
         if((r == 1 || r == 3) && blackCount > 0){
@@ -369,7 +366,7 @@ Board Board::randomBoard() {
             fill[i] = 0;
         }
     }
-    return Board(fill);
+    return Board(fill, 1);
 }
 
 small *Board::getBoard() {
@@ -407,15 +404,15 @@ double Board::scoreBoard() {
             curBlack += points.kingVal;
         }
         //white king
-        else if(board[i] == 3){
+        else if(board[i] == 4){
             curWhite += points.kingVal;
         }
     }
     if(curBlack == 0){
-        return -100;
+        return -100.0;
     }
     if(curWhite == 0){
-        return 100;
+        return 100.0;
     }
     return curBlack - curWhite;
 }

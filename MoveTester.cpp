@@ -36,21 +36,24 @@ int main(){
     for(int i = 0; i < 32; i++){
         b1[i] = 0;
     }
-    b1[13] = 2;
     b1[25] = 2;
+    b1[20] = 1;
     b1[26] = 2;
-    b1[17] = 2;
-    b1[18] = 2;
-    Board test = Board(b1);
+    Board test = Board();
     cout << test;
     cout << "Evaluation: " << test.scoreBoard() << endl;
+    vector<Move> m1 = test.possibleMoves();
+    cout << "Num Moves: " << m1.size() << endl;
+    for(Move m : m1){
+        cout << m;
+    }
 //    for(int i = 0; i < 10; i ++){
 //        Board test = Board::randomBoard();
 //        cout << "-------------------------------\n Board " << i + 1 << endl;
 //        cout << test;
 //        cout << "Evaluation: " << test.scoreBoard() << endl;
 //        cout << "White Moves" << endl;
-//        vector<Move> m1 = test.possibleMoves(0);
+//        vector<Move> m1 = test.possibleMoves();
 //        cout << "Num Moves: " << m1.size() << endl;
 //        for(Move m : m1){
 //            cout << m;

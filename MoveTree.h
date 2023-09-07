@@ -25,6 +25,7 @@ public:
     double exploreMoves(int, MoveNode*);
     double explore(int, MoveNode*);
     void addElem(MoveNode*);
+    void updateRoot(Move);
 };
 
 

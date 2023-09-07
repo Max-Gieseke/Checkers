@@ -61,6 +61,8 @@ public:
     small* getBoard();
     small getPlayer();
     friend ostream& operator<<(ostream& out, Board b);
+    bool equals(const Board&);
+    Board& operator=(const Board&);
     /**
      * Evaluates the board based on the values in the Score Class, positive favors black, negative favors white
      * @return a double showing who the board favors

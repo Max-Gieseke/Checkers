@@ -17,11 +17,14 @@ private:
 public:
     Move();
     Move(small, small);
+    Move(small, small, vector<small>);
     void addJump(small);
     small getStart();
     small getEnd();
     vector<small> getRemove();
     friend ostream& operator<<(ostream& out, Move m);
+    Move& operator=(const Move&);
+    bool equals(const Move&);
 };
 
 

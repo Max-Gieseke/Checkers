@@ -417,4 +417,26 @@ double Board::scoreBoard() {
     return curBlack - curWhite;
 }
 
+bool Board::equals(const Board& other) {
+    if(this->currentPlayer != other.currentPlayer){
+        return false;
+    }
+    for(int i = 0; i < 32; i++){
+        if(this->board[i] != other.board[i]){
+            return false;
+        }
+    }
+    return true;
+}
+
+Board &Board::operator=(const Board & other) {
+    if(this != &other){
+        this->currentPlayer = other.currentPlayer;
+        for(int i = 0; i < 32; i++){
+            this->board[i] = other.board[i];
+        }
+    }
+    return *this;
+}
+
 

@@ -42,3 +42,36 @@ ostream &operator<<(ostream &out, Move m) {
     }
     return out;
 }
+
+Move& Move::operator=(const Move& other){
+    if(this != &other){
+        this->start = other.start;
+        this->end = other.end;
+        this->remove = other.remove;
+    }
+    return *this;
+}
+
+bool Move::equals(const Move& other) {
+    if(this->start != other.start){
+        return false;
+    }
+    if(this->end != other.end){
+        return false;
+    }
+    if(this->remove.size() != other.remove.size()){
+        return false;
+    }
+    for(int i = 0; i < this->remove.size(); i++){
+        if(this->remove[i] != other.remove[i]){
+            return false;
+        }
+    }
+    return true;
+}
+
+Move::Move(small s, small e, vector<small> remove) {
+    this->start = s;
+    this->end = e;
+    this->remove = remove;
+}

@@ -1,6 +1,6 @@
 //
 // Created by Max Gieseke on 12/21/2022.
-//
+// Add class-wide variables for num pieces and squares
 
 #include "Board.h"
 
@@ -29,7 +29,7 @@ Board::Board(small * temple, small turn) {
 
 }
 
-vector<small>* Board::getMoveMap(small type){
+std::vector<small>* Board::getMoveMap(small type){
     switch(type){
         case 0:
             return whiteMoveMap;
@@ -82,13 +82,13 @@ int Board::finalJump(small start, small capt){
         }
     }
 }
-vector<pair<small, small>> Board::singleJump(small square, small * currB){
+std::vector<std::pair<small, small>> Board::singleJump(small square, small * currB){
 //    Board b = Board(currB);
 //    cout << "Square " << (int)square << endl;
 //    cout << b;
     small piece = currB[square];
-    vector<small>* squareMap;
-    vector<pair<small, small>> res;
+    std::vector<small>* squareMap;
+    std::vector<std::pair<small, small>> res;
     //cout << int(piece) << "  Value" << endl;
     if(piece == 0){
 
@@ -105,7 +105,7 @@ vector<pair<small, small>> Board::singleJump(small square, small * currB){
         //cout << "king\n";
         squareMap = kingMoveMap;
     }
-    vector<small> moveMap = squareMap[square];
+    std::vector<small> moveMap = squareMap[square];
     small color = (piece + 1) % 2;
     //cout << "Num moves " << moveMap.size() << endl;
     for(int i = 0; i < moveMap.size(); i ++){
@@ -116,16 +116,16 @@ vector<pair<small, small>> Board::singleJump(small square, small * currB){
             //cout << "Final " << end << endl;
             if(end >= 0 && end <= 32 && currB[end] == 0){
                 small e = small(end);
-                res.push_back(pair(moveMap[i], e));
+                res.push_back(std::pair(moveMap[i], e));
             }
         }
     }
     return res;
 }
 
-vector<Move> Board::getJumps(small square) {
+std::vector<Move> Board::getJumps(small square) {
     JumpTree* root = new JumpTree(square, board);
-    queue<JumpTree*> nodes;
+    std::queue<JumpTree*> nodes;
     nodes.push(root);
     //Create tree of moves
     while(!nodes.empty()){
@@ -133,7 +133,7 @@ vector<Move> Board::getJumps(small square) {
         nodes.pop();
         //cout << cur;
         auto jumps = singleJump(cur->getSquare(), cur->getBoard());
-        for(pair<small, small> p : jumps){
+        for(std::pair<small, small> p : jumps){
             //cout << "here " << (int)p.first << " " << (int)p.second << endl;
             bool newKing = false;
             small* b= doMove(cur->getSquare(), p.second, p.first, cur->getBoard(), newKing);
@@ -150,15 +150,15 @@ vector<Move> Board::getJumps(small square) {
     return JumpTree::jumpMoves(*root);
 }
 
-vector<Move> Board::possibleMoves() {
-    vector<Move> moves;
+std::vector<Move> Board::possibleMoves() {
+    std::vector<Move> moves;
     small numJumps = 0;
     small king;
     small piece;
-    vector<small>* pieceMap;
-    vector<small>* kingMap;
+    std::vector<small>* pieceMap;
+    std::vector<small>* kingMap;
     for(int i = 0; i < 32; i++){
-        vector<Move> jumps;
+        std::vector<Move> jumps;
         if(board[i] == 0){
             continue;
         }
@@ -218,7 +218,7 @@ vector<Move> Board::possibleMoves() {
 
 Board Board::doMove(Move move, Board b) {
     auto *cBoard = new small[32];
-    copy(b.board,b.board + 32,cBoard);
+    std::copy(b.board,b.board + 32,cBoard);
     cBoard[move.getEnd()] = cBoard[move.getStart()];
     cBoard[move.getStart()] = 0;
     for(small square : move.getRemove()){
@@ -239,7 +239,7 @@ void Board::doMove(Move move) {
 
 small* Board::doMove(small start, small end, small remove, small * curBoard, bool &newKing){
     small* cBoard = new small[32];
-    copy(curBoard,curBoard + 32,cBoard);
+    std::copy(curBoard,curBoard + 32,cBoard);
     cBoard[end] = cBoard[start];
     cBoard[start] = 0;
     cBoard[remove] = 0;
@@ -263,7 +263,7 @@ bool Board::king(small square, small* b) {
     return false;
 }
 
-small Board::maxJumps(vector<Move> list) {
+small Board::maxJumps(std::vector<Move> list) {
     return list[0].getRemove().size();
 }
 
@@ -312,7 +312,7 @@ void Board::initializeMaps() {
 
 }
 
-ostream &operator<<(ostream &out, Board b) {
+std::ostream &operator<<(std::ostream &out, Board b) {
     int i = 28;
     while(i >= 0){
         if(i % 8 == 4){
@@ -338,7 +338,7 @@ ostream &operator<<(ostream &out, Board b) {
         }
         out << "   ";
         if(i % 4 == 3){
-            out << endl;
+            out << std::endl;
             i -= 7;
         }
         else{

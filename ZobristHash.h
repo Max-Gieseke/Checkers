@@ -4,7 +4,6 @@
 
 #ifndef CHECKERS_ZOBRISTHASH_H
 #define CHECKERS_ZOBRISTHASH_H
-#include <random>
 #include "Board.h"
 
 class ZobristHash {

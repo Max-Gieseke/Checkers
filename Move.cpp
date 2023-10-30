@@ -7,7 +7,7 @@
 Move::Move() {
     start = 64;
     end = 64;
-    remove = vector<small>();
+    remove = std::vector<small>();
 }
 
 Move::Move(small start, small end) {
@@ -27,18 +27,18 @@ small Move::getEnd() {
     return end;
 }
 
-vector<small> Move::getRemove() {
+std::vector<small> Move::getRemove() {
     return remove;
 }
 
-ostream &operator<<(ostream &out, Move m) {
-    out << (int)m.start << " ==> " << (int)m.end << endl;
+std::ostream &operator<<(std::ostream &out, Move m) {
+    out << (int)m.start << " ==> " << (int)m.end << std::endl;
     if(m.remove.size() != 0){
         out << "Captures    ";
         for(small sq : m.remove){
             out << (int)sq << " ";
         }
-        out << endl;
+        out << std::endl;
     }
     return out;
 }
@@ -70,7 +70,7 @@ bool Move::equals(const Move& other) {
     return true;
 }
 
-Move::Move(small s, small e, vector<small> remove) {
+Move::Move(small s, small e, std::vector<small> remove) {
     this->start = s;
     this->end = e;
     this->remove = remove;

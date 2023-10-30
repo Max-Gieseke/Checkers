@@ -178,6 +178,168 @@ build MoveExplorer.exe: CXX_EXECUTABLE_LINKER__MoveExplorer_Debug CMakeFiles/Mov
   TARGET_IMPLIB = libMoveExplorer.dll.a
   TARGET_PDB = MoveExplorer.exe.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target PlayGame
+
+
+#############################################
+# Order-only phony target for PlayGame
+
+build cmake_object_order_depends_target_PlayGame: phony || CMakeFiles/PlayGame.dir
+
+build CMakeFiles/PlayGame.dir/PlayVsAI.cpp.obj: CXX_COMPILER__PlayGame_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/PlayVsAI.cpp || cmake_object_order_depends_target_PlayGame
+  DEP_FILE = CMakeFiles\PlayGame.dir\PlayVsAI.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\PlayGame.dir
+  OBJECT_FILE_DIR = CMakeFiles\PlayGame.dir
+
+build CMakeFiles/PlayGame.dir/Board.cpp.obj: CXX_COMPILER__PlayGame_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/Board.cpp || cmake_object_order_depends_target_PlayGame
+  DEP_FILE = CMakeFiles\PlayGame.dir\Board.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\PlayGame.dir
+  OBJECT_FILE_DIR = CMakeFiles\PlayGame.dir
+
+build CMakeFiles/PlayGame.dir/JumpTree.cpp.obj: CXX_COMPILER__PlayGame_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/JumpTree.cpp || cmake_object_order_depends_target_PlayGame
+  DEP_FILE = CMakeFiles\PlayGame.dir\JumpTree.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\PlayGame.dir
+  OBJECT_FILE_DIR = CMakeFiles\PlayGame.dir
+
+build CMakeFiles/PlayGame.dir/Move.cpp.obj: CXX_COMPILER__PlayGame_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/Move.cpp || cmake_object_order_depends_target_PlayGame
+  DEP_FILE = CMakeFiles\PlayGame.dir\Move.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\PlayGame.dir
+  OBJECT_FILE_DIR = CMakeFiles\PlayGame.dir
+
+build CMakeFiles/PlayGame.dir/ZobristHash.cpp.obj: CXX_COMPILER__PlayGame_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/ZobristHash.cpp || cmake_object_order_depends_target_PlayGame
+  DEP_FILE = CMakeFiles\PlayGame.dir\ZobristHash.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\PlayGame.dir
+  OBJECT_FILE_DIR = CMakeFiles\PlayGame.dir
+
+build CMakeFiles/PlayGame.dir/TranspositionTable.cpp.obj: CXX_COMPILER__PlayGame_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/TranspositionTable.cpp || cmake_object_order_depends_target_PlayGame
+  DEP_FILE = CMakeFiles\PlayGame.dir\TranspositionTable.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\PlayGame.dir
+  OBJECT_FILE_DIR = CMakeFiles\PlayGame.dir
+
+build CMakeFiles/PlayGame.dir/Scores.cpp.obj: CXX_COMPILER__PlayGame_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/Scores.cpp || cmake_object_order_depends_target_PlayGame
+  DEP_FILE = CMakeFiles\PlayGame.dir\Scores.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\PlayGame.dir
+  OBJECT_FILE_DIR = CMakeFiles\PlayGame.dir
+
+build CMakeFiles/PlayGame.dir/MoveTree.cpp.obj: CXX_COMPILER__PlayGame_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/MoveTree.cpp || cmake_object_order_depends_target_PlayGame
+  DEP_FILE = CMakeFiles\PlayGame.dir\MoveTree.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\PlayGame.dir
+  OBJECT_FILE_DIR = CMakeFiles\PlayGame.dir
+
+build CMakeFiles/PlayGame.dir/MoveNode.cpp.obj: CXX_COMPILER__PlayGame_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/MoveNode.cpp || cmake_object_order_depends_target_PlayGame
+  DEP_FILE = CMakeFiles\PlayGame.dir\MoveNode.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\PlayGame.dir
+  OBJECT_FILE_DIR = CMakeFiles\PlayGame.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target PlayGame
+
+
+#############################################
+# Link the executable PlayGame.exe
+
+build PlayGame.exe: CXX_EXECUTABLE_LINKER__PlayGame_Debug CMakeFiles/PlayGame.dir/PlayVsAI.cpp.obj CMakeFiles/PlayGame.dir/Board.cpp.obj CMakeFiles/PlayGame.dir/JumpTree.cpp.obj CMakeFiles/PlayGame.dir/Move.cpp.obj CMakeFiles/PlayGame.dir/ZobristHash.cpp.obj CMakeFiles/PlayGame.dir/TranspositionTable.cpp.obj CMakeFiles/PlayGame.dir/Scores.cpp.obj CMakeFiles/PlayGame.dir/MoveTree.cpp.obj CMakeFiles/PlayGame.dir/MoveNode.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\PlayGame.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = PlayGame.exe
+  TARGET_IMPLIB = libPlayGame.dll.a
+  TARGET_PDB = PlayGame.exe.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target AITest
+
+
+#############################################
+# Order-only phony target for AITest
+
+build cmake_object_order_depends_target_AITest: phony || CMakeFiles/AITest.dir
+
+build CMakeFiles/AITest.dir/AIvsAI.cpp.obj: CXX_COMPILER__AITest_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/AIvsAI.cpp || cmake_object_order_depends_target_AITest
+  DEP_FILE = CMakeFiles\AITest.dir\AIvsAI.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\AITest.dir
+  OBJECT_FILE_DIR = CMakeFiles\AITest.dir
+
+build CMakeFiles/AITest.dir/Board.cpp.obj: CXX_COMPILER__AITest_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/Board.cpp || cmake_object_order_depends_target_AITest
+  DEP_FILE = CMakeFiles\AITest.dir\Board.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\AITest.dir
+  OBJECT_FILE_DIR = CMakeFiles\AITest.dir
+
+build CMakeFiles/AITest.dir/JumpTree.cpp.obj: CXX_COMPILER__AITest_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/JumpTree.cpp || cmake_object_order_depends_target_AITest
+  DEP_FILE = CMakeFiles\AITest.dir\JumpTree.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\AITest.dir
+  OBJECT_FILE_DIR = CMakeFiles\AITest.dir
+
+build CMakeFiles/AITest.dir/Move.cpp.obj: CXX_COMPILER__AITest_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/Move.cpp || cmake_object_order_depends_target_AITest
+  DEP_FILE = CMakeFiles\AITest.dir\Move.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\AITest.dir
+  OBJECT_FILE_DIR = CMakeFiles\AITest.dir
+
+build CMakeFiles/AITest.dir/ZobristHash.cpp.obj: CXX_COMPILER__AITest_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/ZobristHash.cpp || cmake_object_order_depends_target_AITest
+  DEP_FILE = CMakeFiles\AITest.dir\ZobristHash.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\AITest.dir
+  OBJECT_FILE_DIR = CMakeFiles\AITest.dir
+
+build CMakeFiles/AITest.dir/TranspositionTable.cpp.obj: CXX_COMPILER__AITest_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/TranspositionTable.cpp || cmake_object_order_depends_target_AITest
+  DEP_FILE = CMakeFiles\AITest.dir\TranspositionTable.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\AITest.dir
+  OBJECT_FILE_DIR = CMakeFiles\AITest.dir
+
+build CMakeFiles/AITest.dir/Scores.cpp.obj: CXX_COMPILER__AITest_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/Scores.cpp || cmake_object_order_depends_target_AITest
+  DEP_FILE = CMakeFiles\AITest.dir\Scores.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\AITest.dir
+  OBJECT_FILE_DIR = CMakeFiles\AITest.dir
+
+build CMakeFiles/AITest.dir/MoveTree.cpp.obj: CXX_COMPILER__AITest_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/MoveTree.cpp || cmake_object_order_depends_target_AITest
+  DEP_FILE = CMakeFiles\AITest.dir\MoveTree.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\AITest.dir
+  OBJECT_FILE_DIR = CMakeFiles\AITest.dir
+
+build CMakeFiles/AITest.dir/MoveNode.cpp.obj: CXX_COMPILER__AITest_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/MoveNode.cpp || cmake_object_order_depends_target_AITest
+  DEP_FILE = CMakeFiles\AITest.dir\MoveNode.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\AITest.dir
+  OBJECT_FILE_DIR = CMakeFiles\AITest.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target AITest
+
+
+#############################################
+# Link the executable AITest.exe
+
+build AITest.exe: CXX_EXECUTABLE_LINKER__AITest_Debug CMakeFiles/AITest.dir/AIvsAI.cpp.obj CMakeFiles/AITest.dir/Board.cpp.obj CMakeFiles/AITest.dir/JumpTree.cpp.obj CMakeFiles/AITest.dir/Move.cpp.obj CMakeFiles/AITest.dir/ZobristHash.cpp.obj CMakeFiles/AITest.dir/TranspositionTable.cpp.obj CMakeFiles/AITest.dir/Scores.cpp.obj CMakeFiles/AITest.dir/MoveTree.cpp.obj CMakeFiles/AITest.dir/MoveNode.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\AITest.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = AITest.exe
+  TARGET_IMPLIB = libAITest.dll.a
+  TARGET_PDB = AITest.exe.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -204,9 +366,13 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
+build AITest: phony AITest.exe
+
 build MoveExplorer: phony MoveExplorer.exe
 
 build MoveTester: phony MoveTester.exe
+
+build PlayGame: phony PlayGame.exe
 
 # =============================================================================
 # Folder targets.
@@ -216,7 +382,7 @@ build MoveTester: phony MoveTester.exe
 #############################################
 # Folder: C:/Users/maxgi/CS Stuff/Personal Projects/Checkers/cmake-build-debug
 
-build all: phony MoveTester.exe MoveExplorer.exe
+build all: phony MoveTester.exe MoveExplorer.exe PlayGame.exe AITest.exe
 
 # =============================================================================
 # Built-in targets

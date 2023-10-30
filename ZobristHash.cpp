@@ -9,7 +9,7 @@ unsigned long long int ZobristHash::randomInt() {
     return dist(mTwist);
 }
 
-
+//Update for generic board
 ZobristHash::ZobristHash() : mTwist(122134){
     for(int i = 0; i < 32; i ++){
         for(int j = 0; j < 4; j++){

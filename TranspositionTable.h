@@ -6,7 +6,6 @@
 #define CHECKERS_TRANSPOSITIONTABLE_H
 #include "ZobristHash.h"
 #include <unordered_map>
-#include "Move.h"
 #include "MoveNode.h"
 
 

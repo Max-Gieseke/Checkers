@@ -16,7 +16,9 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2,
+						3
 					]
 				}
 			],
@@ -32,12 +34,21 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2,
+						3
 					]
 				}
 			],
 			"targets" : 
 			[
+				{
+					"directoryIndex" : 0,
+					"id" : "AITest::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-AITest-Debug-97a7c43a1d13e15902e3.json",
+					"name" : "AITest",
+					"projectIndex" : 0
+				},
 				{
 					"directoryIndex" : 0,
 					"id" : "MoveExplorer::@6890427a1f51a3e7e1df",
@@ -50,6 +61,13 @@
 					"id" : "MoveTester::@6890427a1f51a3e7e1df",
 					"jsonFile" : "target-MoveTester-Debug-3175cd515836759f5941.json",
 					"name" : "MoveTester",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "PlayGame::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-PlayGame-Debug-bac90ca3a1242a8e345f.json",
+					"name" : "PlayGame",
 					"projectIndex" : 0
 				}
 			]

@@ -12,7 +12,7 @@ private:
     Board curBoard;
     int depthSearched;
     double score;
-    vector<MoveNode*> next;
+    std::vector<MoveNode*> next;
     Move bestMove;
     Move lastMove;
     MoveNode* parent;
@@ -27,7 +27,7 @@ public:
     Move getBestMove();
     Move getLastMove();
     Board getBoard();
-    vector<MoveNode*> getNext();
+    std::vector<MoveNode*> getNext();
     int getDepth();
     MoveNode& operator=(const MoveNode&);
 };

@@ -3,21 +3,14 @@
 //
 
 #include "Board.h"
-#include <iostream>
-#include <vector>
-#include <random>
+
 #include <ctime>
-using namespace std;
 using small = unsigned char;
 template <typename S>
-ostream& operator<<(ostream& os,
-                    const vector<S>& vector)
-{
+std::ostream& operator<<(std::ostream& os, const std::vector<S>& vector) {
     if(vector.size() == 0){
         return os;
     }
-    // Printing all the elements
-    // using <<
     for(int i = 0; i < vector.size() - 1; i++){
         os << (int)vector[i] << ", ";
     }
@@ -31,8 +24,8 @@ int main(){
     srand(time(nullptr));
     small b1[32];
     Board normal = Board();
-    cout << normal;
-    cout << "Evaluation: " << normal.scoreBoard() << endl;
+    std::cout << normal;
+    std::cout << "Evaluation: " << normal.scoreBoard() << std::endl;
     for(int i = 0; i < 32; i++){
         b1[i] = 0;
     }
@@ -40,12 +33,12 @@ int main(){
     b1[20] = 1;
     b1[26] = 2;
     Board test = Board();
-    cout << test;
-    cout << "Evaluation: " << test.scoreBoard() << endl;
-    vector<Move> m1 = test.possibleMoves();
-    cout << "Num Moves: " << m1.size() << endl;
+    std::cout << test;
+    std::cout << "Evaluation: " << test.scoreBoard() << std::endl;
+    std::vector<Move> m1 = test.possibleMoves();
+    std::cout << "Num Moves: " << m1.size() << std::endl;
     for(Move m : m1){
-        cout << m;
+        std::cout << m;
     }
 //    for(int i = 0; i < 10; i ++){
 //        Board test = Board::randomBoard();

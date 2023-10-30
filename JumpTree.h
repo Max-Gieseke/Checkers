@@ -4,18 +4,15 @@
 
 #ifndef MOVETREE_H
 #define MOVETREE_H
-#include <vector>
 #include "Move.h"
-#include <iostream>
 
-using namespace std;
 class JumpTree {
     using small = unsigned char;
 private:
      small square;
      small depth;
      small jumped;
-     vector<JumpTree*> next;
+     std::vector<JumpTree*> next;
      JumpTree* parent;
      small board[32];
 public:
@@ -27,16 +24,16 @@ public:
     small getDepth();
     small* getBoard();
     void addChild(JumpTree*);
-    vector<JumpTree*> getNext();
+    std::vector<JumpTree*> getNext();
     JumpTree* getParent();
     small maxDepth();
-    void getRemainingSequence(vector<small>&);
-    void maxSequences(small, vector<vector<small>>&);
+    void getRemainingSequence(std::vector<small>&);
+    void maxSequences(small, std::vector<std::vector<small>>&);
     static vector<Move> jumpMoves(JumpTree);
     small getJumped(small, small);
 //    vector<JumpTree>* getSquare(small, small);
 //    void addSquare(small, small);
-    friend ostream &operator<<(ostream &out, JumpTree m);
+    friend std::ostream &operator<<(std::ostream &out, JumpTree m);
 
 
 };

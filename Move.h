@@ -6,23 +6,22 @@
 #define CHECKERS_MOVE_H
 #include <vector>
 #include <iostream>
-using namespace std;
 using small = unsigned char;
 
 class Move {
 private:
     small start;
     small end;
-    vector<small> remove;
+    std::vector<small> remove;
 public:
     Move();
     Move(small, small);
-    Move(small, small, vector<small>);
+    Move(small, small, std::vector<small>);
     void addJump(small);
     small getStart();
     small getEnd();
-    vector<small> getRemove();
-    friend ostream& operator<<(ostream& out, Move m);
+    std::vector<small> getRemove();
+    friend std::ostream& operator<<(std::ostream& out, Move m);
     Move& operator=(const Move&);
     bool equals(const Move&);
 };

@@ -28,7 +28,7 @@ double MoveTree::explore(int left, MoveNode* node) {
         node->score = node->curBoard.scoreBoard();
         return node->score;
     }
-    vector<Move> moves = node->curBoard.possibleMoves();
+    std::vector<Move> moves = node->curBoard.possibleMoves();
     int max = -INT32_MAX;
     int multiply = 1;
     if(node->curBoard.getPlayer() == 0){
@@ -56,7 +56,7 @@ double MoveTree::exploreMoves(int left, MoveNode* node) {
         node->score = node->curBoard.scoreBoard();
         return node->score;
     }
-    vector<Move> moves = node->curBoard.possibleMoves();
+    std::vector<Move> moves = node->curBoard.possibleMoves();
     int max = -INT32_MAX;
     int multiply = 1;
     if(node->curBoard.getPlayer() == 0){

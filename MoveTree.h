@@ -1,12 +1,9 @@
 //
 // Created by maxgi on 8/22/2023.
 //
-#include "Board.h"
 #include "ZobristHash.h"
 #include "TranspositionTable.h"
 #include "MoveNode.h"
-#include "Move.h"
-#include <vector>
 #ifndef CHECKERS_MOVETREE_H
 #define CHECKERS_MOVETREE_H
 

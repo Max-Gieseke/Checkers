@@ -17,7 +17,7 @@ JumpTree::JumpTree(small square, small* board) {
     jumped = 64;
     next = std::vector<JumpTree*>();
     parent = nullptr;
-    copy(board, board+32, this->board);
+    std::copy(board, board+32, this->board);
 }
 
 JumpTree::JumpTree(small square, small depth, JumpTree* p, small* board) {
@@ -34,7 +34,7 @@ JumpTree::JumpTree(small square, small depth, small jumped, JumpTree* p, small* 
     this->jumped = jumped;
     parent = p;
     next = std::vector<JumpTree*>();
-    copy(board, board+32, this->board);
+    std::copy(board, board+32, this->board);
 }
 
 JumpTree::small JumpTree::getSquare() {
@@ -103,7 +103,7 @@ std::vector<Move> JumpTree::jumpMoves(JumpTree head) {
     }
     std::vector<std::vector<small>> invertedJumps;
     head.maxSequences(longest, invertedJumps);
-    vector<Move> holder;
+    std::vector<Move> holder;
     //seq[0] is last position, seq.back() is first square, all others are jumps
     for(std::vector<small> seq : invertedJumps){
         Move tmp = Move(seq.back(), seq.front());

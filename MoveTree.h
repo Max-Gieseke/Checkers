@@ -10,14 +10,15 @@
 
 class MoveTree {
 private:
-    MoveNode root;
+    MoveNode* root;
     TranspositionTable exploredMoves;
 
 public:
     MoveTree();
     MoveTree(Board);
-    MoveNode getRoot();
+    MoveNode* getRoot();
     MoveTree(Board, int, double, MoveNode*);
+    ~MoveTree();
     double exploreTree(int);
     double exploreMoves(int, MoveNode*);
     double explore(int, MoveNode*);

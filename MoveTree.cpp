@@ -5,22 +5,26 @@
 #include "MoveTree.h"
 
 MoveTree::MoveTree() {
-   root = MoveNode();
+   root = new MoveNode();
    exploredMoves = TranspositionTable();
 }
 
 MoveTree::MoveTree(Board top) {
-    root = MoveNode(top);
+    root = new MoveNode(top);
     exploredMoves = TranspositionTable();
 }
 
 MoveTree::MoveTree(Board b, int depthSearched, double score, MoveNode* p) {
-    root = MoveNode(b, depthSearched, score, p, Move());
+    root = new MoveNode(b, depthSearched, score, p, Move());
     exploredMoves = TranspositionTable();
 }
 
+MoveTree::~MoveTree() {
+    delete root;
+}
+
 double MoveTree::exploreTree(int moves) {
-    return exploreMoves(moves, &root);
+    return exploreMoves(moves, root);
 }
 
 double MoveTree::explore(int left, MoveNode* node) {
@@ -28,6 +32,7 @@ double MoveTree::explore(int left, MoveNode* node) {
         node->score = node->curBoard.scoreBoard();
         return node->score;
     }
+
     std::vector<Move> moves = node->curBoard.possibleMoves();
     int max = -INT32_MAX;
     int multiply = 1;
@@ -35,7 +40,7 @@ double MoveTree::explore(int left, MoveNode* node) {
         multiply = -1;
     }
     Move best;
-    for(auto m : moves){
+    for(const Move& m : moves){
         double score;
         Board b = Board::doMove(m, node->curBoard);
         MoveNode* newChild = new MoveNode(b, left, 0, node, m);
@@ -94,14 +99,14 @@ void MoveTree::addElem(MoveNode* check) {
 
 }
 
-MoveNode MoveTree::getRoot() {
+MoveNode* MoveTree::getRoot() {
     return root;
 }
 
 void MoveTree::updateRoot(Move lastMove) {
-    for(int i = 0; i < root.next.size(); i++){
-        if(root.next[i]->lastMove.equals(lastMove)){
-            root = *root.next[i];
+    for(int i = 0; i < root->next.size(); i++){
+        if(root->next[i]->lastMove.equals(lastMove)){
+            root = root->next[i];
             break;
         }
     }

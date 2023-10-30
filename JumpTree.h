@@ -29,7 +29,7 @@ public:
     small maxDepth();
     void getRemainingSequence(std::vector<small>&);
     void maxSequences(small, std::vector<std::vector<small>>&);
-    static vector<Move> jumpMoves(JumpTree);
+    static std::vector<Move> jumpMoves(JumpTree);
     small getJumped(small, small);
 //    vector<JumpTree>* getSquare(small, small);
 //    void addSquare(small, small);

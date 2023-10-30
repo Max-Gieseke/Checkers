@@ -8,18 +8,18 @@ int main(){
         Board::initializeMaps();
         MoveTree player = MoveTree();
         double eval = player.exploreTree(8);
-        cout << player.getRoot().getBoard();
+        std::cout << player.getRoot()->getBoard();
         int move = 0;
         while(eval < 99 && eval > -99){
             move++;
             eval = player.exploreTree(8);
-            cout << "Move "<< move << " Evaluation: " << eval << endl;
-            player.updateRoot(player.getRoot().getBestMove());
-            cout << player.getRoot().getBoard();
+            std::cout << "Move "<< move << " Evaluation: " << eval << std::endl;
+            player.updateRoot(player.getRoot()->getBestMove());
+            std::cout << player.getRoot()->getBoard();
             eval = player.exploreTree(8);
-            player.updateRoot(player.getRoot().getBestMove());
-            cout << "------------------------------------\n";
-            cout <<"Move " << ++move<< " Evaluation: " << eval << endl;
-            cout << player.getRoot().getBoard() << endl << endl;
+            player.updateRoot(player.getRoot()->getBestMove());
+            std::cout << "------------------------------------\n";
+            std::cout <<"Move " << ++move<< " Evaluation: " << eval << std::endl;
+            std::cout << player.getRoot()->getBoard() << std::endl << std::endl;
         }
 }

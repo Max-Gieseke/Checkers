@@ -21,6 +21,12 @@ MoveNode::MoveNode(Board b, int depthSearched, double score, MoveNode* p, Move l
     this->next = std::vector<MoveNode*>();
 }
 
+MoveNode::~MoveNode() {
+    for(MoveNode* node : this->next){
+        node->~MoveNode();
+    }
+}
+
 
 void MoveNode::addChild(MoveNode * child) {
     this->next.push_back(child);

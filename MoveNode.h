@@ -21,6 +21,7 @@ public:
     MoveNode();
     MoveNode(Board);
     MoveNode(Board, int, double, MoveNode*, Move);
+    ~MoveNode();
     double exploreMoves(int);
     double getScore();
     void addChild(MoveNode*);

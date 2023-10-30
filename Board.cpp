@@ -124,9 +124,9 @@ std::vector<std::pair<small, small>> Board::singleJump(small square, small * cur
 }
 
 std::vector<Move> Board::getJumps(small square) {
-    JumpTree* root = new JumpTree(square, board);
+    JumpTree root = JumpTree(square, board);
     std::queue<JumpTree*> nodes;
-    nodes.push(root);
+    nodes.push(&root);
     //Create tree of moves
     while(!nodes.empty()){
         JumpTree* cur = nodes.front();
@@ -146,8 +146,9 @@ std::vector<Move> Board::getJumps(small square) {
                 nodes.push(newChild);
             }
         }
+        delete cur;
     }
-    return JumpTree::jumpMoves(*root);
+    return JumpTree::jumpMoves(root);
 }
 
 std::vector<Move> Board::possibleMoves() {

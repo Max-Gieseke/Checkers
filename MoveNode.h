@@ -20,16 +20,16 @@ private:
 public:
     MoveNode();
     MoveNode(Board);
-    MoveNode(Board, int, double, MoveNode*, Move);
+    MoveNode(Board, int, double, MoveNode*, const Move&);
     ~MoveNode();
     double exploreMoves(int);
-    double getScore();
+    double getScore() const;
     void addChild(MoveNode*);
     Move getBestMove();
     Move getLastMove();
     Board getBoard();
     std::vector<MoveNode*> getNext();
-    int getDepth();
+    int getDepth() const;
     MoveNode& operator=(const MoveNode&);
 };
 

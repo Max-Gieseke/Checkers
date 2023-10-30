@@ -18,10 +18,10 @@ public:
     Move(small, small);
     Move(small, small, std::vector<small>);
     void addJump(small);
-    small getStart();
-    small getEnd();
+    small getStart() const;
+    small getEnd() const;
     std::vector<small> getRemove();
-    friend std::ostream& operator<<(std::ostream& out, Move m);
+    friend std::ostream& operator<<(std::ostream& out, const Move& m);
     Move& operator=(const Move&);
     bool equals(const Move&);
 };

@@ -33,30 +33,30 @@ private:
 
 public:
     Board(); // Initialize checkerboard with black on squares 0-11 and red on squares 20-31
-    Board(small[], small);
+    Board(const small[], small);
     static void initializeMaps();
     void switchPlayer();
-    small getColor(small);
-    std::vector<small>* getMoveMap(small);
+    static small getColor(small);
+    static std::vector<small>* getMoveMap(small);
     /**
      * Returns all jumps from a single square
      * @param square the starting square
      * @param board the board to look at
      * @return a vector of pairs where first is the jumped and second is the end square
      */
-    std::vector<std::pair<small, small>> singleJump(small square, small* board);
-    int finalJump(small, small);
+    static std::vector<std::pair<small, small>> singleJump(small square, small* board);
+    static int finalJump(small, small);
     std::vector<Move> possibleMoves();
     static Board doMove(Move, Board);
     void doMove(Move);
     std::vector<Move> getJumps(small);
     //vector<small> getStop(small, vector<small>);
-    small* doMove(small, small, small, small *, bool& newKing);
+    static small* doMove(small, small, small, small *, bool& newKing);
     static small maxJumps(std::vector<Move>);
-    void updateBoard(Move move);
+    void updateBoard(const Move& move);
     static Board randomBoard();
     small* getBoard();
-    small getPlayer();
+    small getPlayer() const;
     friend std::ostream& operator<<(std::ostream& out, Board b);
     bool equals(const Board&);
     Board& operator=(const Board&);

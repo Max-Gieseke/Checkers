@@ -20,8 +20,8 @@ public:
     JumpTree(small, small*);
     JumpTree(small, small, JumpTree*, small*);
     JumpTree(small, small, small, JumpTree*, small*);
-    small getSquare();
-    small getDepth();
+    small getSquare() const;
+    small getDepth() const;
     small* getBoard();
     void addChild(JumpTree*);
     std::vector<JumpTree*> getNext();
@@ -33,7 +33,7 @@ public:
     small getJumped(small, small);
 //    vector<JumpTree>* getSquare(small, small);
 //    void addSquare(small, small);
-    friend std::ostream &operator<<(std::ostream &out, JumpTree m);
+    friend std::ostream &operator<<(std::ostream &out, const JumpTree& m);
 
 
 };

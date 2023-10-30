@@ -23,7 +23,7 @@ public:
     double exploreMoves(int, MoveNode*);
     double explore(int, MoveNode*);
     void addElem(MoveNode*);
-    void updateRoot(Move);
+    void updateRoot(const Move&);
 };
 
 

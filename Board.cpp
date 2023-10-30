@@ -21,7 +21,7 @@ Board::Board(){
     currentPlayer = 1;
 }
 
-Board::Board(small * temple, small turn) {
+Board::Board(const small* temple, small turn) {
     for(int i = 0; i < 32; i++){
         board[i] = temple[i];
     }
@@ -108,15 +108,15 @@ std::vector<std::pair<small, small>> Board::singleJump(small square, small * cur
     std::vector<small> moveMap = squareMap[square];
     small color = (piece + 1) % 2;
     //cout << "Num moves " << moveMap.size() << endl;
-    for(int i = 0; i < moveMap.size(); i ++){
+    for(unsigned char & sq : moveMap){
         //cout << "Checking square " << (int)moveMap[i] << endl;
-        if(getColor(currB[moveMap[i]]) == color){
+        if(getColor(currB[sq]) == color){
             //cout << "here 5\n";
-            int end  = finalJump(square, moveMap[i]);
+            int end  = finalJump(square, sq);
             //cout << "Final " << end << endl;
             if(end >= 0 && end <= 32 && currB[end] == 0){
                 small e = small(end);
-                res.push_back(std::pair(moveMap[i], e));
+                res.emplace_back(sq, e);
             }
         }
     }
@@ -146,7 +146,6 @@ std::vector<Move> Board::getJumps(small square) {
                 nodes.push(newChild);
             }
         }
-        delete cur;
     }
     return JumpTree::jumpMoves(root);
 }
@@ -160,24 +159,21 @@ std::vector<Move> Board::possibleMoves() {
     std::vector<small>* kingMap;
     for(int i = 0; i < 32; i++){
         std::vector<Move> jumps;
-        if(board[i] == 0){
-            continue;
-        }
-        else if(this->currentPlayer == board[i] % 2){
+        if(board[i] != 0 && this->currentPlayer == board[i] % 2){
             //cout << i << endl;
             jumps = getJumps(i);
         }
         else{
             continue;
         }
-        if(jumps.size() != 0){
+        if(!jumps.empty()){
             small curMax = maxJumps(jumps);
             if(curMax > numJumps){
                 moves = jumps;
                 numJumps = curMax;
             }
             else if(curMax == numJumps){
-                for(Move m : jumps){
+                for(const Move& m : jumps){
                     moves.push_back(m);
                 }
             }
@@ -268,7 +264,7 @@ small Board::maxJumps(std::vector<Move> list) {
     return list[0].getRemove().size();
 }
 
-void Board::updateBoard(Move move) {
+void Board::updateBoard(const Move& move) {
     doMove(move);
 }
 
@@ -353,18 +349,18 @@ Board Board::randomBoard() {
     small fill[32];
     small whiteCount = 4;
     small blackCount = 4;
-    for(int i = 0; i < 32; i++){
+    for(unsigned char & sq : fill){
         int r = rand() % 6;
         if((r == 1 || r == 3) && blackCount > 0){
             blackCount--;
-            fill[i] = r;
+            sq = r;
         }
         else if((r == 2 || r == 4) && whiteCount > 0){
             whiteCount--;
-            fill[i] = r;
+            sq = r;
         }
         else{
-            fill[i] = 0;
+            sq = 0;
         }
     }
     return Board(fill, 1);
@@ -378,7 +374,7 @@ void Board::switchPlayer() {
     currentPlayer = 1 - currentPlayer;
 }
 
-small Board::getPlayer() {
+small Board::getPlayer() const {
     return currentPlayer;
 }
 /**
@@ -393,12 +389,12 @@ double Board::scoreBoard() {
         //black pawn
         if(board[i] == 1){
             curBlack += points.pawnVal;
-            curBlack += points.rankBonus * (i / 4);
+            curBlack += points.rankBonus * (i / 4.0);
         }
         //white pawn
         else if(board[i] == 2){
             curWhite += points.pawnVal;
-            curWhite += points.rankBonus * (7 - (i / 4));
+            curWhite += points.rankBonus * (7 - (i / 4.0));
         }
         //black king
         else if(board[i] == 3){

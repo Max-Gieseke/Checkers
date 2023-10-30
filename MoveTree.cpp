@@ -34,7 +34,7 @@ double MoveTree::explore(int left, MoveNode* node) {
     }
 
     std::vector<Move> moves = node->curBoard.possibleMoves();
-    int max = -INT32_MAX;
+    double max = -INT32_MAX;
     int multiply = 1;
     if(node->curBoard.getPlayer() == 0){
         multiply = -1;
@@ -62,13 +62,13 @@ double MoveTree::exploreMoves(int left, MoveNode* node) {
         return node->score;
     }
     std::vector<Move> moves = node->curBoard.possibleMoves();
-    int max = -INT32_MAX;
+    double max = -INT32_MAX;
     int multiply = 1;
     if(node->curBoard.getPlayer() == 0){
         multiply = -1;
     }
     Move best;
-    for(auto m : moves){
+    for(const auto& m : moves){
         double score;
         Board b = Board::doMove(m, node->curBoard);
         if(exploredMoves.isIn(b, left)){
@@ -94,7 +94,7 @@ double MoveTree::exploreMoves(int left, MoveNode* node) {
 
 
 void MoveTree::addElem(MoveNode* check) {
-    int key = exploredMoves.computeHash(check->curBoard);
+    //int key = exploredMoves.computeHash(check->curBoard);
     exploredMoves.addValue(check);
 
 }
@@ -103,10 +103,10 @@ MoveNode* MoveTree::getRoot() {
     return root;
 }
 
-void MoveTree::updateRoot(Move lastMove) {
-    for(int i = 0; i < root->next.size(); i++){
-        if(root->next[i]->lastMove.equals(lastMove)){
-            root = root->next[i];
+void MoveTree::updateRoot(const Move& lastMove) {
+    for(auto & node : root->next){
+        if(node->lastMove.equals(lastMove)){
+            root = node;
             break;
         }
     }

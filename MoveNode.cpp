@@ -12,7 +12,7 @@ MoveNode::MoveNode() {
     this->next = std::vector<MoveNode*>();
 }
 
-MoveNode::MoveNode(Board b, int depthSearched, double score, MoveNode* p, Move last) {
+MoveNode::MoveNode(Board b, int depthSearched, double score, MoveNode* p, const Move& last) {
     this->curBoard = b;
     this->depthSearched = depthSearched;
     this->score = score;
@@ -44,7 +44,7 @@ Board MoveNode::getBoard() {
     return curBoard;
 }
 
-int MoveNode::getDepth() {
+int MoveNode::getDepth() const {
     return this->depthSearched;
 }
 
@@ -68,7 +68,7 @@ MoveNode &MoveNode::operator=(const MoveNode& other) {
     return *this;
 }
 
-double MoveNode::getScore() {
+double MoveNode::getScore() const {
     return score;
 }
 

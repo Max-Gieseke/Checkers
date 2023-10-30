@@ -37,11 +37,11 @@ JumpTree::JumpTree(small square, small depth, small jumped, JumpTree* p, small* 
     std::copy(board, board+32, this->board);
 }
 
-JumpTree::small JumpTree::getSquare() {
+JumpTree::small JumpTree::getSquare() const {
     return square;
 }
 
-JumpTree::small JumpTree::getDepth() {
+JumpTree::small JumpTree::getDepth() const {
     return depth;
 }
 
@@ -80,15 +80,15 @@ void JumpTree::getRemainingSequence(std::vector<small>& holder){
     }
 }
 
-void JumpTree::maxSequences(small depth, std::vector<std::vector<small>>& holder) {
-    if(this->depth == depth){
-        holder.push_back(std::vector<small>());
+void JumpTree::maxSequences(small curDepth, std::vector<std::vector<small>>& holder) {
+    if(this->depth == curDepth){
+        holder.emplace_back();
         holder.back().push_back(this->square);
         getRemainingSequence(holder.back());
     }
     else{
         for(JumpTree* node : this->next){
-            node->maxSequences(depth, holder);
+            node->maxSequences(curDepth, holder);
         }
     }
 
@@ -120,7 +120,7 @@ small *JumpTree::getBoard() {
     return this->board;
 }
 
-std::ostream &operator<<(std::ostream &out, JumpTree m) {
+std::ostream &operator<<(std::ostream &out, const JumpTree& m) {
     out << "Current: " << (int)m.square << " Captured " << (int)m.jumped << std::endl;
     if(m.parent == nullptr){
         out << "Parent Square " << "none\n";

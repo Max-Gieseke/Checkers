@@ -4,6 +4,8 @@
 
 #include "Move.h"
 
+#include <utility>
+
 Move::Move() {
     start = 64;
     end = 64;
@@ -19,11 +21,11 @@ void Move::addJump(small square) {
     remove.push_back(square);
 }
 
-small Move::getStart() {
+small Move::getStart() const {
     return start;
 }
 
-small Move::getEnd() {
+small Move::getEnd() const {
     return end;
 }
 
@@ -31,9 +33,9 @@ std::vector<small> Move::getRemove() {
     return remove;
 }
 
-std::ostream &operator<<(std::ostream &out, Move m) {
+std::ostream &operator<<(std::ostream &out, const Move& m) {
     out << (int)m.start << " ==> " << (int)m.end << std::endl;
-    if(m.remove.size() != 0){
+    if(!m.remove.empty()){
         out << "Captures    ";
         for(small sq : m.remove){
             out << (int)sq << " ";
@@ -73,5 +75,5 @@ bool Move::equals(const Move& other) {
 Move::Move(small s, small e, std::vector<small> remove) {
     this->start = s;
     this->end = e;
-    this->remove = remove;
+    this->remove = std::move(remove);
 }

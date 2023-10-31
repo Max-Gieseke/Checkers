@@ -10,19 +10,19 @@
 
 class MoveTree {
 private:
-    MoveNode* root;
+    std::shared_ptr<MoveNode> root;
     TranspositionTable exploredMoves;
 
 public:
     MoveTree();
     MoveTree(Board);
-    MoveNode* getRoot();
-    MoveTree(Board, int, double, MoveNode*);
-    ~MoveTree();
+    std::shared_ptr<MoveNode> getRoot();
+    MoveTree(Board, int, double, std::shared_ptr<MoveNode>);
+    // ~MoveTree();
     double exploreTree(int);
-    double exploreMoves(int, MoveNode*);
-    double explore(int, MoveNode*);
-    void addElem(MoveNode*);
+    double exploreMoves(int,std::shared_ptr<MoveNode>);
+    double explore(int, std::shared_ptr<MoveNode>);
+    void addElem(std::shared_ptr<MoveNode>);
     void updateRoot(const Move&);
 };
 

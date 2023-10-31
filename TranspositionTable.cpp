@@ -8,12 +8,12 @@ TranspositionTable::TranspositionTable() {
     hash = ZobristHash();
 }
 
-void TranspositionTable::addValue(MoveNode* node) {
+void TranspositionTable::addValue(std::shared_ptr<MoveNode> node) {
     unsigned long long int key = hash.calcHash(node->getBoard());
     table[key] = node;
 }
 
-MoveNode* TranspositionTable::getValue(unsigned long long int key) {
+std::shared_ptr<MoveNode> TranspositionTable::getValue(unsigned long long int key) {
     return table[key];
 }
 
@@ -32,7 +32,7 @@ bool TranspositionTable::isIn(Board b, int depth) {
     return true;
 }
 
-MoveNode *TranspositionTable::getNode(Board b) {
+std::shared_ptr<MoveNode> TranspositionTable::getNode(Board b) {
     return table[hash.calcHash(b)];
 }
 

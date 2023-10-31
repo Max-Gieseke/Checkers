@@ -1,0 +1,6 @@
+/home/giese405/Checkers/build/CMakeFiles/MoveTester.dir
+/home/giese405/Checkers/build/CMakeFiles/MoveExplorer.dir
+/home/giese405/Checkers/build/CMakeFiles/PlayGame.dir
+/home/giese405/Checkers/build/CMakeFiles/AITest.dir
+/home/giese405/Checkers/build/CMakeFiles/edit_cache.dir
+/home/giese405/Checkers/build/CMakeFiles/rebuild_cache.dir

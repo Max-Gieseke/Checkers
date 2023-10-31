@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/AITest.dir/AIvsAI.cpp.o CMakeFiles/AITest.dir/Board.cpp.o CMakeFiles/AITest.dir/JumpTree.cpp.o CMakeFiles/AITest.dir/Move.cpp.o CMakeFiles/AITest.dir/ZobristHash.cpp.o CMakeFiles/AITest.dir/TranspositionTable.cpp.o CMakeFiles/AITest.dir/Scores.cpp.o CMakeFiles/AITest.dir/MoveTree.cpp.o CMakeFiles/AITest.dir/MoveNode.cpp.o -o AITest 

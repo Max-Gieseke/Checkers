@@ -5,29 +5,29 @@
 #include "MoveTree.h"
 
 MoveTree::MoveTree() {
-   root = new MoveNode();
-   exploredMoves = TranspositionTable();
+    root = std::make_shared<MoveNode>();
+    exploredMoves = TranspositionTable();
 }
 
 MoveTree::MoveTree(Board top) {
-    root = new MoveNode(top);
+    root = std::make_shared<MoveNode>(top);
     exploredMoves = TranspositionTable();
 }
 
-MoveTree::MoveTree(Board b, int depthSearched, double score, MoveNode* p) {
-    root = new MoveNode(b, depthSearched, score, p, Move());
+MoveTree::MoveTree(Board b, int depthSearched, double score, std::shared_ptr<MoveNode> p) {
+    root = std::make_shared<MoveNode>(b, depthSearched, score, p, Move());
     exploredMoves = TranspositionTable();
 }
 
-MoveTree::~MoveTree() {
-    delete root;
-}
+// MoveTree::~MoveTree() {
+//     delete root;
+// }
 
 double MoveTree::exploreTree(int moves) {
     return exploreMoves(moves, root);
 }
 
-double MoveTree::explore(int left, MoveNode* node) {
+double MoveTree::explore(int left, std::shared_ptr<MoveNode> node) {
     if(left <= 0){
         node->score = node->curBoard.scoreBoard();
         return node->score;
@@ -43,7 +43,7 @@ double MoveTree::explore(int left, MoveNode* node) {
     for(const Move& m : moves){
         double score;
         Board b = Board::doMove(m, node->curBoard);
-        MoveNode* newChild = new MoveNode(b, left, 0, node, m);
+        std::shared_ptr<MoveNode> newChild =  std::make_shared<MoveNode>(b, left, 0, node, m);
         node->addChild(newChild);
         score = explore(left - 1, node->next.back());
         if(multiply * score > max){
@@ -56,7 +56,7 @@ double MoveTree::explore(int left, MoveNode* node) {
     return node->score;
 }
 
-double MoveTree::exploreMoves(int left, MoveNode* node) {
+double MoveTree::exploreMoves(int left, std::shared_ptr<MoveNode> node) {
     if(left <= 0){
         node->score = node->curBoard.scoreBoard();
         return node->score;
@@ -76,7 +76,7 @@ double MoveTree::exploreMoves(int left, MoveNode* node) {
             score = node->next.back()->score;
         }
         else{
-            MoveNode* newChild = new MoveNode(b, left, 0, node, m);
+            std::shared_ptr<MoveNode> newChild = std::make_shared<MoveNode>(b, left, 0, node, m);
             node->addChild(newChild);
             score = exploreMoves(left - 1, node->next.back());
             exploredMoves.addValue(newChild);
@@ -93,13 +93,13 @@ double MoveTree::exploreMoves(int left, MoveNode* node) {
 }
 
 
-void MoveTree::addElem(MoveNode* check) {
+void MoveTree::addElem(std::shared_ptr<MoveNode> check) {
     //int key = exploredMoves.computeHash(check->curBoard);
     exploredMoves.addValue(check);
 
 }
 
-MoveNode* MoveTree::getRoot() {
+std::shared_ptr<MoveNode> MoveTree::getRoot() {
     return root;
 }
 

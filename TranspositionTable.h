@@ -12,14 +12,14 @@
 class TranspositionTable {
 private:
     ZobristHash hash;
-    std::unordered_map<unsigned long long int, MoveNode*> table;
+    std::unordered_map<unsigned long long int, std::shared_ptr<MoveNode>> table;
 public:
     TranspositionTable();
-    MoveNode* getValue(unsigned long long int);
-    void addValue(MoveNode*);
+    std::shared_ptr<MoveNode> getValue(unsigned long long int);
+    void addValue(std::shared_ptr<MoveNode>);
     unsigned long long int computeHash(Board);
     bool isIn(Board, int);
-    MoveNode* getNode(Board);
+    std::shared_ptr<MoveNode> getNode(Board);
 
 };
 

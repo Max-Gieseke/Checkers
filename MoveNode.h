@@ -12,23 +12,23 @@ private:
     Board curBoard;
     int depthSearched;
     double score;
-    std::vector<MoveNode*> next;
+    std::vector<std::shared_ptr<MoveNode>> next;
     Move bestMove;
     Move lastMove;
-    MoveNode* parent;
+    std::shared_ptr<MoveNode> parent;
     friend class MoveTree;
 public:
     MoveNode();
     MoveNode(Board);
-    MoveNode(Board, int, double, MoveNode*, const Move&);
+    MoveNode(Board, int, double, std::shared_ptr<MoveNode>, const Move&);
     ~MoveNode();
     double exploreMoves(int);
     double getScore() const;
-    void addChild(MoveNode*);
+    void addChild(std::shared_ptr<MoveNode>);
     Move getBestMove();
     Move getLastMove();
     Board getBoard();
-    std::vector<MoveNode*> getNext();
+    std::vector<std::shared_ptr<MoveNode>> getNext();
     int getDepth() const;
     MoveNode& operator=(const MoveNode&);
 };

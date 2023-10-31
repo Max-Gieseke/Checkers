@@ -51,11 +51,11 @@ public:
     void doMove(Move);
     std::vector<Move> getJumps(small);
     //vector<small> getStop(small, vector<small>);
-    static small* doMove(small, small, small, small *, bool& newKing);
+    static std::unique_ptr<small[]> doMove(small, small, small, small*, bool& newKing);
     static small maxJumps(std::vector<Move>);
     void updateBoard(const Move& move);
     static Board randomBoard();
-    small* getBoard();
+    std::unique_ptr<small[]> getBoard();
     small getPlayer() const;
     friend std::ostream& operator<<(std::ostream& out, Board b);
     bool equals(const Board&);

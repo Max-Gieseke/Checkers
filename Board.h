@@ -51,7 +51,7 @@ public:
     void doMove(Move);
     std::vector<Move> getJumps(small);
     //vector<small> getStop(small, vector<small>);
-    static std::unique_ptr<small[]> doMove(small, small, small, small*, bool& newKing);
+    static small* doMove(small, small, small, small*, bool& newKing);
     static small maxJumps(std::vector<Move>);
     void updateBoard(const Move& move);
     static Board randomBoard();

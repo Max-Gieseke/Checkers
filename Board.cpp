@@ -137,10 +137,10 @@ std::vector<Move> Board::getJumps(small square) {
         for(std::pair<small, small> p : jumps){
             //cout << "here " << (int)p.first << " " << (int)p.second << endl;
             bool newKing = false;
-            std::unique_ptr<small[]> b = doMove(cur->getSquare(), p.second, p.first, cur->getBoard(), newKing);
+            small* b = doMove(cur->getSquare(), p.second, p.first, cur->getBoard(), newKing);
             //JumpTree tmp = JumpTree(p.second, cur->getDepth() + 1, p.first, cur, b);
             //cout << tmp;
-            std::shared_ptr<JumpTree> newChild = std::make_shared<JumpTree>(p.second, cur->getDepth() + 1, p.first, cur, std::move(b));
+            std::shared_ptr<JumpTree> newChild = std::make_shared<JumpTree>(p.second, cur->getDepth() + 1, p.first, cur, b);
             cur->addChild(newChild);
             //cout << cur.getNext().back();
             if(!newKing){
@@ -235,14 +235,14 @@ void Board::doMove(Move move) {
     king(move.getEnd(), board);
 }
 
-std::unique_ptr<small[]> Board::doMove(small start, small end, small remove, small* curBoard, bool &newKing){
+small* Board::doMove(small start, small end, small remove, small* curBoard, bool &newKing){
     small* cBoard = new small[32];
     std::copy(curBoard,curBoard + 32,cBoard);
     cBoard[end] = cBoard[start];
     cBoard[start] = 0;
     cBoard[remove] = 0;
     newKing = king(end, cBoard);
-    return std::make_unique<small[]>(*cBoard);
+    return cBoard;
 }
 
 bool Board::king(small square, small* b) {

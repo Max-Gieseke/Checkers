@@ -18,10 +18,9 @@ private:
      small board[32];
 public:
     JumpTree();
-    JumpTree(small, std::unique_ptr<small[]>);
     JumpTree(small, small*);
     JumpTree(small, small, std::shared_ptr<JumpTree>, small*);
-    JumpTree(small, small, small, std::shared_ptr<JumpTree>,std::unique_ptr<small[]>);
+    JumpTree(small, small, small, std::shared_ptr<JumpTree>, small*);
     small getSquare() const;
     small getDepth() const;
     small* getBoard();

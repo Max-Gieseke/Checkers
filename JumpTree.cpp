@@ -11,15 +11,6 @@ JumpTree::JumpTree() {
     next = std::vector<std::shared_ptr<JumpTree>>();
     parent = nullptr;
 }
-JumpTree::JumpTree(small square, std::unique_ptr<small[]> board) {
-    this->square = square;
-    depth = 0;
-    jumped = 64;
-    next = std::vector<std::shared_ptr<JumpTree>>();
-    parent = nullptr;
-    std::copy(board.get(), board.get()+32, this->board);
-}
-
 JumpTree::JumpTree(small square, small* board) {
     this->square = square;
     depth = 0;
@@ -37,13 +28,13 @@ JumpTree::JumpTree(small square, small depth, std::shared_ptr<JumpTree> p, small
     std::copy(board, board+32, this->board);
 }
 
-JumpTree::JumpTree(small square, small depth, small jumped, std::shared_ptr<JumpTree> p, std::unique_ptr<small[]> board) {
+JumpTree::JumpTree(small square, small depth, small jumped, std::shared_ptr<JumpTree> p, small* board) {
     this->square = square;
     this->depth = depth;
     this->jumped = jumped;
     parent = p;
     next = std::vector<std::shared_ptr<JumpTree>>();
-    std::copy(board.get(), board.get()+32, this->board);
+    std::copy(board, board+32, this->board);
 }
 
 JumpTree::small JumpTree::getSquare() const {

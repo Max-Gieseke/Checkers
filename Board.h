@@ -55,7 +55,7 @@ public:
     static small maxJumps(std::vector<Move>);
     void updateBoard(const Move& move);
     static Board randomBoard();
-    std::unique_ptr<small[]> getBoard();
+    small* getBoard();
     small getPlayer() const;
     friend std::ostream& operator<<(std::ostream& out, Board b);
     bool equals(const Board&);

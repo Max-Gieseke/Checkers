@@ -8,6 +8,7 @@ std::vector<small> whiteMoveMap[32];
 std::vector<small> blackMoveMap[32];
 std::vector<small> kingMoveMap[32];
 Scores points;
+using small = unsigned char;
 
 Board::Board(){
     // Initialize squares to starting values
@@ -136,10 +137,10 @@ std::vector<Move> Board::getJumps(small square) {
         for(std::pair<small, small> p : jumps){
             //cout << "here " << (int)p.first << " " << (int)p.second << endl;
             bool newKing = false;
-            std::unique_ptr<small[]> b= doMove(cur->getSquare(), p.second, p.first, cur->getBoard(), newKing);
+            std::unique_ptr<small[]> b = doMove(cur->getSquare(), p.second, p.first, cur->getBoard(), newKing);
             //JumpTree tmp = JumpTree(p.second, cur->getDepth() + 1, p.first, cur, b);
             //cout << tmp;
-            std::shared_ptr<JumpTree> newChild = std::make_shared<JumpTree>(p.second, cur->getDepth() + 1, p.first, cur, b);
+            std::shared_ptr<JumpTree> newChild = std::make_shared<JumpTree>(p.second, cur->getDepth() + 1, p.first, cur, std::move(b));
             cur->addChild(newChild);
             //cout << cur.getNext().back();
             if(!newKing){
@@ -214,7 +215,7 @@ std::vector<Move> Board::possibleMoves() {
 
 
 Board Board::doMove(Move move, Board b) {
-   std::unique_ptr<small[]> = std::unique_ptr<small[]>(32);
+   small* cBoard = new small[32];
     std::copy(b.board,b.board + 32,cBoard);
     cBoard[move.getEnd()] = cBoard[move.getStart()];
     cBoard[move.getStart()] = 0;
@@ -235,16 +236,16 @@ void Board::doMove(Move move) {
 }
 
 std::unique_ptr<small[]> Board::doMove(small start, small end, small remove, small* curBoard, bool &newKing){
-    std::unique_ptr<small[]> cBoard = std::make_unique<small[]>(32);
+    small* cBoard = new small[32];
     std::copy(curBoard,curBoard + 32,cBoard);
     cBoard[end] = cBoard[start];
     cBoard[start] = 0;
     cBoard[remove] = 0;
     newKing = king(end, cBoard);
-    return cBoard;
+    return std::make_unique<small[]>(*cBoard);
 }
 
-bool Board::king(small square, std::unique_ptr<small[]> b) {
+bool Board::king(small square, small* b) {
     if(square < 4){
         if(b[square] == 2){
             b[square] = 4;
@@ -366,7 +367,7 @@ Board Board::randomBoard() {
     return Board(fill, 1);
 }
 
-std::unique_ptr<small[]> Board::getBoard() {
+small* Board::getBoard() {
     return board;
 }
 

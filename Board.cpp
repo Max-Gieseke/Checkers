@@ -124,12 +124,12 @@ std::vector<std::pair<small, small>> Board::singleJump(small square, small * cur
 }
 
 std::vector<Move> Board::getJumps(small square) {
-    JumpTree root = JumpTree(square, board);
-    std::queue<JumpTree*> nodes;
-    nodes.push(&root);
+    std::shared_ptr<JumpTree> root = std::make_shared<JumpTree>(square, board);
+    std::queue<std::shared_ptr<JumpTree>> nodes;
+    nodes.push(root);
     //Create tree of moves
     while(!nodes.empty()){
-        JumpTree* cur = nodes.front();
+        std::shared_ptr<JumpTree> cur = nodes.front();
         nodes.pop();
         //cout << cur;
         auto jumps = singleJump(cur->getSquare(), cur->getBoard());
@@ -139,7 +139,8 @@ std::vector<Move> Board::getJumps(small square) {
             small* b= doMove(cur->getSquare(), p.second, p.first, cur->getBoard(), newKing);
             //JumpTree tmp = JumpTree(p.second, cur->getDepth() + 1, p.first, cur, b);
             //cout << tmp;
-            JumpTree* newChild = new JumpTree(p.second, cur->getDepth() + 1, p.first, cur, b);
+            JumpTree* nChild = new JumpTree(p.second, cur->getDepth() + 1, p.first, cur, b);
+            std::shared_ptr<JumpTree> newChild(nChild);
             cur->addChild(newChild);
             //cout << cur.getNext().back();
             if(!newKing){
@@ -147,7 +148,7 @@ std::vector<Move> Board::getJumps(small square) {
             }
         }
     }
-    return JumpTree::jumpMoves(root);
+    return JumpTree::jumpMoves(*root);
 }
 
 std::vector<Move> Board::possibleMoves() {

@@ -5,6 +5,7 @@
 #ifndef MOVETREE_H
 #define MOVETREE_H
 #include "Move.h"
+#include <memory>
 
 class JumpTree {
     using small = unsigned char;
@@ -12,20 +13,20 @@ private:
      small square;
      small depth;
      small jumped;
-     std::vector<JumpTree*> next;
-     JumpTree* parent;
+     std::vector<std::shared_ptr<JumpTree>> next;
+     std::shared_ptr<JumpTree> parent;
      small board[32];
 public:
     JumpTree();
     JumpTree(small, small*);
-    JumpTree(small, small, JumpTree*, small*);
-    JumpTree(small, small, small, JumpTree*, small*);
+    JumpTree(small, small, std::shared_ptr<JumpTree>, small*);
+    JumpTree(small, small, small, std::shared_ptr<JumpTree>, small*);
     small getSquare() const;
     small getDepth() const;
     small* getBoard();
-    void addChild(JumpTree*);
-    std::vector<JumpTree*> getNext();
-    JumpTree* getParent();
+    void addChild(std::shared_ptr<JumpTree>);
+    std::vector<std::shared_ptr<JumpTree>> getNext();
+    std::shared_ptr<JumpTree> getParent();
     small maxDepth();
     void getRemainingSequence(std::vector<small>&);
     void maxSequences(small, std::vector<std::vector<small>>&);

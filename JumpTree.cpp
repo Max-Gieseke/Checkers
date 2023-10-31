@@ -8,32 +8,32 @@ using small = unsigned char;
 JumpTree::JumpTree() {
     square = 64;
     depth = 0;
-    next = std::vector<JumpTree*>();
+    next = std::vector<std::shared_ptr<JumpTree>>();
     parent = nullptr;
 }
 JumpTree::JumpTree(small square, small* board) {
     this->square = square;
     depth = 0;
     jumped = 64;
-    next = std::vector<JumpTree*>();
+    next = std::vector<std::shared_ptr<JumpTree>>();
     parent = nullptr;
     std::copy(board, board+32, this->board);
 }
 
-JumpTree::JumpTree(small square, small depth, JumpTree* p, small* board) {
+JumpTree::JumpTree(small square, small depth, std::shared_ptr<JumpTree> p, small* board) {
     this->square = square;
     this->depth = depth;
     parent = p;
-    next = std::vector<JumpTree*>();
+    next = std::vector<std::shared_ptr<JumpTree>>();
     std::copy(board, board+32, this->board);
 }
 
-JumpTree::JumpTree(small square, small depth, small jumped, JumpTree* p, small* board) {
+JumpTree::JumpTree(small square, small depth, small jumped, std::shared_ptr<JumpTree> p, small* board) {
     this->square = square;
     this->depth = depth;
     this->jumped = jumped;
     parent = p;
-    next = std::vector<JumpTree*>();
+    next = std::vector<std::shared_ptr<JumpTree>>();
     std::copy(board, board+32, this->board);
 }
 
@@ -45,15 +45,15 @@ JumpTree::small JumpTree::getDepth() const {
     return depth;
 }
 
-std::vector<JumpTree*> JumpTree::getNext() {
+std::vector<std::shared_ptr<JumpTree>> JumpTree::getNext() {
     return next;
 }
 
-JumpTree* JumpTree::getParent() {
+std::shared_ptr<JumpTree> JumpTree::getParent() {
     return parent;
 }
 
-void JumpTree::addChild(JumpTree* child) {
+void JumpTree::addChild(std::shared_ptr<JumpTree> child) {
     this->next.push_back(child);
 }
 
@@ -62,7 +62,7 @@ small JumpTree::maxDepth() {
         return depth;
     }
     small max = 0;
-    for(JumpTree* n : next){
+    for(std::shared_ptr<JumpTree> n : next){
         if(n->maxDepth() > max){
             max = n->maxDepth();
         }
@@ -87,7 +87,7 @@ void JumpTree::maxSequences(small curDepth, std::vector<std::vector<small>>& hol
         getRemainingSequence(holder.back());
     }
     else{
-        for(JumpTree* node : this->next){
+        for(std::shared_ptr<JumpTree> node : this->next){
             node->maxSequences(curDepth, holder);
         }
     }
@@ -116,7 +116,7 @@ std::vector<Move> JumpTree::jumpMoves(JumpTree head) {
     return holder;
 }
 
-small *JumpTree::getBoard() {
+small* JumpTree::getBoard() {
     return this->board;
 }
 

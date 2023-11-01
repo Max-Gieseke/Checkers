@@ -8,7 +8,11 @@ add_executable(MoveTester
         Board.cpp Board.h
         JumpTree.cpp JumpTree.h
         Move.cpp Move.h
-        Scores.cpp Scores.h)
+        Scores.cpp Scores.h
+        CheckerBoard.cpp CheckerBoard.h
+        CheckerLogic.cpp CheckerLogic.h
+        CheckerMoveMaps.cpp CheckerMoveMaps.h
+        JumpNode.cpp JumpNode.h)
 
 add_executable(MoveExplorer
         ExplorerTester.cpp
@@ -18,7 +22,12 @@ add_executable(MoveExplorer
         ZobristHash.cpp ZobristHash.h
         TranspositionTable.cpp TranspositionTable.h
         Scores.cpp Scores.h
-        MoveTree.cpp MoveTree.h MoveNode.cpp MoveNode.h)
+        MoveTree.cpp MoveTree.h
+        MoveNode.cpp MoveNode.h
+        CheckerBoard.cpp CheckerBoard.h
+        CheckerLogic.cpp CheckerLogic.h
+        CheckerMoveMaps.cpp CheckerMoveMaps.h
+        JumpNode.cpp JumpNode.h)
 
 add_executable(PlayGame
         PlayVsAI.cpp
@@ -28,14 +37,23 @@ add_executable(PlayGame
         ZobristHash.cpp ZobristHash.h
         TranspositionTable.cpp TranspositionTable.h
         Scores.cpp Scores.h
-        MoveTree.cpp MoveTree.h MoveNode.cpp MoveNode.h)
+        MoveTree.cpp MoveTree.h
+        MoveNode.cpp MoveNode.h
+        CheckerBoard.cpp CheckerBoard.h
+        CheckerLogic.cpp CheckerLogic.h
+        CheckerMoveMaps.cpp CheckerMoveMaps.h
+        JumpNode.cpp JumpNode.h)
 
 add_executable(AITest
         AIvsAI.cpp
-        Board.cpp Board.h
         JumpTree.cpp JumpTree.h
         Move.cpp Move.h
         ZobristHash.cpp ZobristHash.h
         TranspositionTable.cpp TranspositionTable.h
         Scores.cpp Scores.h
-        MoveTree.cpp MoveTree.h MoveNode.cpp MoveNode.h)
+        MoveTree.cpp MoveTree.h
+        MoveNode.cpp MoveNode.h
+        CheckerBoard.cpp CheckerBoard.h
+        CheckerLogic.cpp CheckerLogic.h
+        CheckerMoveMaps.cpp CheckerMoveMaps.h
+        JumpNode.cpp JumpNode.h )

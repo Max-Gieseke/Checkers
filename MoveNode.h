@@ -4,12 +4,12 @@
 
 #ifndef CHECKERS_MOVENODE_H
 #define CHECKERS_MOVENODE_H
-#include "Board.h"
+#include "CheckerLogic.h"
 
 
 class MoveNode {
 private:
-    Board curBoard;
+    CheckerBoard curBoard;
     int depthSearched;
     double score;
     std::vector<std::shared_ptr<MoveNode>> next;
@@ -19,15 +19,15 @@ private:
     friend class MoveTree;
 public:
     MoveNode();
-    MoveNode(Board);
-    MoveNode(Board, int, double, std::shared_ptr<MoveNode>, const Move&);
-    ~MoveNode();
+    MoveNode(const CheckerBoard&);
+    MoveNode(const CheckerBoard&, int, double, std::shared_ptr<MoveNode>, const Move&);
+    //~MoveNode();
     double exploreMoves(int);
     double getScore() const;
     void addChild(std::shared_ptr<MoveNode>);
     Move getBestMove();
     Move getLastMove();
-    Board getBoard();
+    CheckerBoard getBoard();
     std::vector<std::shared_ptr<MoveNode>> getNext();
     int getDepth() const;
     MoveNode& operator=(const MoveNode&);

@@ -11,3 +11,8 @@ Scores::Scores() {
     noPieces = 100.00;
 
 }
+
+Scores &Scores::getInstance() {
+    static Scores instance;
+    return instance;
+}

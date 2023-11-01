@@ -15,9 +15,9 @@ private:
 
 public:
     MoveTree();
-    MoveTree(Board);
+    MoveTree(CheckerBoard);
     std::shared_ptr<MoveNode> getRoot();
-    MoveTree(Board, int, double, std::shared_ptr<MoveNode>);
+    MoveTree(CheckerBoard, int, double, std::shared_ptr<MoveNode>);
     // ~MoveTree();
     double exploreTree(int);
     double exploreMoves(int,std::shared_ptr<MoveNode>);

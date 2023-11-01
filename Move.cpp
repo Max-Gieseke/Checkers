@@ -29,7 +29,7 @@ small Move::getEnd() const {
     return end;
 }
 
-std::vector<small> Move::getRemove() {
+std::vector<small> Move::getRemove() const {
     return remove;
 }
 

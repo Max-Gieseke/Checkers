@@ -17,9 +17,9 @@ public:
     TranspositionTable();
     std::shared_ptr<MoveNode> getValue(unsigned long long int);
     void addValue(std::shared_ptr<MoveNode>);
-    unsigned long long int computeHash(Board);
-    bool isIn(Board, int);
-    std::shared_ptr<MoveNode> getNode(Board);
+    unsigned long long int computeHash(CheckerBoard);
+    bool isIn(CheckerBoard, int);
+    std::shared_ptr<MoveNode> getNode(CheckerBoard);
 
 };
 

@@ -8,10 +8,12 @@
 
 class Scores {
 public:
+    static Scores& getInstance();
     double kingVal;
     double pawnVal;
     double rankBonus;
     double noPieces;
+private:
     Scores();
 
 };

@@ -9,12 +9,12 @@ MoveTree::MoveTree() {
     exploredMoves = TranspositionTable();
 }
 
-MoveTree::MoveTree(Board top) {
+MoveTree::MoveTree(CheckerBoard top) {
     root = std::make_shared<MoveNode>(top);
     exploredMoves = TranspositionTable();
 }
 
-MoveTree::MoveTree(Board b, int depthSearched, double score, std::shared_ptr<MoveNode> p) {
+MoveTree::MoveTree(CheckerBoard b, int depthSearched, double score, std::shared_ptr<MoveNode> p) {
     root = std::make_shared<MoveNode>(b, depthSearched, score, p, Move());
     exploredMoves = TranspositionTable();
 }
@@ -29,11 +29,11 @@ double MoveTree::exploreTree(int moves) {
 
 double MoveTree::explore(int left, std::shared_ptr<MoveNode> node) {
     if(left <= 0){
-        node->score = node->curBoard.scoreBoard();
+        node->score = CheckerLogic::scoreBoard(node->curBoard);
         return node->score;
     }
 
-    std::vector<Move> moves = node->curBoard.possibleMoves();
+    std::vector<Move> moves = CheckerLogic::possibleMoves(node->curBoard);
     double max = -INT32_MAX;
     int multiply = 1;
     if(node->curBoard.getPlayer() == 0){
@@ -42,7 +42,7 @@ double MoveTree::explore(int left, std::shared_ptr<MoveNode> node) {
     Move best;
     for(const Move& m : moves){
         double score;
-        Board b = Board::doMove(m, node->curBoard);
+        CheckerBoard b = CheckerLogic::doMove(m, node->curBoard);
         std::shared_ptr<MoveNode> newChild =  std::make_shared<MoveNode>(b, left, 0, node, m);
         node->addChild(newChild);
         score = explore(left - 1, node->next.back());
@@ -58,10 +58,10 @@ double MoveTree::explore(int left, std::shared_ptr<MoveNode> node) {
 
 double MoveTree::exploreMoves(int left, std::shared_ptr<MoveNode> node) {
     if(left <= 0){
-        node->score = node->curBoard.scoreBoard();
+        node->score =  CheckerLogic::scoreBoard(node->curBoard);
         return node->score;
     }
-    std::vector<Move> moves = node->curBoard.possibleMoves();
+    std::vector<Move> moves =  CheckerLogic::possibleMoves(node->curBoard);
     double max = -INT32_MAX;
     int multiply = 1;
     if(node->curBoard.getPlayer() == 0){
@@ -70,7 +70,7 @@ double MoveTree::exploreMoves(int left, std::shared_ptr<MoveNode> node) {
     Move best;
     for(const auto& m : moves){
         double score;
-        Board b = Board::doMove(m, node->curBoard);
+        CheckerBoard b = CheckerLogic::doTurn(m, node->curBoard);
         if(exploredMoves.isIn(b, left)){
             node->addChild(exploredMoves.getNode(b));
             score = node->next.back()->score;

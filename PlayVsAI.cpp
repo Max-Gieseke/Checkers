@@ -6,7 +6,6 @@
 #include "cstdlib"
 
 int main(){
-    Board::initializeMaps();
     MoveTree player = MoveTree();
     player.exploreTree(6);
     double eval = 0;

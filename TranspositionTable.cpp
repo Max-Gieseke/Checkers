@@ -17,11 +17,11 @@ std::shared_ptr<MoveNode> TranspositionTable::getValue(unsigned long long int ke
     return table[key];
 }
 
-unsigned long long int TranspositionTable::computeHash(Board b) {
+unsigned long long int TranspositionTable::computeHash(CheckerBoard b) {
     return hash.calcHash(b);
 }
 
-bool TranspositionTable::isIn(Board b, int depth) {
+bool TranspositionTable::isIn(CheckerBoard b, int depth) {
     unsigned long long int key = hash.calcHash(b);
     if(table.count(key) == 0){
         return false;
@@ -32,7 +32,7 @@ bool TranspositionTable::isIn(Board b, int depth) {
     return true;
 }
 
-std::shared_ptr<MoveNode> TranspositionTable::getNode(Board b) {
+std::shared_ptr<MoveNode> TranspositionTable::getNode(CheckerBoard b) {
     return table[hash.calcHash(b)];
 }
 

@@ -5,7 +5,6 @@
 #include "MoveTree.h"
 
 int main(){
-        Board::initializeMaps();
         MoveTree player = MoveTree();
         double eval = player.exploreTree(8);
         std::cout << player.getRoot()->getBoard();

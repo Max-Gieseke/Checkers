@@ -6,35 +6,17 @@
 #define MOVETREE_H
 #include "Move.h"
 #include <memory>
+#include "CheckerBoard.h"
+#include "JumpNode.h"
 
 class JumpTree {
-    using small = unsigned char;
 private:
-     small square;
-     small depth;
-     small jumped;
-     std::vector<std::shared_ptr<JumpTree>> next;
-     std::shared_ptr<JumpTree> parent;
-     small board[32];
+     std::shared_ptr<JumpNode> root;
 public:
     JumpTree();
-    JumpTree(small, small*);
-    JumpTree(small, small, std::shared_ptr<JumpTree>, small*);
-    JumpTree(small, small, small, std::shared_ptr<JumpTree>, small*);
-    small getSquare() const;
-    small getDepth() const;
-    small* getBoard();
-    void addChild(std::shared_ptr<JumpTree>);
-    std::vector<std::shared_ptr<JumpTree>> getNext();
-    std::shared_ptr<JumpTree> getParent();
-    small maxDepth();
-    void getRemainingSequence(std::vector<small>&);
-    void maxSequences(small, std::vector<std::vector<small>>&);
-    static std::vector<Move> jumpMoves(JumpTree);
-    small getJumped(small, small);
-//    vector<JumpTree>* getSquare(small, small);
-//    void addSquare(small, small);
-    friend std::ostream &operator<<(std::ostream &out, const JumpTree& m);
+    JumpTree(small, CheckerBoard);
+    std::vector<Move> jumpMoves();
+    std::shared_ptr<JumpNode> getRoot();
 
 
 };

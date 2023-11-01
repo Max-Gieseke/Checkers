@@ -20,7 +20,7 @@ public:
     void addJump(small);
     small getStart() const;
     small getEnd() const;
-    std::vector<small> getRemove();
+    std::vector<small> getRemove() const;
     friend std::ostream& operator<<(std::ostream& out, const Move& m);
     Move& operator=(const Move&);
     bool equals(const Move&);

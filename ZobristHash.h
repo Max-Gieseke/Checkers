@@ -4,7 +4,8 @@
 
 #ifndef CHECKERS_ZOBRISTHASH_H
 #define CHECKERS_ZOBRISTHASH_H
-#include "Board.h"
+#include "CheckerBoard.h"
+#include <random>
 
 class ZobristHash {
 private:
@@ -14,7 +15,7 @@ private:
 public:
     ZobristHash();
     unsigned long long int randomInt();
-    unsigned long long int calcHash(Board);
+    unsigned long long int calcHash(CheckerBoard);
 
 };
 

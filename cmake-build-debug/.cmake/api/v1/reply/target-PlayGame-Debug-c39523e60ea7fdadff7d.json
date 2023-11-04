@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "AITest.exe"
+			"path" : "PlayGame.exe"
 		},
 		{
-			"path" : "AITest.pdb"
+			"path" : "PlayGame.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -27,7 +27,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 33,
+				"line" : 32,
 				"parent" : 0
 			}
 		]
@@ -60,11 +60,15 @@
 				9,
 				11,
 				13,
-				15
+				15,
+				17,
+				19,
+				21,
+				23
 			]
 		}
 	],
-	"id" : "AITest::@6890427a1f51a3e7e1df",
+	"id" : "PlayGame::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -84,8 +88,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "AITest",
-	"nameOnDisk" : "AITest.exe",
+	"name" : "PlayGame",
+	"nameOnDisk" : "PlayGame.exe",
 	"paths" : 
 	{
 		"build" : ".",
@@ -105,7 +109,11 @@
 				9,
 				11,
 				13,
-				15
+				15,
+				17,
+				19,
+				21,
+				23
 			]
 		},
 		{
@@ -119,7 +127,11 @@
 				10,
 				12,
 				14,
-				16
+				16,
+				18,
+				20,
+				22,
+				24
 			]
 		}
 	],
@@ -128,7 +140,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "AIvsAI.cpp",
+			"path" : "PlayVsAI.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -217,6 +229,50 @@
 		{
 			"backtrace" : 1,
 			"path" : "MoveNode.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "CheckerBoard.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "CheckerBoard.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "CheckerLogic.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "CheckerLogic.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "CheckerMoveMaps.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "CheckerMoveMaps.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "JumpNode.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "JumpNode.h",
 			"sourceGroupIndex" : 1
 		}
 	],

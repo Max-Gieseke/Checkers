@@ -11,7 +11,7 @@
 class MoveTree {
 private:
     std::shared_ptr<MoveNode> root;
-    TranspositionTable exploredMoves;
+    int getNodeSize(std::shared_ptr<MoveNode>);
 
 public:
     MoveTree();
@@ -24,6 +24,7 @@ public:
     double explore(int, std::shared_ptr<MoveNode>);
     void addElem(std::shared_ptr<MoveNode>);
     void updateRoot(const Move&);
+    int getTreeSize();
 };
 
 

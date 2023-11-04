@@ -6,17 +6,14 @@
 
 MoveTree::MoveTree() {
     root = std::make_shared<MoveNode>();
-    exploredMoves = TranspositionTable();
 }
 
 MoveTree::MoveTree(CheckerBoard top) {
     root = std::make_shared<MoveNode>(top);
-    exploredMoves = TranspositionTable();
 }
 
 MoveTree::MoveTree(CheckerBoard b, int depthSearched, double score, std::shared_ptr<MoveNode> p) {
     root = std::make_shared<MoveNode>(b, depthSearched, score, p, Move());
-    exploredMoves = TranspositionTable();
 }
 
 // MoveTree::~MoveTree() {
@@ -71,16 +68,15 @@ double MoveTree::exploreMoves(int left, std::shared_ptr<MoveNode> node) {
     for(const auto& m : moves){
         double score;
         CheckerBoard b = CheckerLogic::doTurn(m, node->curBoard);
-        if(exploredMoves.isIn(b, left)){
-            node->addChild(exploredMoves.getNode(b));
-            score = node->next.back()->score;
+
+        std::shared_ptr<MoveNode> newChild = std::make_shared<MoveNode>(b, left, 0, node, m);
+        node->addChild(newChild);
+        if(left == 6){
+            std::cout << "added " << newChild->getLastMove() << std::endl;
         }
-        else{
-            std::shared_ptr<MoveNode> newChild = std::make_shared<MoveNode>(b, left, 0, node, m);
-            node->addChild(newChild);
-            score = exploreMoves(left - 1, node->next.back());
-            exploredMoves.addValue(newChild);
-        }
+
+        score = exploreMoves(left - 1, node->next.back());
+
 
         if(multiply * score > max){
             max = multiply * score;
@@ -95,7 +91,7 @@ double MoveTree::exploreMoves(int left, std::shared_ptr<MoveNode> node) {
 
 void MoveTree::addElem(std::shared_ptr<MoveNode> check) {
     //int key = exploredMoves.computeHash(check->curBoard);
-    exploredMoves.addValue(check);
+
 
 }
 
@@ -107,7 +103,26 @@ void MoveTree::updateRoot(const Move& lastMove) {
     for(auto & node : root->next){
         if(node->lastMove.equals(lastMove)){
             root = node;
+            root->parent = nullptr;
             break;
         }
     }
+}
+
+int MoveTree::getTreeSize() {
+    std::shared_ptr<MoveNode> cur = root;
+    while(cur->parent != nullptr){
+        cur = cur->parent;
+    }
+    return getNodeSize(cur);
+}
+
+int MoveTree::getNodeSize(std::shared_ptr<MoveNode> node) {
+    int count = 1;
+    if(!node->next.empty()){
+        for(auto child : node->next){
+            count += getNodeSize(child);
+        }
+    }
+    return count;
 }

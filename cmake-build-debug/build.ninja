@@ -79,6 +79,30 @@ build CMakeFiles/MoveTester.dir/Scores.cpp.obj: CXX_COMPILER__MoveTester_Debug C
   OBJECT_DIR = CMakeFiles\MoveTester.dir
   OBJECT_FILE_DIR = CMakeFiles\MoveTester.dir
 
+build CMakeFiles/MoveTester.dir/CheckerBoard.cpp.obj: CXX_COMPILER__MoveTester_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/CheckerBoard.cpp || cmake_object_order_depends_target_MoveTester
+  DEP_FILE = CMakeFiles\MoveTester.dir\CheckerBoard.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\MoveTester.dir
+  OBJECT_FILE_DIR = CMakeFiles\MoveTester.dir
+
+build CMakeFiles/MoveTester.dir/CheckerLogic.cpp.obj: CXX_COMPILER__MoveTester_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/CheckerLogic.cpp || cmake_object_order_depends_target_MoveTester
+  DEP_FILE = CMakeFiles\MoveTester.dir\CheckerLogic.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\MoveTester.dir
+  OBJECT_FILE_DIR = CMakeFiles\MoveTester.dir
+
+build CMakeFiles/MoveTester.dir/CheckerMoveMaps.cpp.obj: CXX_COMPILER__MoveTester_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/CheckerMoveMaps.cpp || cmake_object_order_depends_target_MoveTester
+  DEP_FILE = CMakeFiles\MoveTester.dir\CheckerMoveMaps.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\MoveTester.dir
+  OBJECT_FILE_DIR = CMakeFiles\MoveTester.dir
+
+build CMakeFiles/MoveTester.dir/JumpNode.cpp.obj: CXX_COMPILER__MoveTester_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/JumpNode.cpp || cmake_object_order_depends_target_MoveTester
+  DEP_FILE = CMakeFiles\MoveTester.dir\JumpNode.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\MoveTester.dir
+  OBJECT_FILE_DIR = CMakeFiles\MoveTester.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target MoveTester
@@ -87,7 +111,7 @@ build CMakeFiles/MoveTester.dir/Scores.cpp.obj: CXX_COMPILER__MoveTester_Debug C
 #############################################
 # Link the executable MoveTester.exe
 
-build MoveTester.exe: CXX_EXECUTABLE_LINKER__MoveTester_Debug CMakeFiles/MoveTester.dir/MoveTester.cpp.obj CMakeFiles/MoveTester.dir/Board.cpp.obj CMakeFiles/MoveTester.dir/JumpTree.cpp.obj CMakeFiles/MoveTester.dir/Move.cpp.obj CMakeFiles/MoveTester.dir/Scores.cpp.obj
+build MoveTester.exe: CXX_EXECUTABLE_LINKER__MoveTester_Debug CMakeFiles/MoveTester.dir/MoveTester.cpp.obj CMakeFiles/MoveTester.dir/Board.cpp.obj CMakeFiles/MoveTester.dir/JumpTree.cpp.obj CMakeFiles/MoveTester.dir/Move.cpp.obj CMakeFiles/MoveTester.dir/Scores.cpp.obj CMakeFiles/MoveTester.dir/CheckerBoard.cpp.obj CMakeFiles/MoveTester.dir/CheckerLogic.cpp.obj CMakeFiles/MoveTester.dir/CheckerMoveMaps.cpp.obj CMakeFiles/MoveTester.dir/JumpNode.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\MoveTester.dir
@@ -160,6 +184,30 @@ build CMakeFiles/MoveExplorer.dir/MoveNode.cpp.obj: CXX_COMPILER__MoveExplorer_D
   OBJECT_DIR = CMakeFiles\MoveExplorer.dir
   OBJECT_FILE_DIR = CMakeFiles\MoveExplorer.dir
 
+build CMakeFiles/MoveExplorer.dir/CheckerBoard.cpp.obj: CXX_COMPILER__MoveExplorer_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/CheckerBoard.cpp || cmake_object_order_depends_target_MoveExplorer
+  DEP_FILE = CMakeFiles\MoveExplorer.dir\CheckerBoard.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\MoveExplorer.dir
+  OBJECT_FILE_DIR = CMakeFiles\MoveExplorer.dir
+
+build CMakeFiles/MoveExplorer.dir/CheckerLogic.cpp.obj: CXX_COMPILER__MoveExplorer_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/CheckerLogic.cpp || cmake_object_order_depends_target_MoveExplorer
+  DEP_FILE = CMakeFiles\MoveExplorer.dir\CheckerLogic.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\MoveExplorer.dir
+  OBJECT_FILE_DIR = CMakeFiles\MoveExplorer.dir
+
+build CMakeFiles/MoveExplorer.dir/CheckerMoveMaps.cpp.obj: CXX_COMPILER__MoveExplorer_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/CheckerMoveMaps.cpp || cmake_object_order_depends_target_MoveExplorer
+  DEP_FILE = CMakeFiles\MoveExplorer.dir\CheckerMoveMaps.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\MoveExplorer.dir
+  OBJECT_FILE_DIR = CMakeFiles\MoveExplorer.dir
+
+build CMakeFiles/MoveExplorer.dir/JumpNode.cpp.obj: CXX_COMPILER__MoveExplorer_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/JumpNode.cpp || cmake_object_order_depends_target_MoveExplorer
+  DEP_FILE = CMakeFiles\MoveExplorer.dir\JumpNode.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\MoveExplorer.dir
+  OBJECT_FILE_DIR = CMakeFiles\MoveExplorer.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target MoveExplorer
@@ -168,7 +216,7 @@ build CMakeFiles/MoveExplorer.dir/MoveNode.cpp.obj: CXX_COMPILER__MoveExplorer_D
 #############################################
 # Link the executable MoveExplorer.exe
 
-build MoveExplorer.exe: CXX_EXECUTABLE_LINKER__MoveExplorer_Debug CMakeFiles/MoveExplorer.dir/ExplorerTester.cpp.obj CMakeFiles/MoveExplorer.dir/Board.cpp.obj CMakeFiles/MoveExplorer.dir/JumpTree.cpp.obj CMakeFiles/MoveExplorer.dir/Move.cpp.obj CMakeFiles/MoveExplorer.dir/ZobristHash.cpp.obj CMakeFiles/MoveExplorer.dir/TranspositionTable.cpp.obj CMakeFiles/MoveExplorer.dir/Scores.cpp.obj CMakeFiles/MoveExplorer.dir/MoveTree.cpp.obj CMakeFiles/MoveExplorer.dir/MoveNode.cpp.obj
+build MoveExplorer.exe: CXX_EXECUTABLE_LINKER__MoveExplorer_Debug CMakeFiles/MoveExplorer.dir/ExplorerTester.cpp.obj CMakeFiles/MoveExplorer.dir/Board.cpp.obj CMakeFiles/MoveExplorer.dir/JumpTree.cpp.obj CMakeFiles/MoveExplorer.dir/Move.cpp.obj CMakeFiles/MoveExplorer.dir/ZobristHash.cpp.obj CMakeFiles/MoveExplorer.dir/TranspositionTable.cpp.obj CMakeFiles/MoveExplorer.dir/Scores.cpp.obj CMakeFiles/MoveExplorer.dir/MoveTree.cpp.obj CMakeFiles/MoveExplorer.dir/MoveNode.cpp.obj CMakeFiles/MoveExplorer.dir/CheckerBoard.cpp.obj CMakeFiles/MoveExplorer.dir/CheckerLogic.cpp.obj CMakeFiles/MoveExplorer.dir/CheckerMoveMaps.cpp.obj CMakeFiles/MoveExplorer.dir/JumpNode.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\MoveExplorer.dir
@@ -241,6 +289,30 @@ build CMakeFiles/PlayGame.dir/MoveNode.cpp.obj: CXX_COMPILER__PlayGame_Debug C$:
   OBJECT_DIR = CMakeFiles\PlayGame.dir
   OBJECT_FILE_DIR = CMakeFiles\PlayGame.dir
 
+build CMakeFiles/PlayGame.dir/CheckerBoard.cpp.obj: CXX_COMPILER__PlayGame_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/CheckerBoard.cpp || cmake_object_order_depends_target_PlayGame
+  DEP_FILE = CMakeFiles\PlayGame.dir\CheckerBoard.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\PlayGame.dir
+  OBJECT_FILE_DIR = CMakeFiles\PlayGame.dir
+
+build CMakeFiles/PlayGame.dir/CheckerLogic.cpp.obj: CXX_COMPILER__PlayGame_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/CheckerLogic.cpp || cmake_object_order_depends_target_PlayGame
+  DEP_FILE = CMakeFiles\PlayGame.dir\CheckerLogic.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\PlayGame.dir
+  OBJECT_FILE_DIR = CMakeFiles\PlayGame.dir
+
+build CMakeFiles/PlayGame.dir/CheckerMoveMaps.cpp.obj: CXX_COMPILER__PlayGame_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/CheckerMoveMaps.cpp || cmake_object_order_depends_target_PlayGame
+  DEP_FILE = CMakeFiles\PlayGame.dir\CheckerMoveMaps.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\PlayGame.dir
+  OBJECT_FILE_DIR = CMakeFiles\PlayGame.dir
+
+build CMakeFiles/PlayGame.dir/JumpNode.cpp.obj: CXX_COMPILER__PlayGame_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/JumpNode.cpp || cmake_object_order_depends_target_PlayGame
+  DEP_FILE = CMakeFiles\PlayGame.dir\JumpNode.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\PlayGame.dir
+  OBJECT_FILE_DIR = CMakeFiles\PlayGame.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target PlayGame
@@ -249,7 +321,7 @@ build CMakeFiles/PlayGame.dir/MoveNode.cpp.obj: CXX_COMPILER__PlayGame_Debug C$:
 #############################################
 # Link the executable PlayGame.exe
 
-build PlayGame.exe: CXX_EXECUTABLE_LINKER__PlayGame_Debug CMakeFiles/PlayGame.dir/PlayVsAI.cpp.obj CMakeFiles/PlayGame.dir/Board.cpp.obj CMakeFiles/PlayGame.dir/JumpTree.cpp.obj CMakeFiles/PlayGame.dir/Move.cpp.obj CMakeFiles/PlayGame.dir/ZobristHash.cpp.obj CMakeFiles/PlayGame.dir/TranspositionTable.cpp.obj CMakeFiles/PlayGame.dir/Scores.cpp.obj CMakeFiles/PlayGame.dir/MoveTree.cpp.obj CMakeFiles/PlayGame.dir/MoveNode.cpp.obj
+build PlayGame.exe: CXX_EXECUTABLE_LINKER__PlayGame_Debug CMakeFiles/PlayGame.dir/PlayVsAI.cpp.obj CMakeFiles/PlayGame.dir/Board.cpp.obj CMakeFiles/PlayGame.dir/JumpTree.cpp.obj CMakeFiles/PlayGame.dir/Move.cpp.obj CMakeFiles/PlayGame.dir/ZobristHash.cpp.obj CMakeFiles/PlayGame.dir/TranspositionTable.cpp.obj CMakeFiles/PlayGame.dir/Scores.cpp.obj CMakeFiles/PlayGame.dir/MoveTree.cpp.obj CMakeFiles/PlayGame.dir/MoveNode.cpp.obj CMakeFiles/PlayGame.dir/CheckerBoard.cpp.obj CMakeFiles/PlayGame.dir/CheckerLogic.cpp.obj CMakeFiles/PlayGame.dir/CheckerMoveMaps.cpp.obj CMakeFiles/PlayGame.dir/JumpNode.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\PlayGame.dir
@@ -270,12 +342,6 @@ build cmake_object_order_depends_target_AITest: phony || CMakeFiles/AITest.dir
 
 build CMakeFiles/AITest.dir/AIvsAI.cpp.obj: CXX_COMPILER__AITest_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/AIvsAI.cpp || cmake_object_order_depends_target_AITest
   DEP_FILE = CMakeFiles\AITest.dir\AIvsAI.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\AITest.dir
-  OBJECT_FILE_DIR = CMakeFiles\AITest.dir
-
-build CMakeFiles/AITest.dir/Board.cpp.obj: CXX_COMPILER__AITest_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/Board.cpp || cmake_object_order_depends_target_AITest
-  DEP_FILE = CMakeFiles\AITest.dir\Board.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\AITest.dir
   OBJECT_FILE_DIR = CMakeFiles\AITest.dir
@@ -322,6 +388,30 @@ build CMakeFiles/AITest.dir/MoveNode.cpp.obj: CXX_COMPILER__AITest_Debug C$:/Use
   OBJECT_DIR = CMakeFiles\AITest.dir
   OBJECT_FILE_DIR = CMakeFiles\AITest.dir
 
+build CMakeFiles/AITest.dir/CheckerBoard.cpp.obj: CXX_COMPILER__AITest_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/CheckerBoard.cpp || cmake_object_order_depends_target_AITest
+  DEP_FILE = CMakeFiles\AITest.dir\CheckerBoard.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\AITest.dir
+  OBJECT_FILE_DIR = CMakeFiles\AITest.dir
+
+build CMakeFiles/AITest.dir/CheckerLogic.cpp.obj: CXX_COMPILER__AITest_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/CheckerLogic.cpp || cmake_object_order_depends_target_AITest
+  DEP_FILE = CMakeFiles\AITest.dir\CheckerLogic.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\AITest.dir
+  OBJECT_FILE_DIR = CMakeFiles\AITest.dir
+
+build CMakeFiles/AITest.dir/CheckerMoveMaps.cpp.obj: CXX_COMPILER__AITest_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/CheckerMoveMaps.cpp || cmake_object_order_depends_target_AITest
+  DEP_FILE = CMakeFiles\AITest.dir\CheckerMoveMaps.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\AITest.dir
+  OBJECT_FILE_DIR = CMakeFiles\AITest.dir
+
+build CMakeFiles/AITest.dir/JumpNode.cpp.obj: CXX_COMPILER__AITest_Debug C$:/Users/maxgi/CS$ Stuff/Personal$ Projects/Checkers/JumpNode.cpp || cmake_object_order_depends_target_AITest
+  DEP_FILE = CMakeFiles\AITest.dir\JumpNode.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\AITest.dir
+  OBJECT_FILE_DIR = CMakeFiles\AITest.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target AITest
@@ -330,7 +420,7 @@ build CMakeFiles/AITest.dir/MoveNode.cpp.obj: CXX_COMPILER__AITest_Debug C$:/Use
 #############################################
 # Link the executable AITest.exe
 
-build AITest.exe: CXX_EXECUTABLE_LINKER__AITest_Debug CMakeFiles/AITest.dir/AIvsAI.cpp.obj CMakeFiles/AITest.dir/Board.cpp.obj CMakeFiles/AITest.dir/JumpTree.cpp.obj CMakeFiles/AITest.dir/Move.cpp.obj CMakeFiles/AITest.dir/ZobristHash.cpp.obj CMakeFiles/AITest.dir/TranspositionTable.cpp.obj CMakeFiles/AITest.dir/Scores.cpp.obj CMakeFiles/AITest.dir/MoveTree.cpp.obj CMakeFiles/AITest.dir/MoveNode.cpp.obj
+build AITest.exe: CXX_EXECUTABLE_LINKER__AITest_Debug CMakeFiles/AITest.dir/AIvsAI.cpp.obj CMakeFiles/AITest.dir/JumpTree.cpp.obj CMakeFiles/AITest.dir/Move.cpp.obj CMakeFiles/AITest.dir/ZobristHash.cpp.obj CMakeFiles/AITest.dir/TranspositionTable.cpp.obj CMakeFiles/AITest.dir/Scores.cpp.obj CMakeFiles/AITest.dir/MoveTree.cpp.obj CMakeFiles/AITest.dir/MoveNode.cpp.obj CMakeFiles/AITest.dir/CheckerBoard.cpp.obj CMakeFiles/AITest.dir/CheckerLogic.cpp.obj CMakeFiles/AITest.dir/CheckerMoveMaps.cpp.obj CMakeFiles/AITest.dir/JumpNode.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\AITest.dir

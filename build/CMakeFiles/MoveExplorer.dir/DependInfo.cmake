@@ -9,7 +9,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/giese405/Checkers/Board.cpp" "CMakeFiles/MoveExplorer.dir/Board.cpp.o" "gcc" "CMakeFiles/MoveExplorer.dir/Board.cpp.o.d"
+  "/home/giese405/Checkers/CheckerBoard.cpp" "CMakeFiles/MoveExplorer.dir/CheckerBoard.cpp.o" "gcc" "CMakeFiles/MoveExplorer.dir/CheckerBoard.cpp.o.d"
+  "/home/giese405/Checkers/CheckerLogic.cpp" "CMakeFiles/MoveExplorer.dir/CheckerLogic.cpp.o" "gcc" "CMakeFiles/MoveExplorer.dir/CheckerLogic.cpp.o.d"
+  "/home/giese405/Checkers/CheckerMoveMaps.cpp" "CMakeFiles/MoveExplorer.dir/CheckerMoveMaps.cpp.o" "gcc" "CMakeFiles/MoveExplorer.dir/CheckerMoveMaps.cpp.o.d"
   "/home/giese405/Checkers/ExplorerTester.cpp" "CMakeFiles/MoveExplorer.dir/ExplorerTester.cpp.o" "gcc" "CMakeFiles/MoveExplorer.dir/ExplorerTester.cpp.o.d"
+  "/home/giese405/Checkers/JumpNode.cpp" "CMakeFiles/MoveExplorer.dir/JumpNode.cpp.o" "gcc" "CMakeFiles/MoveExplorer.dir/JumpNode.cpp.o.d"
   "/home/giese405/Checkers/JumpTree.cpp" "CMakeFiles/MoveExplorer.dir/JumpTree.cpp.o" "gcc" "CMakeFiles/MoveExplorer.dir/JumpTree.cpp.o.d"
   "/home/giese405/Checkers/Move.cpp" "CMakeFiles/MoveExplorer.dir/Move.cpp.o" "gcc" "CMakeFiles/MoveExplorer.dir/Move.cpp.o.d"
   "/home/giese405/Checkers/MoveNode.cpp" "CMakeFiles/MoveExplorer.dir/MoveNode.cpp.o" "gcc" "CMakeFiles/MoveExplorer.dir/MoveNode.cpp.o.d"

@@ -15,7 +15,7 @@ private:
     std::vector<std::shared_ptr<MoveNode>> next;
     Move bestMove;
     Move lastMove;
-    std::shared_ptr<MoveNode> parent;
+    std::weak_ptr<MoveNode> parent;
     friend class MoveTree;
 public:
     MoveNode();

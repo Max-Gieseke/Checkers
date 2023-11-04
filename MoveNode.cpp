@@ -24,7 +24,7 @@ MoveNode::MoveNode(const CheckerBoard& b, int depthSearched, double score, std::
 MoveNode::MoveNode(const CheckerBoard& top) {
     this->curBoard = top;
     this->depthSearched = 0;
-    this->parent = nullptr;
+    this->parent = std::make_shared<MoveNode>();;
     this->next = std::vector<std::shared_ptr<MoveNode>>();
 }
 

@@ -9,6 +9,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/giese405/Checkers/Board.cpp" "CMakeFiles/MoveTester.dir/Board.cpp.o" "gcc" "CMakeFiles/MoveTester.dir/Board.cpp.o.d"
+  "/home/giese405/Checkers/CheckerBoard.cpp" "CMakeFiles/MoveTester.dir/CheckerBoard.cpp.o" "gcc" "CMakeFiles/MoveTester.dir/CheckerBoard.cpp.o.d"
+  "/home/giese405/Checkers/CheckerLogic.cpp" "CMakeFiles/MoveTester.dir/CheckerLogic.cpp.o" "gcc" "CMakeFiles/MoveTester.dir/CheckerLogic.cpp.o.d"
+  "/home/giese405/Checkers/CheckerMoveMaps.cpp" "CMakeFiles/MoveTester.dir/CheckerMoveMaps.cpp.o" "gcc" "CMakeFiles/MoveTester.dir/CheckerMoveMaps.cpp.o.d"
+  "/home/giese405/Checkers/JumpNode.cpp" "CMakeFiles/MoveTester.dir/JumpNode.cpp.o" "gcc" "CMakeFiles/MoveTester.dir/JumpNode.cpp.o.d"
   "/home/giese405/Checkers/JumpTree.cpp" "CMakeFiles/MoveTester.dir/JumpTree.cpp.o" "gcc" "CMakeFiles/MoveTester.dir/JumpTree.cpp.o.d"
   "/home/giese405/Checkers/Move.cpp" "CMakeFiles/MoveTester.dir/Move.cpp.o" "gcc" "CMakeFiles/MoveTester.dir/Move.cpp.o.d"
   "/home/giese405/Checkers/MoveTester.cpp" "CMakeFiles/MoveTester.dir/MoveTester.cpp.o" "gcc" "CMakeFiles/MoveTester.dir/MoveTester.cpp.o.d"

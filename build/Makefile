@@ -200,7 +200,6 @@ Board.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoveTester.dir/build.make CMakeFiles/MoveTester.dir/Board.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoveExplorer.dir/build.make CMakeFiles/MoveExplorer.dir/Board.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PlayGame.dir/build.make CMakeFiles/PlayGame.dir/Board.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AITest.dir/build.make CMakeFiles/AITest.dir/Board.cpp.o
 .PHONY : Board.cpp.o
 
 Board.i: Board.cpp.i
@@ -211,7 +210,6 @@ Board.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoveTester.dir/build.make CMakeFiles/MoveTester.dir/Board.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoveExplorer.dir/build.make CMakeFiles/MoveExplorer.dir/Board.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PlayGame.dir/build.make CMakeFiles/PlayGame.dir/Board.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AITest.dir/build.make CMakeFiles/AITest.dir/Board.cpp.i
 .PHONY : Board.cpp.i
 
 Board.s: Board.cpp.s
@@ -222,8 +220,106 @@ Board.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoveTester.dir/build.make CMakeFiles/MoveTester.dir/Board.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoveExplorer.dir/build.make CMakeFiles/MoveExplorer.dir/Board.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PlayGame.dir/build.make CMakeFiles/PlayGame.dir/Board.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AITest.dir/build.make CMakeFiles/AITest.dir/Board.cpp.s
 .PHONY : Board.cpp.s
+
+CheckerBoard.o: CheckerBoard.cpp.o
+.PHONY : CheckerBoard.o
+
+# target to build an object file
+CheckerBoard.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoveTester.dir/build.make CMakeFiles/MoveTester.dir/CheckerBoard.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoveExplorer.dir/build.make CMakeFiles/MoveExplorer.dir/CheckerBoard.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PlayGame.dir/build.make CMakeFiles/PlayGame.dir/CheckerBoard.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AITest.dir/build.make CMakeFiles/AITest.dir/CheckerBoard.cpp.o
+.PHONY : CheckerBoard.cpp.o
+
+CheckerBoard.i: CheckerBoard.cpp.i
+.PHONY : CheckerBoard.i
+
+# target to preprocess a source file
+CheckerBoard.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoveTester.dir/build.make CMakeFiles/MoveTester.dir/CheckerBoard.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoveExplorer.dir/build.make CMakeFiles/MoveExplorer.dir/CheckerBoard.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PlayGame.dir/build.make CMakeFiles/PlayGame.dir/CheckerBoard.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AITest.dir/build.make CMakeFiles/AITest.dir/CheckerBoard.cpp.i
+.PHONY : CheckerBoard.cpp.i
+
+CheckerBoard.s: CheckerBoard.cpp.s
+.PHONY : CheckerBoard.s
+
+# target to generate assembly for a file
+CheckerBoard.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoveTester.dir/build.make CMakeFiles/MoveTester.dir/CheckerBoard.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoveExplorer.dir/build.make CMakeFiles/MoveExplorer.dir/CheckerBoard.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PlayGame.dir/build.make CMakeFiles/PlayGame.dir/CheckerBoard.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AITest.dir/build.make CMakeFiles/AITest.dir/CheckerBoard.cpp.s
+.PHONY : CheckerBoard.cpp.s
+
+CheckerLogic.o: CheckerLogic.cpp.o
+.PHONY : CheckerLogic.o
+
+# target to build an object file
+CheckerLogic.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoveTester.dir/build.make CMakeFiles/MoveTester.dir/CheckerLogic.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoveExplorer.dir/build.make CMakeFiles/MoveExplorer.dir/CheckerLogic.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PlayGame.dir/build.make CMakeFiles/PlayGame.dir/CheckerLogic.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AITest.dir/build.make CMakeFiles/AITest.dir/CheckerLogic.cpp.o
+.PHONY : CheckerLogic.cpp.o
+
+CheckerLogic.i: CheckerLogic.cpp.i
+.PHONY : CheckerLogic.i
+
+# target to preprocess a source file
+CheckerLogic.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoveTester.dir/build.make CMakeFiles/MoveTester.dir/CheckerLogic.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoveExplorer.dir/build.make CMakeFiles/MoveExplorer.dir/CheckerLogic.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PlayGame.dir/build.make CMakeFiles/PlayGame.dir/CheckerLogic.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AITest.dir/build.make CMakeFiles/AITest.dir/CheckerLogic.cpp.i
+.PHONY : CheckerLogic.cpp.i
+
+CheckerLogic.s: CheckerLogic.cpp.s
+.PHONY : CheckerLogic.s
+
+# target to generate assembly for a file
+CheckerLogic.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoveTester.dir/build.make CMakeFiles/MoveTester.dir/CheckerLogic.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoveExplorer.dir/build.make CMakeFiles/MoveExplorer.dir/CheckerLogic.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PlayGame.dir/build.make CMakeFiles/PlayGame.dir/CheckerLogic.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AITest.dir/build.make CMakeFiles/AITest.dir/CheckerLogic.cpp.s
+.PHONY : CheckerLogic.cpp.s
+
+CheckerMoveMaps.o: CheckerMoveMaps.cpp.o
+.PHONY : CheckerMoveMaps.o
+
+# target to build an object file
+CheckerMoveMaps.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoveTester.dir/build.make CMakeFiles/MoveTester.dir/CheckerMoveMaps.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoveExplorer.dir/build.make CMakeFiles/MoveExplorer.dir/CheckerMoveMaps.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PlayGame.dir/build.make CMakeFiles/PlayGame.dir/CheckerMoveMaps.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AITest.dir/build.make CMakeFiles/AITest.dir/CheckerMoveMaps.cpp.o
+.PHONY : CheckerMoveMaps.cpp.o
+
+CheckerMoveMaps.i: CheckerMoveMaps.cpp.i
+.PHONY : CheckerMoveMaps.i
+
+# target to preprocess a source file
+CheckerMoveMaps.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoveTester.dir/build.make CMakeFiles/MoveTester.dir/CheckerMoveMaps.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoveExplorer.dir/build.make CMakeFiles/MoveExplorer.dir/CheckerMoveMaps.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PlayGame.dir/build.make CMakeFiles/PlayGame.dir/CheckerMoveMaps.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AITest.dir/build.make CMakeFiles/AITest.dir/CheckerMoveMaps.cpp.i
+.PHONY : CheckerMoveMaps.cpp.i
+
+CheckerMoveMaps.s: CheckerMoveMaps.cpp.s
+.PHONY : CheckerMoveMaps.s
+
+# target to generate assembly for a file
+CheckerMoveMaps.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoveTester.dir/build.make CMakeFiles/MoveTester.dir/CheckerMoveMaps.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoveExplorer.dir/build.make CMakeFiles/MoveExplorer.dir/CheckerMoveMaps.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PlayGame.dir/build.make CMakeFiles/PlayGame.dir/CheckerMoveMaps.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AITest.dir/build.make CMakeFiles/AITest.dir/CheckerMoveMaps.cpp.s
+.PHONY : CheckerMoveMaps.cpp.s
 
 ExplorerTester.o: ExplorerTester.cpp.o
 .PHONY : ExplorerTester.o
@@ -248,6 +344,39 @@ ExplorerTester.s: ExplorerTester.cpp.s
 ExplorerTester.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoveExplorer.dir/build.make CMakeFiles/MoveExplorer.dir/ExplorerTester.cpp.s
 .PHONY : ExplorerTester.cpp.s
+
+JumpNode.o: JumpNode.cpp.o
+.PHONY : JumpNode.o
+
+# target to build an object file
+JumpNode.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoveTester.dir/build.make CMakeFiles/MoveTester.dir/JumpNode.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoveExplorer.dir/build.make CMakeFiles/MoveExplorer.dir/JumpNode.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PlayGame.dir/build.make CMakeFiles/PlayGame.dir/JumpNode.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AITest.dir/build.make CMakeFiles/AITest.dir/JumpNode.cpp.o
+.PHONY : JumpNode.cpp.o
+
+JumpNode.i: JumpNode.cpp.i
+.PHONY : JumpNode.i
+
+# target to preprocess a source file
+JumpNode.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoveTester.dir/build.make CMakeFiles/MoveTester.dir/JumpNode.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoveExplorer.dir/build.make CMakeFiles/MoveExplorer.dir/JumpNode.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PlayGame.dir/build.make CMakeFiles/PlayGame.dir/JumpNode.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AITest.dir/build.make CMakeFiles/AITest.dir/JumpNode.cpp.i
+.PHONY : JumpNode.cpp.i
+
+JumpNode.s: JumpNode.cpp.s
+.PHONY : JumpNode.s
+
+# target to generate assembly for a file
+JumpNode.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoveTester.dir/build.make CMakeFiles/MoveTester.dir/JumpNode.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoveExplorer.dir/build.make CMakeFiles/MoveExplorer.dir/JumpNode.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PlayGame.dir/build.make CMakeFiles/PlayGame.dir/JumpNode.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AITest.dir/build.make CMakeFiles/AITest.dir/JumpNode.cpp.s
+.PHONY : JumpNode.cpp.s
 
 JumpTree.o: JumpTree.cpp.o
 .PHONY : JumpTree.o
@@ -534,9 +663,21 @@ help:
 	@echo "... Board.o"
 	@echo "... Board.i"
 	@echo "... Board.s"
+	@echo "... CheckerBoard.o"
+	@echo "... CheckerBoard.i"
+	@echo "... CheckerBoard.s"
+	@echo "... CheckerLogic.o"
+	@echo "... CheckerLogic.i"
+	@echo "... CheckerLogic.s"
+	@echo "... CheckerMoveMaps.o"
+	@echo "... CheckerMoveMaps.i"
+	@echo "... CheckerMoveMaps.s"
 	@echo "... ExplorerTester.o"
 	@echo "... ExplorerTester.i"
 	@echo "... ExplorerTester.s"
+	@echo "... JumpNode.o"
+	@echo "... JumpNode.i"
+	@echo "... JumpNode.s"
 	@echo "... JumpTree.o"
 	@echo "... JumpTree.i"
 	@echo "... JumpTree.s"

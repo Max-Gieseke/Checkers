@@ -9,6 +9,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/giese405/Checkers/Board.cpp" "CMakeFiles/PlayGame.dir/Board.cpp.o" "gcc" "CMakeFiles/PlayGame.dir/Board.cpp.o.d"
+  "/home/giese405/Checkers/CheckerBoard.cpp" "CMakeFiles/PlayGame.dir/CheckerBoard.cpp.o" "gcc" "CMakeFiles/PlayGame.dir/CheckerBoard.cpp.o.d"
+  "/home/giese405/Checkers/CheckerLogic.cpp" "CMakeFiles/PlayGame.dir/CheckerLogic.cpp.o" "gcc" "CMakeFiles/PlayGame.dir/CheckerLogic.cpp.o.d"
+  "/home/giese405/Checkers/CheckerMoveMaps.cpp" "CMakeFiles/PlayGame.dir/CheckerMoveMaps.cpp.o" "gcc" "CMakeFiles/PlayGame.dir/CheckerMoveMaps.cpp.o.d"
+  "/home/giese405/Checkers/JumpNode.cpp" "CMakeFiles/PlayGame.dir/JumpNode.cpp.o" "gcc" "CMakeFiles/PlayGame.dir/JumpNode.cpp.o.d"
   "/home/giese405/Checkers/JumpTree.cpp" "CMakeFiles/PlayGame.dir/JumpTree.cpp.o" "gcc" "CMakeFiles/PlayGame.dir/JumpTree.cpp.o.d"
   "/home/giese405/Checkers/Move.cpp" "CMakeFiles/PlayGame.dir/Move.cpp.o" "gcc" "CMakeFiles/PlayGame.dir/Move.cpp.o.d"
   "/home/giese405/Checkers/MoveNode.cpp" "CMakeFiles/PlayGame.dir/MoveNode.cpp.o" "gcc" "CMakeFiles/PlayGame.dir/MoveNode.cpp.o.d"

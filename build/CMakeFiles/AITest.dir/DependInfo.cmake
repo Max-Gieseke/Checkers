@@ -9,7 +9,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/giese405/Checkers/AIvsAI.cpp" "CMakeFiles/AITest.dir/AIvsAI.cpp.o" "gcc" "CMakeFiles/AITest.dir/AIvsAI.cpp.o.d"
-  "/home/giese405/Checkers/Board.cpp" "CMakeFiles/AITest.dir/Board.cpp.o" "gcc" "CMakeFiles/AITest.dir/Board.cpp.o.d"
+  "/home/giese405/Checkers/CheckerBoard.cpp" "CMakeFiles/AITest.dir/CheckerBoard.cpp.o" "gcc" "CMakeFiles/AITest.dir/CheckerBoard.cpp.o.d"
+  "/home/giese405/Checkers/CheckerLogic.cpp" "CMakeFiles/AITest.dir/CheckerLogic.cpp.o" "gcc" "CMakeFiles/AITest.dir/CheckerLogic.cpp.o.d"
+  "/home/giese405/Checkers/CheckerMoveMaps.cpp" "CMakeFiles/AITest.dir/CheckerMoveMaps.cpp.o" "gcc" "CMakeFiles/AITest.dir/CheckerMoveMaps.cpp.o.d"
+  "/home/giese405/Checkers/JumpNode.cpp" "CMakeFiles/AITest.dir/JumpNode.cpp.o" "gcc" "CMakeFiles/AITest.dir/JumpNode.cpp.o.d"
   "/home/giese405/Checkers/JumpTree.cpp" "CMakeFiles/AITest.dir/JumpTree.cpp.o" "gcc" "CMakeFiles/AITest.dir/JumpTree.cpp.o.d"
   "/home/giese405/Checkers/Move.cpp" "CMakeFiles/AITest.dir/Move.cpp.o" "gcc" "CMakeFiles/AITest.dir/Move.cpp.o.d"
   "/home/giese405/Checkers/MoveNode.cpp" "CMakeFiles/AITest.dir/MoveNode.cpp.o" "gcc" "CMakeFiles/AITest.dir/MoveNode.cpp.o.d"

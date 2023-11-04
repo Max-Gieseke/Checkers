@@ -8,7 +8,6 @@
 #include "Move.h"
 
 int main(){
-    Board::initializeMaps();
    // MoveTree start = MoveTree(Board::randomBoard());
     MoveTree start = MoveTree();
     std::cout << start.getRoot()->getBoard();

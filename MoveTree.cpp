@@ -103,7 +103,7 @@ void MoveTree::updateRoot(const Move& lastMove) {
     for(auto & node : root->next){
         if(node->lastMove.equals(lastMove)){
             root = node;
-            root->parent = nullptr;
+            root->parent.reset();
             break;
         }
     }
@@ -111,8 +111,8 @@ void MoveTree::updateRoot(const Move& lastMove) {
 
 int MoveTree::getTreeSize() {
     std::shared_ptr<MoveNode> cur = root;
-    while(cur->parent != nullptr){
-        cur = cur->parent;
+    while(cur->parent.lock() != nullptr){
+        cur = cur->parent.lock();
     }
     return getNodeSize(cur);
 }

@@ -195,6 +195,62 @@ CMakeFiles/MoveExplorer.dir/MoveNode.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MoveExplorer.dir/MoveNode.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giese405/Checkers/MoveNode.cpp -o CMakeFiles/MoveExplorer.dir/MoveNode.cpp.s
 
+CMakeFiles/MoveExplorer.dir/CheckerBoard.cpp.o: CMakeFiles/MoveExplorer.dir/flags.make
+CMakeFiles/MoveExplorer.dir/CheckerBoard.cpp.o: /home/giese405/Checkers/CheckerBoard.cpp
+CMakeFiles/MoveExplorer.dir/CheckerBoard.cpp.o: CMakeFiles/MoveExplorer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giese405/Checkers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/MoveExplorer.dir/CheckerBoard.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MoveExplorer.dir/CheckerBoard.cpp.o -MF CMakeFiles/MoveExplorer.dir/CheckerBoard.cpp.o.d -o CMakeFiles/MoveExplorer.dir/CheckerBoard.cpp.o -c /home/giese405/Checkers/CheckerBoard.cpp
+
+CMakeFiles/MoveExplorer.dir/CheckerBoard.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MoveExplorer.dir/CheckerBoard.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giese405/Checkers/CheckerBoard.cpp > CMakeFiles/MoveExplorer.dir/CheckerBoard.cpp.i
+
+CMakeFiles/MoveExplorer.dir/CheckerBoard.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MoveExplorer.dir/CheckerBoard.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giese405/Checkers/CheckerBoard.cpp -o CMakeFiles/MoveExplorer.dir/CheckerBoard.cpp.s
+
+CMakeFiles/MoveExplorer.dir/CheckerLogic.cpp.o: CMakeFiles/MoveExplorer.dir/flags.make
+CMakeFiles/MoveExplorer.dir/CheckerLogic.cpp.o: /home/giese405/Checkers/CheckerLogic.cpp
+CMakeFiles/MoveExplorer.dir/CheckerLogic.cpp.o: CMakeFiles/MoveExplorer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giese405/Checkers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/MoveExplorer.dir/CheckerLogic.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MoveExplorer.dir/CheckerLogic.cpp.o -MF CMakeFiles/MoveExplorer.dir/CheckerLogic.cpp.o.d -o CMakeFiles/MoveExplorer.dir/CheckerLogic.cpp.o -c /home/giese405/Checkers/CheckerLogic.cpp
+
+CMakeFiles/MoveExplorer.dir/CheckerLogic.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MoveExplorer.dir/CheckerLogic.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giese405/Checkers/CheckerLogic.cpp > CMakeFiles/MoveExplorer.dir/CheckerLogic.cpp.i
+
+CMakeFiles/MoveExplorer.dir/CheckerLogic.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MoveExplorer.dir/CheckerLogic.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giese405/Checkers/CheckerLogic.cpp -o CMakeFiles/MoveExplorer.dir/CheckerLogic.cpp.s
+
+CMakeFiles/MoveExplorer.dir/CheckerMoveMaps.cpp.o: CMakeFiles/MoveExplorer.dir/flags.make
+CMakeFiles/MoveExplorer.dir/CheckerMoveMaps.cpp.o: /home/giese405/Checkers/CheckerMoveMaps.cpp
+CMakeFiles/MoveExplorer.dir/CheckerMoveMaps.cpp.o: CMakeFiles/MoveExplorer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giese405/Checkers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/MoveExplorer.dir/CheckerMoveMaps.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MoveExplorer.dir/CheckerMoveMaps.cpp.o -MF CMakeFiles/MoveExplorer.dir/CheckerMoveMaps.cpp.o.d -o CMakeFiles/MoveExplorer.dir/CheckerMoveMaps.cpp.o -c /home/giese405/Checkers/CheckerMoveMaps.cpp
+
+CMakeFiles/MoveExplorer.dir/CheckerMoveMaps.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MoveExplorer.dir/CheckerMoveMaps.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giese405/Checkers/CheckerMoveMaps.cpp > CMakeFiles/MoveExplorer.dir/CheckerMoveMaps.cpp.i
+
+CMakeFiles/MoveExplorer.dir/CheckerMoveMaps.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MoveExplorer.dir/CheckerMoveMaps.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giese405/Checkers/CheckerMoveMaps.cpp -o CMakeFiles/MoveExplorer.dir/CheckerMoveMaps.cpp.s
+
+CMakeFiles/MoveExplorer.dir/JumpNode.cpp.o: CMakeFiles/MoveExplorer.dir/flags.make
+CMakeFiles/MoveExplorer.dir/JumpNode.cpp.o: /home/giese405/Checkers/JumpNode.cpp
+CMakeFiles/MoveExplorer.dir/JumpNode.cpp.o: CMakeFiles/MoveExplorer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giese405/Checkers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/MoveExplorer.dir/JumpNode.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MoveExplorer.dir/JumpNode.cpp.o -MF CMakeFiles/MoveExplorer.dir/JumpNode.cpp.o.d -o CMakeFiles/MoveExplorer.dir/JumpNode.cpp.o -c /home/giese405/Checkers/JumpNode.cpp
+
+CMakeFiles/MoveExplorer.dir/JumpNode.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MoveExplorer.dir/JumpNode.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giese405/Checkers/JumpNode.cpp > CMakeFiles/MoveExplorer.dir/JumpNode.cpp.i
+
+CMakeFiles/MoveExplorer.dir/JumpNode.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MoveExplorer.dir/JumpNode.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giese405/Checkers/JumpNode.cpp -o CMakeFiles/MoveExplorer.dir/JumpNode.cpp.s
+
 # Object files for target MoveExplorer
 MoveExplorer_OBJECTS = \
 "CMakeFiles/MoveExplorer.dir/ExplorerTester.cpp.o" \
@@ -205,7 +261,11 @@ MoveExplorer_OBJECTS = \
 "CMakeFiles/MoveExplorer.dir/TranspositionTable.cpp.o" \
 "CMakeFiles/MoveExplorer.dir/Scores.cpp.o" \
 "CMakeFiles/MoveExplorer.dir/MoveTree.cpp.o" \
-"CMakeFiles/MoveExplorer.dir/MoveNode.cpp.o"
+"CMakeFiles/MoveExplorer.dir/MoveNode.cpp.o" \
+"CMakeFiles/MoveExplorer.dir/CheckerBoard.cpp.o" \
+"CMakeFiles/MoveExplorer.dir/CheckerLogic.cpp.o" \
+"CMakeFiles/MoveExplorer.dir/CheckerMoveMaps.cpp.o" \
+"CMakeFiles/MoveExplorer.dir/JumpNode.cpp.o"
 
 # External object files for target MoveExplorer
 MoveExplorer_EXTERNAL_OBJECTS =
@@ -219,9 +279,13 @@ MoveExplorer: CMakeFiles/MoveExplorer.dir/TranspositionTable.cpp.o
 MoveExplorer: CMakeFiles/MoveExplorer.dir/Scores.cpp.o
 MoveExplorer: CMakeFiles/MoveExplorer.dir/MoveTree.cpp.o
 MoveExplorer: CMakeFiles/MoveExplorer.dir/MoveNode.cpp.o
+MoveExplorer: CMakeFiles/MoveExplorer.dir/CheckerBoard.cpp.o
+MoveExplorer: CMakeFiles/MoveExplorer.dir/CheckerLogic.cpp.o
+MoveExplorer: CMakeFiles/MoveExplorer.dir/CheckerMoveMaps.cpp.o
+MoveExplorer: CMakeFiles/MoveExplorer.dir/JumpNode.cpp.o
 MoveExplorer: CMakeFiles/MoveExplorer.dir/build.make
 MoveExplorer: CMakeFiles/MoveExplorer.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/giese405/Checkers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable MoveExplorer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/giese405/Checkers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable MoveExplorer"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MoveExplorer.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

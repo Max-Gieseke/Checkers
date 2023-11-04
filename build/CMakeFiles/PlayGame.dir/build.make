@@ -195,6 +195,62 @@ CMakeFiles/PlayGame.dir/MoveNode.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PlayGame.dir/MoveNode.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giese405/Checkers/MoveNode.cpp -o CMakeFiles/PlayGame.dir/MoveNode.cpp.s
 
+CMakeFiles/PlayGame.dir/CheckerBoard.cpp.o: CMakeFiles/PlayGame.dir/flags.make
+CMakeFiles/PlayGame.dir/CheckerBoard.cpp.o: /home/giese405/Checkers/CheckerBoard.cpp
+CMakeFiles/PlayGame.dir/CheckerBoard.cpp.o: CMakeFiles/PlayGame.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giese405/Checkers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/PlayGame.dir/CheckerBoard.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PlayGame.dir/CheckerBoard.cpp.o -MF CMakeFiles/PlayGame.dir/CheckerBoard.cpp.o.d -o CMakeFiles/PlayGame.dir/CheckerBoard.cpp.o -c /home/giese405/Checkers/CheckerBoard.cpp
+
+CMakeFiles/PlayGame.dir/CheckerBoard.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PlayGame.dir/CheckerBoard.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giese405/Checkers/CheckerBoard.cpp > CMakeFiles/PlayGame.dir/CheckerBoard.cpp.i
+
+CMakeFiles/PlayGame.dir/CheckerBoard.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PlayGame.dir/CheckerBoard.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giese405/Checkers/CheckerBoard.cpp -o CMakeFiles/PlayGame.dir/CheckerBoard.cpp.s
+
+CMakeFiles/PlayGame.dir/CheckerLogic.cpp.o: CMakeFiles/PlayGame.dir/flags.make
+CMakeFiles/PlayGame.dir/CheckerLogic.cpp.o: /home/giese405/Checkers/CheckerLogic.cpp
+CMakeFiles/PlayGame.dir/CheckerLogic.cpp.o: CMakeFiles/PlayGame.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giese405/Checkers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/PlayGame.dir/CheckerLogic.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PlayGame.dir/CheckerLogic.cpp.o -MF CMakeFiles/PlayGame.dir/CheckerLogic.cpp.o.d -o CMakeFiles/PlayGame.dir/CheckerLogic.cpp.o -c /home/giese405/Checkers/CheckerLogic.cpp
+
+CMakeFiles/PlayGame.dir/CheckerLogic.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PlayGame.dir/CheckerLogic.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giese405/Checkers/CheckerLogic.cpp > CMakeFiles/PlayGame.dir/CheckerLogic.cpp.i
+
+CMakeFiles/PlayGame.dir/CheckerLogic.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PlayGame.dir/CheckerLogic.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giese405/Checkers/CheckerLogic.cpp -o CMakeFiles/PlayGame.dir/CheckerLogic.cpp.s
+
+CMakeFiles/PlayGame.dir/CheckerMoveMaps.cpp.o: CMakeFiles/PlayGame.dir/flags.make
+CMakeFiles/PlayGame.dir/CheckerMoveMaps.cpp.o: /home/giese405/Checkers/CheckerMoveMaps.cpp
+CMakeFiles/PlayGame.dir/CheckerMoveMaps.cpp.o: CMakeFiles/PlayGame.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giese405/Checkers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/PlayGame.dir/CheckerMoveMaps.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PlayGame.dir/CheckerMoveMaps.cpp.o -MF CMakeFiles/PlayGame.dir/CheckerMoveMaps.cpp.o.d -o CMakeFiles/PlayGame.dir/CheckerMoveMaps.cpp.o -c /home/giese405/Checkers/CheckerMoveMaps.cpp
+
+CMakeFiles/PlayGame.dir/CheckerMoveMaps.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PlayGame.dir/CheckerMoveMaps.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giese405/Checkers/CheckerMoveMaps.cpp > CMakeFiles/PlayGame.dir/CheckerMoveMaps.cpp.i
+
+CMakeFiles/PlayGame.dir/CheckerMoveMaps.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PlayGame.dir/CheckerMoveMaps.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giese405/Checkers/CheckerMoveMaps.cpp -o CMakeFiles/PlayGame.dir/CheckerMoveMaps.cpp.s
+
+CMakeFiles/PlayGame.dir/JumpNode.cpp.o: CMakeFiles/PlayGame.dir/flags.make
+CMakeFiles/PlayGame.dir/JumpNode.cpp.o: /home/giese405/Checkers/JumpNode.cpp
+CMakeFiles/PlayGame.dir/JumpNode.cpp.o: CMakeFiles/PlayGame.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giese405/Checkers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/PlayGame.dir/JumpNode.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PlayGame.dir/JumpNode.cpp.o -MF CMakeFiles/PlayGame.dir/JumpNode.cpp.o.d -o CMakeFiles/PlayGame.dir/JumpNode.cpp.o -c /home/giese405/Checkers/JumpNode.cpp
+
+CMakeFiles/PlayGame.dir/JumpNode.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PlayGame.dir/JumpNode.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giese405/Checkers/JumpNode.cpp > CMakeFiles/PlayGame.dir/JumpNode.cpp.i
+
+CMakeFiles/PlayGame.dir/JumpNode.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PlayGame.dir/JumpNode.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giese405/Checkers/JumpNode.cpp -o CMakeFiles/PlayGame.dir/JumpNode.cpp.s
+
 # Object files for target PlayGame
 PlayGame_OBJECTS = \
 "CMakeFiles/PlayGame.dir/PlayVsAI.cpp.o" \
@@ -205,7 +261,11 @@ PlayGame_OBJECTS = \
 "CMakeFiles/PlayGame.dir/TranspositionTable.cpp.o" \
 "CMakeFiles/PlayGame.dir/Scores.cpp.o" \
 "CMakeFiles/PlayGame.dir/MoveTree.cpp.o" \
-"CMakeFiles/PlayGame.dir/MoveNode.cpp.o"
+"CMakeFiles/PlayGame.dir/MoveNode.cpp.o" \
+"CMakeFiles/PlayGame.dir/CheckerBoard.cpp.o" \
+"CMakeFiles/PlayGame.dir/CheckerLogic.cpp.o" \
+"CMakeFiles/PlayGame.dir/CheckerMoveMaps.cpp.o" \
+"CMakeFiles/PlayGame.dir/JumpNode.cpp.o"
 
 # External object files for target PlayGame
 PlayGame_EXTERNAL_OBJECTS =
@@ -219,9 +279,13 @@ PlayGame: CMakeFiles/PlayGame.dir/TranspositionTable.cpp.o
 PlayGame: CMakeFiles/PlayGame.dir/Scores.cpp.o
 PlayGame: CMakeFiles/PlayGame.dir/MoveTree.cpp.o
 PlayGame: CMakeFiles/PlayGame.dir/MoveNode.cpp.o
+PlayGame: CMakeFiles/PlayGame.dir/CheckerBoard.cpp.o
+PlayGame: CMakeFiles/PlayGame.dir/CheckerLogic.cpp.o
+PlayGame: CMakeFiles/PlayGame.dir/CheckerMoveMaps.cpp.o
+PlayGame: CMakeFiles/PlayGame.dir/JumpNode.cpp.o
 PlayGame: CMakeFiles/PlayGame.dir/build.make
 PlayGame: CMakeFiles/PlayGame.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/giese405/Checkers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable PlayGame"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/giese405/Checkers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable PlayGame"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/PlayGame.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

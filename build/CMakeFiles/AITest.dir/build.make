@@ -83,24 +83,10 @@ CMakeFiles/AITest.dir/AIvsAI.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AITest.dir/AIvsAI.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giese405/Checkers/AIvsAI.cpp -o CMakeFiles/AITest.dir/AIvsAI.cpp.s
 
-CMakeFiles/AITest.dir/Board.cpp.o: CMakeFiles/AITest.dir/flags.make
-CMakeFiles/AITest.dir/Board.cpp.o: /home/giese405/Checkers/Board.cpp
-CMakeFiles/AITest.dir/Board.cpp.o: CMakeFiles/AITest.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giese405/Checkers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/AITest.dir/Board.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AITest.dir/Board.cpp.o -MF CMakeFiles/AITest.dir/Board.cpp.o.d -o CMakeFiles/AITest.dir/Board.cpp.o -c /home/giese405/Checkers/Board.cpp
-
-CMakeFiles/AITest.dir/Board.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AITest.dir/Board.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giese405/Checkers/Board.cpp > CMakeFiles/AITest.dir/Board.cpp.i
-
-CMakeFiles/AITest.dir/Board.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AITest.dir/Board.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giese405/Checkers/Board.cpp -o CMakeFiles/AITest.dir/Board.cpp.s
-
 CMakeFiles/AITest.dir/JumpTree.cpp.o: CMakeFiles/AITest.dir/flags.make
 CMakeFiles/AITest.dir/JumpTree.cpp.o: /home/giese405/Checkers/JumpTree.cpp
 CMakeFiles/AITest.dir/JumpTree.cpp.o: CMakeFiles/AITest.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giese405/Checkers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/AITest.dir/JumpTree.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giese405/Checkers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/AITest.dir/JumpTree.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AITest.dir/JumpTree.cpp.o -MF CMakeFiles/AITest.dir/JumpTree.cpp.o.d -o CMakeFiles/AITest.dir/JumpTree.cpp.o -c /home/giese405/Checkers/JumpTree.cpp
 
 CMakeFiles/AITest.dir/JumpTree.cpp.i: cmake_force
@@ -114,7 +100,7 @@ CMakeFiles/AITest.dir/JumpTree.cpp.s: cmake_force
 CMakeFiles/AITest.dir/Move.cpp.o: CMakeFiles/AITest.dir/flags.make
 CMakeFiles/AITest.dir/Move.cpp.o: /home/giese405/Checkers/Move.cpp
 CMakeFiles/AITest.dir/Move.cpp.o: CMakeFiles/AITest.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giese405/Checkers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/AITest.dir/Move.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giese405/Checkers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/AITest.dir/Move.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AITest.dir/Move.cpp.o -MF CMakeFiles/AITest.dir/Move.cpp.o.d -o CMakeFiles/AITest.dir/Move.cpp.o -c /home/giese405/Checkers/Move.cpp
 
 CMakeFiles/AITest.dir/Move.cpp.i: cmake_force
@@ -128,7 +114,7 @@ CMakeFiles/AITest.dir/Move.cpp.s: cmake_force
 CMakeFiles/AITest.dir/ZobristHash.cpp.o: CMakeFiles/AITest.dir/flags.make
 CMakeFiles/AITest.dir/ZobristHash.cpp.o: /home/giese405/Checkers/ZobristHash.cpp
 CMakeFiles/AITest.dir/ZobristHash.cpp.o: CMakeFiles/AITest.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giese405/Checkers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/AITest.dir/ZobristHash.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giese405/Checkers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/AITest.dir/ZobristHash.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AITest.dir/ZobristHash.cpp.o -MF CMakeFiles/AITest.dir/ZobristHash.cpp.o.d -o CMakeFiles/AITest.dir/ZobristHash.cpp.o -c /home/giese405/Checkers/ZobristHash.cpp
 
 CMakeFiles/AITest.dir/ZobristHash.cpp.i: cmake_force
@@ -142,7 +128,7 @@ CMakeFiles/AITest.dir/ZobristHash.cpp.s: cmake_force
 CMakeFiles/AITest.dir/TranspositionTable.cpp.o: CMakeFiles/AITest.dir/flags.make
 CMakeFiles/AITest.dir/TranspositionTable.cpp.o: /home/giese405/Checkers/TranspositionTable.cpp
 CMakeFiles/AITest.dir/TranspositionTable.cpp.o: CMakeFiles/AITest.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giese405/Checkers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/AITest.dir/TranspositionTable.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giese405/Checkers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/AITest.dir/TranspositionTable.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AITest.dir/TranspositionTable.cpp.o -MF CMakeFiles/AITest.dir/TranspositionTable.cpp.o.d -o CMakeFiles/AITest.dir/TranspositionTable.cpp.o -c /home/giese405/Checkers/TranspositionTable.cpp
 
 CMakeFiles/AITest.dir/TranspositionTable.cpp.i: cmake_force
@@ -156,7 +142,7 @@ CMakeFiles/AITest.dir/TranspositionTable.cpp.s: cmake_force
 CMakeFiles/AITest.dir/Scores.cpp.o: CMakeFiles/AITest.dir/flags.make
 CMakeFiles/AITest.dir/Scores.cpp.o: /home/giese405/Checkers/Scores.cpp
 CMakeFiles/AITest.dir/Scores.cpp.o: CMakeFiles/AITest.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giese405/Checkers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/AITest.dir/Scores.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giese405/Checkers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/AITest.dir/Scores.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AITest.dir/Scores.cpp.o -MF CMakeFiles/AITest.dir/Scores.cpp.o.d -o CMakeFiles/AITest.dir/Scores.cpp.o -c /home/giese405/Checkers/Scores.cpp
 
 CMakeFiles/AITest.dir/Scores.cpp.i: cmake_force
@@ -170,7 +156,7 @@ CMakeFiles/AITest.dir/Scores.cpp.s: cmake_force
 CMakeFiles/AITest.dir/MoveTree.cpp.o: CMakeFiles/AITest.dir/flags.make
 CMakeFiles/AITest.dir/MoveTree.cpp.o: /home/giese405/Checkers/MoveTree.cpp
 CMakeFiles/AITest.dir/MoveTree.cpp.o: CMakeFiles/AITest.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giese405/Checkers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/AITest.dir/MoveTree.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giese405/Checkers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/AITest.dir/MoveTree.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AITest.dir/MoveTree.cpp.o -MF CMakeFiles/AITest.dir/MoveTree.cpp.o.d -o CMakeFiles/AITest.dir/MoveTree.cpp.o -c /home/giese405/Checkers/MoveTree.cpp
 
 CMakeFiles/AITest.dir/MoveTree.cpp.i: cmake_force
@@ -184,7 +170,7 @@ CMakeFiles/AITest.dir/MoveTree.cpp.s: cmake_force
 CMakeFiles/AITest.dir/MoveNode.cpp.o: CMakeFiles/AITest.dir/flags.make
 CMakeFiles/AITest.dir/MoveNode.cpp.o: /home/giese405/Checkers/MoveNode.cpp
 CMakeFiles/AITest.dir/MoveNode.cpp.o: CMakeFiles/AITest.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giese405/Checkers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/AITest.dir/MoveNode.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giese405/Checkers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/AITest.dir/MoveNode.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AITest.dir/MoveNode.cpp.o -MF CMakeFiles/AITest.dir/MoveNode.cpp.o.d -o CMakeFiles/AITest.dir/MoveNode.cpp.o -c /home/giese405/Checkers/MoveNode.cpp
 
 CMakeFiles/AITest.dir/MoveNode.cpp.i: cmake_force
@@ -195,23 +181,81 @@ CMakeFiles/AITest.dir/MoveNode.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AITest.dir/MoveNode.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giese405/Checkers/MoveNode.cpp -o CMakeFiles/AITest.dir/MoveNode.cpp.s
 
+CMakeFiles/AITest.dir/CheckerBoard.cpp.o: CMakeFiles/AITest.dir/flags.make
+CMakeFiles/AITest.dir/CheckerBoard.cpp.o: /home/giese405/Checkers/CheckerBoard.cpp
+CMakeFiles/AITest.dir/CheckerBoard.cpp.o: CMakeFiles/AITest.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giese405/Checkers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/AITest.dir/CheckerBoard.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AITest.dir/CheckerBoard.cpp.o -MF CMakeFiles/AITest.dir/CheckerBoard.cpp.o.d -o CMakeFiles/AITest.dir/CheckerBoard.cpp.o -c /home/giese405/Checkers/CheckerBoard.cpp
+
+CMakeFiles/AITest.dir/CheckerBoard.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AITest.dir/CheckerBoard.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giese405/Checkers/CheckerBoard.cpp > CMakeFiles/AITest.dir/CheckerBoard.cpp.i
+
+CMakeFiles/AITest.dir/CheckerBoard.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AITest.dir/CheckerBoard.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giese405/Checkers/CheckerBoard.cpp -o CMakeFiles/AITest.dir/CheckerBoard.cpp.s
+
+CMakeFiles/AITest.dir/CheckerLogic.cpp.o: CMakeFiles/AITest.dir/flags.make
+CMakeFiles/AITest.dir/CheckerLogic.cpp.o: /home/giese405/Checkers/CheckerLogic.cpp
+CMakeFiles/AITest.dir/CheckerLogic.cpp.o: CMakeFiles/AITest.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giese405/Checkers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/AITest.dir/CheckerLogic.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AITest.dir/CheckerLogic.cpp.o -MF CMakeFiles/AITest.dir/CheckerLogic.cpp.o.d -o CMakeFiles/AITest.dir/CheckerLogic.cpp.o -c /home/giese405/Checkers/CheckerLogic.cpp
+
+CMakeFiles/AITest.dir/CheckerLogic.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AITest.dir/CheckerLogic.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giese405/Checkers/CheckerLogic.cpp > CMakeFiles/AITest.dir/CheckerLogic.cpp.i
+
+CMakeFiles/AITest.dir/CheckerLogic.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AITest.dir/CheckerLogic.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giese405/Checkers/CheckerLogic.cpp -o CMakeFiles/AITest.dir/CheckerLogic.cpp.s
+
+CMakeFiles/AITest.dir/CheckerMoveMaps.cpp.o: CMakeFiles/AITest.dir/flags.make
+CMakeFiles/AITest.dir/CheckerMoveMaps.cpp.o: /home/giese405/Checkers/CheckerMoveMaps.cpp
+CMakeFiles/AITest.dir/CheckerMoveMaps.cpp.o: CMakeFiles/AITest.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giese405/Checkers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/AITest.dir/CheckerMoveMaps.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AITest.dir/CheckerMoveMaps.cpp.o -MF CMakeFiles/AITest.dir/CheckerMoveMaps.cpp.o.d -o CMakeFiles/AITest.dir/CheckerMoveMaps.cpp.o -c /home/giese405/Checkers/CheckerMoveMaps.cpp
+
+CMakeFiles/AITest.dir/CheckerMoveMaps.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AITest.dir/CheckerMoveMaps.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giese405/Checkers/CheckerMoveMaps.cpp > CMakeFiles/AITest.dir/CheckerMoveMaps.cpp.i
+
+CMakeFiles/AITest.dir/CheckerMoveMaps.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AITest.dir/CheckerMoveMaps.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giese405/Checkers/CheckerMoveMaps.cpp -o CMakeFiles/AITest.dir/CheckerMoveMaps.cpp.s
+
+CMakeFiles/AITest.dir/JumpNode.cpp.o: CMakeFiles/AITest.dir/flags.make
+CMakeFiles/AITest.dir/JumpNode.cpp.o: /home/giese405/Checkers/JumpNode.cpp
+CMakeFiles/AITest.dir/JumpNode.cpp.o: CMakeFiles/AITest.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giese405/Checkers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/AITest.dir/JumpNode.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AITest.dir/JumpNode.cpp.o -MF CMakeFiles/AITest.dir/JumpNode.cpp.o.d -o CMakeFiles/AITest.dir/JumpNode.cpp.o -c /home/giese405/Checkers/JumpNode.cpp
+
+CMakeFiles/AITest.dir/JumpNode.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AITest.dir/JumpNode.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giese405/Checkers/JumpNode.cpp > CMakeFiles/AITest.dir/JumpNode.cpp.i
+
+CMakeFiles/AITest.dir/JumpNode.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AITest.dir/JumpNode.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giese405/Checkers/JumpNode.cpp -o CMakeFiles/AITest.dir/JumpNode.cpp.s
+
 # Object files for target AITest
 AITest_OBJECTS = \
 "CMakeFiles/AITest.dir/AIvsAI.cpp.o" \
-"CMakeFiles/AITest.dir/Board.cpp.o" \
 "CMakeFiles/AITest.dir/JumpTree.cpp.o" \
 "CMakeFiles/AITest.dir/Move.cpp.o" \
 "CMakeFiles/AITest.dir/ZobristHash.cpp.o" \
 "CMakeFiles/AITest.dir/TranspositionTable.cpp.o" \
 "CMakeFiles/AITest.dir/Scores.cpp.o" \
 "CMakeFiles/AITest.dir/MoveTree.cpp.o" \
-"CMakeFiles/AITest.dir/MoveNode.cpp.o"
+"CMakeFiles/AITest.dir/MoveNode.cpp.o" \
+"CMakeFiles/AITest.dir/CheckerBoard.cpp.o" \
+"CMakeFiles/AITest.dir/CheckerLogic.cpp.o" \
+"CMakeFiles/AITest.dir/CheckerMoveMaps.cpp.o" \
+"CMakeFiles/AITest.dir/JumpNode.cpp.o"
 
 # External object files for target AITest
 AITest_EXTERNAL_OBJECTS =
 
 AITest: CMakeFiles/AITest.dir/AIvsAI.cpp.o
-AITest: CMakeFiles/AITest.dir/Board.cpp.o
 AITest: CMakeFiles/AITest.dir/JumpTree.cpp.o
 AITest: CMakeFiles/AITest.dir/Move.cpp.o
 AITest: CMakeFiles/AITest.dir/ZobristHash.cpp.o
@@ -219,9 +263,13 @@ AITest: CMakeFiles/AITest.dir/TranspositionTable.cpp.o
 AITest: CMakeFiles/AITest.dir/Scores.cpp.o
 AITest: CMakeFiles/AITest.dir/MoveTree.cpp.o
 AITest: CMakeFiles/AITest.dir/MoveNode.cpp.o
+AITest: CMakeFiles/AITest.dir/CheckerBoard.cpp.o
+AITest: CMakeFiles/AITest.dir/CheckerLogic.cpp.o
+AITest: CMakeFiles/AITest.dir/CheckerMoveMaps.cpp.o
+AITest: CMakeFiles/AITest.dir/JumpNode.cpp.o
 AITest: CMakeFiles/AITest.dir/build.make
 AITest: CMakeFiles/AITest.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/giese405/Checkers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable AITest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/giese405/Checkers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable AITest"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/AITest.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

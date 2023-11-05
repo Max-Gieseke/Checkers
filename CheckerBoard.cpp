@@ -73,6 +73,12 @@ std::ostream &operator<<(std::ostream& out, CheckerBoard board) {
             i++;
         }
     }
+    if (board.getPlayer() == 0){
+        out << "White to play\n";
+    }
+    else {
+        out << "Black to play\n";
+    }
     return out;
 }
 

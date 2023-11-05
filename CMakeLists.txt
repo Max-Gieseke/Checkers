@@ -56,4 +56,4 @@ add_executable(AITest
         CheckerBoard.cpp CheckerBoard.h
         CheckerLogic.cpp CheckerLogic.h
         CheckerMoveMaps.cpp CheckerMoveMaps.h
-        JumpNode.cpp JumpNode.h )
+        JumpNode.cpp JumpNode.h)

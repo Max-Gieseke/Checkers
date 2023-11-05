@@ -9,23 +9,25 @@
 
 int main(){
    // MoveTree start = MoveTree(Board::randomBoard());
-    MoveTree start = MoveTree();
-    std::cout << start.getRoot()->getBoard();
+    CheckerBoard board;
+    std::cout << board;
 
     auto begin = std::chrono::high_resolution_clock::now();
-    int score = start.exploreTree(6);
+    std::pair<double, Move> temp = MoveTree::exploreMoves(8, board);
     auto end = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count();
 
-    std::cout << "Position Evaluation: " << score << std::endl;
-    std::cout << "Best move\n" << start.getRoot()->getBestMove();
+    std::cout << "Position Evaluation: " << temp.first << std::endl;
+    std::cout << "Best move\n" << temp.second;
     std::cout << "Time taken: " << duration << " microseconds (" << duration / 1000000.0 << " seconds)\n";
-    start.updateRoot(start.getRoot()->getBestMove());
-    std::cout << start.getRoot()->getBoard();
-    std::cout << "Score: " << start.exploreTree(6) << std::endl;
-    std::cout << "Move: " << start.getRoot()->getBestMove();
-    start.updateRoot(start.getRoot()->getBestMove());
-    std::cout << start.getRoot()->getBoard();
+    board = CheckerLogic::doTurn(temp.second, board);
+    std::cout << board;
+    temp = MoveTree::exploreMoves(8, board);
+    std::cout << "Score: " << temp.first << std::endl;
+    std::cout << "Move: " << temp.second;
+    board = CheckerLogic::doTurn(temp.second, board);
+    std::cout << board;
+    std::cout << "Actual score: " << CheckerLogic::scoreBoard(board);
 
     return 0;
 }

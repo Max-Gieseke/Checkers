@@ -24,6 +24,7 @@ public:
     static std::vector<Move> possibleMoves(const CheckerBoard& board);
     static CheckerBoard doMove(const Move&, const CheckerBoard&);
     static CheckerBoard doTurn(const Move&, const CheckerBoard&);
+    static std::pair<double, Move>exploreMoves(int, CheckerBoard);
     /**
      * Do a single jump on curBoard and return a new board with the completed jump
      * and whether a king was made

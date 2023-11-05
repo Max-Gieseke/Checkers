@@ -118,7 +118,6 @@ std::vector<Move> CheckerLogic::possibleMoves(const CheckerBoard& board) {
 
 CheckerBoard CheckerLogic::doMove(const Move& move, const CheckerBoard& board) {
     CheckerBoard nBoard = board;
-    small start = move.getStart();
     nBoard.movePiece(move.getStart(), move.getEnd());
     for(const small& sq : move.getRemove()){
         nBoard.removePiece(sq);
@@ -226,4 +225,28 @@ double CheckerLogic::scoreBoard(const CheckerBoard & board) {
         return 100.0;
     }
     return curBlack - curWhite;
+}
+
+
+std::pair<double, Move> CheckerLogic::exploreMoves(int left, CheckerBoard board) {
+    if(left <= 0){
+        return {CheckerLogic::scoreBoard(board), Move()};
+    }
+    std::vector<Move> moves = CheckerLogic::possibleMoves(board);
+    int multiply = 1;
+    if(board.getPlayer() == 0){
+        multiply = -1;
+    }
+    Move best;
+    double max = -INT32_MAX;
+    for(const auto& m : moves){
+        std::pair<double, Move> tmp;
+        CheckerBoard tmpBoard = CheckerLogic::doTurn(m, board);
+        tmp = exploreMoves(left - 1, tmpBoard);
+        if(multiply * tmp.first > max){
+            max = multiply * tmp.first;
+            best = m;
+        }
+    }
+    return {max, best};
 }

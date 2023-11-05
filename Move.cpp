@@ -7,8 +7,8 @@
 #include <utility>
 
 Move::Move() {
-    start = 64;
-    end = 64;
+    start = 0;
+    end = 0;
     remove = std::vector<small>();
 }
 

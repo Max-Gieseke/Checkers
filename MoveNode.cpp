@@ -8,7 +8,7 @@ MoveNode::MoveNode() {
     this->curBoard = CheckerBoard();
     this->depthSearched = 0;
     this->score = 0;
-    this->parent = nullptr;
+    this->parent = std::weak_ptr<MoveNode>();
     this->next = std::vector<std::shared_ptr<MoveNode>>();
 }
 

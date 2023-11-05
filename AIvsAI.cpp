@@ -9,7 +9,7 @@ int main(){
         double eval = 0;
         std::cout << player.getRoot()->getBoard();
         int move = 0;
-        while(eval < 99 && eval > -99){
+        while(eval < 99 && eval > -99 && move < 10){
             move++;
             eval = player.exploreTree(6);
             std::cout << "Tree size: " << player.getTreeSize() << std::endl;

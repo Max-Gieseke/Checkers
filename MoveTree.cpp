@@ -71,9 +71,9 @@ double MoveTree::exploreMoves(int left, std::shared_ptr<MoveNode> node) {
 
         std::shared_ptr<MoveNode> newChild = std::make_shared<MoveNode>(b, left, 0, node, m);
         node->addChild(newChild);
-        if(left == 6){
-            std::cout << "added " << newChild->getLastMove() << std::endl;
-        }
+        // if(left == 6){
+        //     std::cout << "added " << newChild->getLastMove() << std::endl;
+        // }
 
         score = exploreMoves(left - 1, node->next.back());
 

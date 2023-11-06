@@ -1,6 +1,0 @@
-C:/Users/maxgi/CS Stuff/Personal Projects/Checkers/cmake-build-debug/CMakeFiles/MoveTester.dir
-C:/Users/maxgi/CS Stuff/Personal Projects/Checkers/cmake-build-debug/CMakeFiles/MoveExplorer.dir
-C:/Users/maxgi/CS Stuff/Personal Projects/Checkers/cmake-build-debug/CMakeFiles/PlayGame.dir
-C:/Users/maxgi/CS Stuff/Personal Projects/Checkers/cmake-build-debug/CMakeFiles/AITest.dir
-C:/Users/maxgi/CS Stuff/Personal Projects/Checkers/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/maxgi/CS Stuff/Personal Projects/Checkers/cmake-build-debug/CMakeFiles/rebuild_cache.dir

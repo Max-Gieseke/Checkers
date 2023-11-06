@@ -38,6 +38,7 @@ public:
     small maxDepth();
 
     CheckerBoard getBoard();
+    void clear();
 
     friend std::ostream &operator<<(std::ostream&, const JumpNode&);
 };

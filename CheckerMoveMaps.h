@@ -10,7 +10,7 @@ using small = unsigned char;
 class CheckerMoveMaps {
 public:
     static CheckerMoveMaps& getInstance();
-    std::vector<small>* getMoveMap(small);
+    const std::vector<small>* getMoveMap(small);
 
 private:
     CheckerMoveMaps();

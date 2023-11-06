@@ -5,13 +5,13 @@
 #include "CheckerLogic.h"
 
 int main(){
-    int depth = 6;
+    int depth = 4;
     CheckerBoard board;
     double eval = 0;
     std::cout << board;
     std::cout << "------------------------------------\n";
     int move = 0;
-        while(eval < 99 && eval > -99){
+        while(eval < 99 && eval > -99 && move < 40){
             std::pair<double, Move> tmp;
             move++;
 

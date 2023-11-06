@@ -17,6 +17,7 @@ public:
     JumpTree(small, CheckerBoard);
     std::vector<Move> jumpMoves();
     std::shared_ptr<JumpNode> getRoot();
+    void clearTree();
 
 
 };

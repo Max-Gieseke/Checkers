@@ -35,4 +35,9 @@ std::vector<Move> JumpTree::jumpMoves() {
 }
 
 
+void JumpTree::clearTree(){
+    root->clear();
+    root.reset();
+}
+
 

@@ -2,30 +2,31 @@
 // Created by maxgi on 8/23/2023.
 //
 
-#include "MoveTree.h"
+#include "CheckerLogic.h"
 #include "cstdlib"
 
 int main(){
-    MoveTree player = MoveTree();
-    player.exploreTree(6);
+    CheckerBoard board;
     double eval = 0;
-    std::cout << player.getRoot()->getBoard();
+    std::cout << board;
+    std::pair<double, Move> temp;
     int tmp;
     while(eval < 99 && eval > -99){
         tmp = -1;
-        while(tmp < 0 || tmp > player.getRoot()->getNext().size()){
+        std::vector<Move> moves = CheckerLogic::possibleMoves(board);
+        while(tmp < 0 || tmp > moves.size()){
             std::cout << "Choose an option:\n";
-            for(int i = 0; i < player.getRoot()->getNext().size(); i++){
-                std::cout << i << ".) " << player.getRoot()->getNext()[i]->getLastMove();
+            for(int i = 0; i < moves.size(); i++){
+                std::cout << i << ".) " << moves[i];
             }
             std::cin >> tmp;
         }
-        player.updateRoot(player.getRoot()->getNext()[tmp]->getLastMove());
-        std::cout << player.getRoot()->getBoard();
-        eval = player.exploreTree(8);
-        player.updateRoot(player.getRoot()->getBestMove());
+        board = CheckerLogic::doTurn(temp.second, board);
+        std::cout << board;
+        temp = CheckerLogic::exploreMoves(6, board);
+        board = CheckerLogic::doTurn(temp.second, board);
         std::cout << "------------------------------------\n";
-        std::cout << "Evaluation: " << eval << std::endl;
-        std::cout << player.getRoot()->getBoard();
+        std::cout << "Evaluation: " << temp.first << std::endl;
+        std::cout << board;
     }
 }

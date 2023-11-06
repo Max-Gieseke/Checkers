@@ -49,7 +49,7 @@ CheckerMoveMaps::CheckerMoveMaps() {
 
 }
 
-std::vector<small>* CheckerMoveMaps::getMoveMap(small piece) {
+const std::vector<small>* CheckerMoveMaps::getMoveMap(small piece) {
     switch(piece){
         case 1:
             return blackMoveMap;

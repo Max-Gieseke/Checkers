@@ -6,13 +6,13 @@
 
 std::vector<std::pair<small, small>> CheckerLogic::singleJump(small square, const CheckerBoard& checkerboard) {
     small piece = checkerboard.getPiece(square);
-    std::vector<small>* squareMap = CheckerMoveMaps::getInstance().getMoveMap(piece);
+    const std::vector<small>* squareMap = CheckerMoveMaps::getInstance().getMoveMap(piece);
     std::vector<std::pair<small, small>> result;
 
-    std::vector<small> moveMap = squareMap[square];
+    const std::vector<small> moveMap = squareMap[square];
     small color = (piece + 1) % 2;
 
-    for(unsigned char& sq : moveMap){
+    for(const unsigned char& sq : moveMap){
         if(getColor(checkerboard.getPiece(sq)) == color){
             int end = finalJump(square, sq);
             if(end >= 0 && end <= 32 && checkerboard.getPiece(end) == 0){
@@ -46,7 +46,9 @@ std::vector<Move> CheckerLogic::getJumps(small square, const CheckerBoard& board
             }
         }
     }
-    return head.jumpMoves();
+    std::vector<Move> moves = head.jumpMoves();
+    head.clearTree();
+    return moves;
 }
 
 std::vector<Move> CheckerLogic::possibleMoves(const CheckerBoard& board) {
@@ -56,8 +58,8 @@ std::vector<Move> CheckerLogic::possibleMoves(const CheckerBoard& board) {
     small numJumps = 0;
     small king;
     small piece;
-    std::vector<small>* pieceMap;
-    std::vector<small>* kingMap;
+    const std::vector<small>* pieceMap;
+    const std::vector<small>* kingMap;
     for(int i = 0; i < 32; i++){
         std::vector<Move> jumps;
         small curPiece = board.getPiece(i);

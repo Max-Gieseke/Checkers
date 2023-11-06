@@ -110,3 +110,14 @@ std::ostream &operator<<(std::ostream &out, const JumpNode& m) {
     return out;
 }
 
+
+void JumpNode::clear() {
+    if (next.empty()){
+        parent.reset();
+        return;
+    }
+    for(auto & node : next){
+        node->clear();
+    }
+    parent.reset();
+}

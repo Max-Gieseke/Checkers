@@ -22,8 +22,6 @@ add_executable(MoveExplorer
         ZobristHash.cpp ZobristHash.h
         TranspositionTable.cpp TranspositionTable.h
         Scores.cpp Scores.h
-        MoveTree.cpp MoveTree.h
-        MoveNode.cpp MoveNode.h
         CheckerBoard.cpp CheckerBoard.h
         CheckerLogic.cpp CheckerLogic.h
         CheckerMoveMaps.cpp CheckerMoveMaps.h
@@ -37,8 +35,6 @@ add_executable(PlayGame
         ZobristHash.cpp ZobristHash.h
         TranspositionTable.cpp TranspositionTable.h
         Scores.cpp Scores.h
-        MoveTree.cpp MoveTree.h
-        MoveNode.cpp MoveNode.h
         CheckerBoard.cpp CheckerBoard.h
         CheckerLogic.cpp CheckerLogic.h
         CheckerMoveMaps.cpp CheckerMoveMaps.h
@@ -51,8 +47,6 @@ add_executable(AITest
         ZobristHash.cpp ZobristHash.h
         TranspositionTable.cpp TranspositionTable.h
         Scores.cpp Scores.h
-        MoveTree.cpp MoveTree.h
-        MoveNode.cpp MoveNode.h
         CheckerBoard.cpp CheckerBoard.h
         CheckerLogic.cpp CheckerLogic.h
         CheckerMoveMaps.cpp CheckerMoveMaps.h

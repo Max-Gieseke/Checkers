@@ -10,13 +10,13 @@ using small = unsigned char;
 class CheckerMoveMaps {
 public:
     static CheckerMoveMaps& getInstance();
-    const std::vector<small>* getMoveMap(small);
+    const std::vector<std::vector<small>>& getMoveMap(small);
 
 private:
     CheckerMoveMaps();
-    std::vector<small> whiteMoveMap[32];
-    std::vector<small> blackMoveMap[32];
-    std::vector<small> kingMoveMap[32];
+    std::vector<std::vector<small>> whiteMoveMap;
+    std::vector<std::vector<small>> blackMoveMap;
+    std::vector<std::vector<small>> kingMoveMap;
 
 };
 

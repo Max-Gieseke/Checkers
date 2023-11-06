@@ -11,10 +11,9 @@ int main(){
     std::cout << board;
     std::cout << "------------------------------------\n";
     int move = 0;
-        while(eval < 99 && eval > -99 && move < 40){
+        while(eval < 99 && eval > -99){
             std::pair<double, Move> tmp;
             move++;
-
             // Black move
             tmp = CheckerLogic::exploreMoves(depth, board);
             std::cout << "Move "<< move << " Evaluation: " << tmp.first << std::endl;

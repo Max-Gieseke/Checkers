@@ -10,6 +10,9 @@ CheckerMoveMaps &CheckerMoveMaps::getInstance() {
 }
 
 CheckerMoveMaps::CheckerMoveMaps() {
+    whiteMoveMap.resize(32, std::vector<small>());
+    blackMoveMap.resize(32, std::vector<small>());
+    kingMoveMap.resize(32, std::vector<small>());
     for(int i = 0; i < 32; i++){
         if(i < 28){
             kingMoveMap[i].push_back(i + 4);
@@ -49,7 +52,7 @@ CheckerMoveMaps::CheckerMoveMaps() {
 
 }
 
-const std::vector<small>* CheckerMoveMaps::getMoveMap(small piece) {
+const std::vector<std::vector<small>>& CheckerMoveMaps::getMoveMap(small piece) {
     switch(piece){
         case 1:
             return blackMoveMap;

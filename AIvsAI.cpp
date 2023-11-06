@@ -21,7 +21,10 @@ int main(){
             std::cout << board;
             eval = CheckerLogic::scoreBoard(board);
             std::cout << "Board above is " << eval << std::endl;
-
+            if(tmp.first > 200){
+                std::cout << "Bad score\n";
+                return 0;
+            }
             //White Move
             tmp = CheckerLogic::exploreMoves(depth, board);
             std::cout <<"Move " << ++move<< " Evaluation: " << tmp.first << std::endl;
@@ -30,5 +33,9 @@ int main(){
             eval = CheckerLogic::scoreBoard(board);
             std::cout << "Board above is " << eval << std::endl;
             std::cout << "------------------------------------\n";
+            if(tmp.first > 200){
+                std::cout << "Bad score\n";
+                return 0;
+            }
         }
 }

@@ -8,14 +8,12 @@ std::vector<std::pair<small, small>> CheckerLogic::singleJump(small square, cons
     small piece = checkerboard.getPiece(square);
     const std::vector<std::vector<small>>& squareMap = CheckerMoveMaps::getInstance().getMoveMap(piece);
     std::vector<std::pair<small, small>> result;
-
     const std::vector<small> moveMap = squareMap[square];
     small color = (piece + 1) % 2;
-
     for(const unsigned char& sq : moveMap){
         if(getColor(checkerboard.getPiece(sq)) == color){
             int end = finalJump(square, sq);
-            if(end >= 0 && end <= 32 && checkerboard.getPiece(end) == 0){
+            if(end >= 0 && end < 32 && checkerboard.getPiece(end) == 0){
                 small e = small(end);
                 result.emplace_back(sq, e);
             }
@@ -39,6 +37,12 @@ std::vector<Move> CheckerLogic::getJumps(small square, const CheckerBoard& board
             //JumpTree tmp = JumpTree(p.second, cur->getDepth() + 1, p.first, cur, b);
             //cout << tmp;
             std::shared_ptr<JumpNode> newChild = std::make_shared<JumpNode>(p.second, cur->getDepth() + 1, p.first, cur, b);
+            if(newChild->getSquare() == 32){
+                std::cout << "Square: " << static_cast<int>(newChild->getSquare()) << std::endl;
+                std::cout << newChild->getBoard();
+                std::cout << "Parent board and square: " << static_cast<int>(cur->getSquare())  << " ::"<< std::endl;
+                std::cout << cur->getBoard();
+            }
             cur->addChild(newChild);
             //cout << cur.getNext().back();
             if(!newKing){
@@ -63,6 +67,10 @@ std::vector<Move> CheckerLogic::possibleMoves(const CheckerBoard& board) {
         small curPiece = board.getPiece(i);
         if(curPiece != 0 && currentPlayer == curPiece % 2){
             //cout << i << endl;
+            // if(i == 32){
+            //     std::cout << "I: " << static_cast<int>(square) << std::endl;
+            //     std::cout << board;
+            // }
             jumps = getJumps(i, board);
         }
         else{
@@ -148,6 +156,9 @@ int CheckerLogic::finalJump(small start, small capt) {
     int sub = start - capt;
     //Even row is 0, odd row is 1
     int t = capt % 8;
+    // if(start == 25 && capt == 28){
+    //     std::cout << "In finalJump, t = " << t << std::endl;
+    // }
     if(t == 0 || t == 7){
         return 64;
     }

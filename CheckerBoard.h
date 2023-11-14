@@ -31,6 +31,7 @@ public:
     void removePiece(small square);
     void switchPlayer();
 
+    int getPieceSet(int pieceType) const;
 };
 
 

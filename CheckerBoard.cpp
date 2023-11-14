@@ -134,6 +134,19 @@ void CheckerBoard::switchPlayer() {
     currentPlayer = 1 - currentPlayer;
 }
 
+int CheckerBoard::getPieceSet(int pieceType) const{
+    if(pieceType == 1){
+        return blackPieces;
+    }
+    else if (pieceType == 2){
+        return whitePieces;
+    }
+    else if (pieceType == 3){
+        return blackKings;
+    }
+    return whiteKings;
+}
+
 
 
 

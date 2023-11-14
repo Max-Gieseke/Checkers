@@ -236,12 +236,81 @@ double CheckerLogic::scoreBoard(const CheckerBoard & board) {
     return curBlack - curWhite;
 }
 
+bool CheckerLogic::gameOver(const CheckerBoard& board){
+    return (((board.getPieceSet(1) == 0) && (board.getPieceSet(3) == 0)) || ((board.getPieceSet(2) == 0) && (board.getPieceSet(4) == 0)));
+}
 
-std::pair<double, Move> CheckerLogic::exploreMoves(int left, CheckerBoard board) {
-    if(left <= 0){
-        return {CheckerLogic::scoreBoard(board), Move()};
+double CheckerLogic::explore(int left, CheckerBoard board){
+    //std::cout << "+++++++\n";
+    if (left == 0 || gameOver(board)){
+//        if(gameOver(board)){
+//            std::cout <<"Game over worked\n";
+//        }
+        return CheckerLogic::scoreBoard(board);
+//        if(tmp > 100 || tmp < -100){
+//            std::cout << "Failure in explore\n";
+//        }
+//        if(board.getPlayer() == 0){
+//            return 100;
+//        }
+//        return -100;
     }
     std::vector<Move> moves = CheckerLogic::possibleMoves(board);
+    if(moves.empty()){
+//        std::cout << "No moves in explore\n";
+//        std::cout << "black piece: " << board.getPieceSet(1) << std::endl;
+//        std::cout << "white piece: " << board.getPieceSet(2) << std::endl;
+//        std::cout << "black king: " << board.getPieceSet(3) << std::endl;
+//        std::cout << "white king: " << board.getPieceSet(4) << std::endl;
+//        std::cout << board;
+//        std::cout << "+++++++\n";
+        if(board.getPlayer() == 0){
+            return 100;
+        }
+        return -100;
+    }
+    int multiply = 1;
+    if(board.getPlayer() == 0){
+        multiply = -1;
+    }
+    double max = -INT32_MAX;
+    for(const auto& m : moves){
+        double score;
+        CheckerBoard tmpBoard = CheckerLogic::doTurn(m, board);
+        score = explore(left - 1, tmpBoard);
+        if(multiply * score > max){
+            max = score;
+        }
+    }
+//    if(max == -INT32_MAX){
+//        std::cout << "We failed to get new move in explore\n";
+//    }
+    return max;
+
+}
+
+std::pair<double, Move> CheckerLogic::exploreMoves(int left, CheckerBoard board) {
+    //When first passed in, we should not have 0 moves or a game over state
+    if(left == 0 || gameOver(board)){
+        std::cout << "We should not be here\n";
+
+        if(board.getPlayer() == 0){
+            return {100, Move()};
+        }
+        return {scoreBoard(board), Move()};
+    }
+    //Checking to see if no moves
+    std::vector<Move> moves = CheckerLogic::possibleMoves(board);
+//    if(moves.empty()){
+//        std::cout << "ExploreMoves+++++++\n";
+//        std::cout << "No moves\n";
+//        std::cout << "black piece: " << board.getPieceSet(1) << std::endl;
+//        std::cout << "white piece: " << board.getPieceSet(2) << std::endl;
+//        std::cout << "black king: " << board.getPieceSet(3) << std::endl;
+//        std::cout << "white king: " << board.getPieceSet(4) << std::endl;
+//        std::cout << board;
+//        std::cout << "+++++++\n";
+//    }
     int multiply = 1;
     if(board.getPlayer() == 0){
         multiply = -1;
@@ -249,13 +318,17 @@ std::pair<double, Move> CheckerLogic::exploreMoves(int left, CheckerBoard board)
     Move best;
     double max = -INT32_MAX;
     for(const auto& m : moves){
-        std::pair<double, Move> tmp;
+        double score;
         CheckerBoard tmpBoard = CheckerLogic::doTurn(m, board);
-        tmp = exploreMoves(left - 1, tmpBoard);
-        if(multiply * tmp.first > max){
-            max = multiply * tmp.first;
+        score = explore(left - 1, tmpBoard);
+        if(multiply * score > max){
+            max = score;
             best = m;
         }
     }
+//    if(max == INT32_MAX){
+//        std::cout << "failed to get new move in ExploreMoves\n";
+//        std::cout << best;
+//    }
     return {max, best};
 }

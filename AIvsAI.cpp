@@ -5,7 +5,7 @@
 #include "CheckerLogic.h"
 
 int main(){
-    int depth = 4;
+    int depth = 6;
     CheckerBoard board;
     double eval = 0;
     std::cout << board;
@@ -20,7 +20,15 @@ int main(){
             board = CheckerLogic::doTurn(tmp.second, board);
             std::cout << board;
             eval = CheckerLogic::scoreBoard(board);
+            //only black can win on its turn
             std::cout << "Board above is " << eval << std::endl;
+            if(move == 91){
+                std::cout << "Is game over: " << CheckerLogic::gameOver(board) << std::endl;
+            }
+            if(CheckerLogic::gameOver(board)){
+                std::cout << "black won\n";
+                return 0;
+            }
             if(tmp.first > 200){
                 std::cout << "Bad score\n";
                 return 0;
@@ -32,6 +40,10 @@ int main(){
             std::cout << board;
             eval = CheckerLogic::scoreBoard(board);
             std::cout << "Board above is " << eval << std::endl;
+            if(CheckerLogic::gameOver(board)){
+                std::cout << "white won\n";
+                return 0;
+            }
             std::cout << "------------------------------------\n";
             if(tmp.first > 200){
                 std::cout << "Bad score\n";

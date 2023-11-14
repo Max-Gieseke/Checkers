@@ -41,6 +41,10 @@ public:
      */
     static small maxJumps(std::vector<Move>);
     static double scoreBoard(const CheckerBoard&);
+
+    static bool gameOver(const CheckerBoard &board);
+
+    static double explore(int left, CheckerBoard board);
 };
 
 

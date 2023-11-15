@@ -8,6 +8,8 @@ add_executable(MoveTester
         Board.cpp Board.h
         JumpTree.cpp JumpTree.h
         Move.cpp Move.h
+        ZobristHash.cpp ZobristHash.h
+        TranspositionTable.cpp TranspositionTable.h
         Scores.cpp Scores.h
         CheckerBoard.cpp CheckerBoard.h
         CheckerLogic.cpp CheckerLogic.h

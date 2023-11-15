@@ -2,17 +2,17 @@
 // Created by maxgi on 8/22/2023.
 //
 #include <iostream>
-#include "CheckerLogic.h"
-#include "Board.h"
+#include "../include/CheckerLogic.h"
+#include "../include/Board.h"
 #include <chrono>
-#include "Move.h"
-#include "AiPlayer.h"
+#include "../include/Move.h"
+#include "../include/AiPlayer.h"
 
 int main(){
    // MoveTree start = MoveTree(Board::randomBoard());
     CheckerBoard board;
     std::cout << board;
-    AiPlayer ai = AiPlayer(16);
+    AiPlayer ai = AiPlayer(11);
 
     auto begin = std::chrono::high_resolution_clock::now();
     Move m = ai.getPlay(board);

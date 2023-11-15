@@ -2,10 +2,10 @@
 // Created by maxgi on 8/23/2023.
 //
 
-#include "CheckerLogic.h"
+#include "../include/CheckerLogic.h"
 #include "cstdlib"
-#include "AiPlayer.h"
-#include "HumanPlayer.h"
+#include "../include/AiPlayer.h"
+#include "../include/HumanPlayer.h"
 
 int main(){
     HumanPlayer human;

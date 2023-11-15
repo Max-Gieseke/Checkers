@@ -2,7 +2,7 @@
 // Created by maxgi on 10/31/2023.
 //
 
-#include "CheckerLogic.h"
+#include "../include/CheckerLogic.h"
 
 std::vector<std::pair<small, small>> CheckerLogic::singleJump(small square, const CheckerBoard& checkerboard) {
     small piece = checkerboard.getPiece(square);

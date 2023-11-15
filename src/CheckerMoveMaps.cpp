@@ -2,7 +2,7 @@
 // Created by maxgi on 10/31/2023.
 //
 
-#include "CheckerMoveMaps.h"
+#include "../include/CheckerMoveMaps.h"
 
 CheckerMoveMaps &CheckerMoveMaps::getInstance() {
     static CheckerMoveMaps instance;

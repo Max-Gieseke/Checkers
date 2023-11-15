@@ -2,10 +2,10 @@
 // Created by maxgi on 8/23/2023.
 //
 #include <iostream>
-#include "CheckerLogic.h"
-#include "AiPlayer.h"
+#include "../include/CheckerLogic.h"
+#include "../include/AiPlayer.h"
 int main(){
-    AiPlayer ai = AiPlayer(12);
+    AiPlayer ai = AiPlayer(11);
     CheckerBoard board;
     double eval = 0;
     std::cout << board;

@@ -4,64 +4,64 @@ project(Checkers)
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(MoveTester
-        MoveTester.cpp
-        Board.cpp Board.h
-        JumpTree.cpp JumpTree.h
-        Move.cpp Move.h
-        ZobristHash.cpp ZobristHash.h
-        TranspositionTable.cpp TranspositionTable.h
-        Scores.cpp Scores.h
-        CheckerBoard.cpp CheckerBoard.h
-        CheckerLogic.cpp CheckerLogic.h
-        CheckerMoveMaps.cpp CheckerMoveMaps.h
-        JumpNode.cpp JumpNode.h
-        AiPlayer.cpp AiPlayer.h
-        HumanPlayer.cpp HumanPlayer.h
-        Player.h)
+        programs/MoveTester.cpp
+        include/Board.cpp include/Board.h
+        src/JumpTree.cpp include/JumpTree.h
+        src/Move.cpp include/Move.h
+        src/ZobristHash.cpp include/ZobristHash.h
+        src/TranspositionTable.cpp include/TranspositionTable.h
+        src/Scores.cpp include/Scores.h
+        src/CheckerBoard.cpp include/CheckerBoard.h
+        src/CheckerLogic.cpp include/CheckerLogic.h
+        src/CheckerMoveMaps.cpp include/CheckerMoveMaps.h
+        src/JumpNode.cpp include/JumpNode.h
+        src/AiPlayer.cpp include/AiPlayer.h
+        src/HumanPlayer.cpp include/HumanPlayer.h
+        include/Player.h)
 
 add_executable(MoveExplorer
-        ExplorerTester.cpp
-        Board.cpp Board.h
-        JumpTree.cpp JumpTree.h
-        Move.cpp Move.h
-        ZobristHash.cpp ZobristHash.h
-        TranspositionTable.cpp TranspositionTable.h
-        Scores.cpp Scores.h
-        CheckerBoard.cpp CheckerBoard.h
-        CheckerLogic.cpp CheckerLogic.h
-        CheckerMoveMaps.cpp CheckerMoveMaps.h
-        JumpNode.cpp JumpNode.h
-        AiPlayer.cpp AiPlayer.h
-        HumanPlayer.cpp HumanPlayer.h
-        Player.h)
+        programs/ExplorerTester.cpp
+        include/Board.cpp include/Board.h
+        src/JumpTree.cpp include/JumpTree.h
+        src/Move.cpp include/Move.h
+        src/ZobristHash.cpp include/ZobristHash.h
+        src/TranspositionTable.cpp include/TranspositionTable.h
+        src/Scores.cpp include/Scores.h
+        src/CheckerBoard.cpp include/CheckerBoard.h
+        src/CheckerLogic.cpp include/CheckerLogic.h
+        src/CheckerMoveMaps.cpp include/CheckerMoveMaps.h
+        src/JumpNode.cpp include/JumpNode.h
+        src/AiPlayer.cpp include/AiPlayer.h
+        src/HumanPlayer.cpp include/HumanPlayer.h
+        include/Player.h)
 
 add_executable(PlayGame
-        PlayVsAI.cpp
-        Board.cpp Board.h
-        JumpTree.cpp JumpTree.h
-        Move.cpp Move.h
-        ZobristHash.cpp ZobristHash.h
-        TranspositionTable.cpp TranspositionTable.h
-        Scores.cpp Scores.h
-        CheckerBoard.cpp CheckerBoard.h
-        CheckerLogic.cpp CheckerLogic.h
-        CheckerMoveMaps.cpp CheckerMoveMaps.h
-        JumpNode.cpp JumpNode.h
-        AiPlayer.cpp AiPlayer.h
-        HumanPlayer.cpp HumanPlayer.h
-        Player.h)
+        programs/PlayVsAI.cpp
+        include/Board.cpp include/Board.h
+        src/JumpTree.cpp include/JumpTree.h
+        src/Move.cpp include/Move.h
+        src/ZobristHash.cpp include/ZobristHash.h
+        src/TranspositionTable.cpp include/TranspositionTable.h
+        src/Scores.cpp include/Scores.h
+        src/CheckerBoard.cpp include/CheckerBoard.h
+        src/CheckerLogic.cpp include/CheckerLogic.h
+        src/CheckerMoveMaps.cpp include/CheckerMoveMaps.h
+        src/JumpNode.cpp include/JumpNode.h
+        src/AiPlayer.cpp include/AiPlayer.h
+        src/HumanPlayer.cpp include/HumanPlayer.h
+        include/Player.h)
 
 add_executable(AITest
-        AIvsAI.cpp
-        JumpTree.cpp JumpTree.h
-        Move.cpp Move.h
-        ZobristHash.cpp ZobristHash.h
-        TranspositionTable.cpp TranspositionTable.h
-        Scores.cpp Scores.h
-        CheckerBoard.cpp CheckerBoard.h
-        CheckerLogic.cpp CheckerLogic.h
-        CheckerMoveMaps.cpp CheckerMoveMaps.h
-        JumpNode.cpp JumpNode.h
-        AiPlayer.cpp AiPlayer.h
-        HumanPlayer.cpp HumanPlayer.h
-        Player.h)
+        programs/AIvsAI.cpp
+        src/JumpTree.cpp include/JumpTree.h
+        src/Move.cpp include/Move.h
+        src/ZobristHash.cpp include/ZobristHash.h
+        src/TranspositionTable.cpp include/TranspositionTable.h
+        src/Scores.cpp include/Scores.h
+        src/CheckerBoard.cpp include/CheckerBoard.h
+        src/CheckerLogic.cpp include/CheckerLogic.h
+        src/CheckerMoveMaps.cpp include/CheckerMoveMaps.h
+        src/JumpNode.cpp include/JumpNode.h
+        src/AiPlayer.cpp include/AiPlayer.h
+        src/HumanPlayer.cpp include/HumanPlayer.h
+        include/Player.h)

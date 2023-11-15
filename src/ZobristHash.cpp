@@ -2,7 +2,7 @@
 // Created by maxgi on 8/22/2023.
 //
 
-#include "ZobristHash.h"
+#include "../include/ZobristHash.h"
 
 unsigned long long int ZobristHash::randomInt() {
     std::uniform_int_distribution<unsigned long long int> dist(0, UINT64_MAX);

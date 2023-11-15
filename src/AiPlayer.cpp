@@ -2,7 +2,7 @@
 // Created by maxgi on 11/15/2023.
 //
 
-#include "AiPlayer.h"
+#include "../include/AiPlayer.h"
 
 AiPlayer::AiPlayer() {
     depth = 8;

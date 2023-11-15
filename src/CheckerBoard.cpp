@@ -2,7 +2,7 @@
 // Created by maxgi on 10/31/2023.
 //
 
-#include "CheckerBoard.h"
+#include "../include/CheckerBoard.h"
 
 
 

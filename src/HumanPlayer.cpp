@@ -2,7 +2,7 @@
 // Created by maxgi on 11/15/2023.
 //
 
-#include "HumanPlayer.h"
+#include "../include/HumanPlayer.h"
 
 Move HumanPlayer::getPlay(const CheckerBoard& board) {
     int tmp = -1;

@@ -2,7 +2,7 @@
 // Created by maxgi on 8/22/2023.
 //
 
-#include "TranspositionTable.h"
+#include "../include/TranspositionTable.h"
 
 TranspositionTable::TranspositionTable() {
     hash = ZobristHash();

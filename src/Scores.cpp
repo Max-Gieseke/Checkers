@@ -2,7 +2,7 @@
 // Created by maxgi on 8/22/2023.
 //
 
-#include "Scores.h"
+#include "../include/Scores.h"
 //Temporary testing scores
 Scores::Scores() {
     kingVal = 6.0;

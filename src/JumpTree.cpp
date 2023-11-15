@@ -2,7 +2,7 @@
 // Created by maxgi on 12/21/2022.
 //
 
-#include "JumpTree.h"
+#include "../include/JumpTree.h"
 
 JumpTree::JumpTree(small square, CheckerBoard board) {
     root = std::make_shared<JumpNode>(square, board);

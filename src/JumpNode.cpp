@@ -2,7 +2,7 @@
 // Created by maxgi on 10/31/2023.
 //
 
-#include "JumpNode.h"
+#include "../include/JumpNode.h"
 
 
 JumpNode::JumpNode() {

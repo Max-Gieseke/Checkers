@@ -2,8 +2,8 @@
 // Created by maxgi on 8/20/2023.
 //
 
-#include "CheckerBoard.h"
-#include "CheckerLogic.h"
+#include "../include/CheckerBoard.h"
+#include "../include/CheckerLogic.h"
 #include <ctime>
 using small = unsigned char;
 template <typename S>

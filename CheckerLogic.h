@@ -9,6 +9,7 @@
 #include "CheckerBoard.h"
 #include "CheckerMoveMaps.h"
 #include "JumpTree.h"
+#include "TranspositionTable.h"
 #include "queue"
 class CheckerLogic {
 private:
@@ -24,7 +25,7 @@ public:
     static std::vector<Move> possibleMoves(const CheckerBoard& board);
     static CheckerBoard doMove(const Move&, const CheckerBoard&);
     static CheckerBoard doTurn(const Move&, const CheckerBoard&);
-    static std::pair<double, Move>exploreMoves(int, CheckerBoard);
+    static std::pair<double, Move>exploreMoves(int, CheckerBoard, TranspositionTable&);
     /**
      * Do a single jump on curBoard and return a new board with the completed jump
      * and whether a king was made
@@ -44,7 +45,9 @@ public:
 
     static bool gameOver(const CheckerBoard &board);
 
-    static double explore(int left, CheckerBoard board);
+    static double explore(int left, CheckerBoard board, double alpha, double beta, TranspositionTable&);
+
+    static double handleExpanded(CheckerBoard board);
 };
 
 

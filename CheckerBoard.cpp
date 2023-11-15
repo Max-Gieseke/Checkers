@@ -7,6 +7,11 @@
 
 
 CheckerBoard::CheckerBoard() {
+//    for(int& piece : pieceSet){
+//        piece = 0;
+//    }
+//    pieceSet[0] = pieceSet[0] | 0xFFF;
+//    pieceSet[1] = pieceSet[1] | 0xFFF <<20;
     whiteKings = 0;
     blackKings = 0;
     whitePieces = 0;
@@ -34,10 +39,14 @@ small CheckerBoard::getPiece(small square) const {
 
 CheckerBoard &CheckerBoard::operator=(const CheckerBoard &other) {
     if(this != &other) {
+//        for(int i = 0; i < 4; i++){
+//            this->pieceSet[i] = other.pieceSet[i];
+//        }
         this->whitePieces = other.whitePieces;
         this->blackPieces = other.blackPieces;
         this->whiteKings = other.whiteKings;
         this->blackKings = other.blackKings;
+
         this->currentPlayer = other.currentPlayer;
     }
     return *this;
@@ -134,7 +143,7 @@ void CheckerBoard::switchPlayer() {
     currentPlayer = 1 - currentPlayer;
 }
 
-int CheckerBoard::getPieceSet(int pieceType) const{
+int CheckerBoard::getPieceSet(int pieceType) const {
     if(pieceType == 1){
         return blackPieces;
     }
@@ -146,7 +155,3 @@ int CheckerBoard::getPieceSet(int pieceType) const{
     }
     return whiteKings;
 }
-
-
-
-

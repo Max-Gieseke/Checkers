@@ -4,29 +4,31 @@
 
 #include "CheckerLogic.h"
 #include "cstdlib"
+#include "AiPlayer.h"
+#include "HumanPlayer.h"
 
 int main(){
+    HumanPlayer human;
+    AiPlayer ai = AiPlayer(12);
     CheckerBoard board;
     double eval = 0;
     std::cout << board;
     std::pair<double, Move> temp;
     int tmp;
     while(eval < 99 && eval > -99){
-        tmp = -1;
-        std::vector<Move> moves = CheckerLogic::possibleMoves(board);
-        while(tmp < 0 || tmp > moves.size()){
-            std::cout << "Choose an option:\n";
-            for(int i = 0; i < moves.size(); i++){
-                std::cout << i << ".) " << moves[i];
-            }
-            std::cin >> tmp;
+        human.doTurn(board);
+        std::cout << board;
+        if(CheckerLogic::gameOver(board)){
+            std::cout << "You win!\n";
+            break;
         }
-        board = CheckerLogic::doTurn(temp.second, board);
-        std::cout << board;
-        temp = CheckerLogic::exploreMoves(6, board);
-        board = CheckerLogic::doTurn(temp.second, board);
+        ai.doTurn(board);
         std::cout << "------------------------------------\n";
-        std::cout << "Evaluation: " << temp.first << std::endl;
+        std::cout << "Evaluation: " << CheckerLogic::scoreBoard(board) << std::endl;
         std::cout << board;
+        if(CheckerLogic::gameOver(board)){
+            std::cout << "You lost\n";
+            break;
+        }
     }
 }

@@ -45,7 +45,7 @@ std::ostream &operator<<(std::ostream &out, const Move& m) {
     return out;
 }
 
-Move& Move::operator=(const Move& other){
+Move& Move::operator=(const Move& other) {
     if(this != &other){
         this->start = other.start;
         this->end = other.end;
@@ -76,4 +76,8 @@ Move::Move(small s, small e, std::vector<small> remove) {
     this->start = s;
     this->end = e;
     this->remove = std::move(remove);
+}
+
+bool Move::isCapture() const {
+    return !(remove.empty());
 }

@@ -1,26 +1,31 @@
-////
-//// Created by Max Gieseke on 8/22/2023.
-////
 //
-//#ifndef CHECKERS_TRANSPOSITIONTABLE_H
-//#define CHECKERS_TRANSPOSITIONTABLE_H
-//#include "ZobristHash.h"
-//#include <unordered_map>
+// Created by Max Gieseke on 8/22/2023.
 //
-//
-//class TranspositionTable {
-//private:
-//    ZobristHash hash;
-//    std::unordered_map<unsigned long long int, std::shared_ptr<MoveNode>> table;
-//public:
-//    TranspositionTable();
-//    std::shared_ptr<MoveNode> getValue(unsigned long long int);
-//    void addValue(std::shared_ptr<MoveNode>);
-//    unsigned long long int computeHash(CheckerBoard);
-//    bool isIn(CheckerBoard, int);
-//    std::shared_ptr<MoveNode> getNode(CheckerBoard);
-//
-//};
-//
-//
-//#endif //CHECKERS_TRANSPOSITIONTABLE_H
+
+#ifndef CHECKERS_TRANSPOSITIONTABLE_H
+#define CHECKERS_TRANSPOSITIONTABLE_H
+#include "ZobristHash.h"
+#include <unordered_map>
+
+
+class TranspositionTable {
+    struct Datum {
+        double evaluation;
+        int depth;
+        CheckerBoard board;
+    };
+private:
+    ZobristHash hash;
+    std::unordered_map<unsigned long long int, Datum> table;
+public:
+    TranspositionTable();
+    double getValue(unsigned long long int);
+    void addValue(const CheckerBoard&, int, double);
+    unsigned long long int computeHash(CheckerBoard);
+    bool isIn(CheckerBoard, int);
+    double getEvaluation(CheckerBoard);
+
+};
+
+
+#endif //CHECKERS_TRANSPOSITIONTABLE_H

@@ -12,7 +12,10 @@ add_executable(MoveTester
         CheckerBoard.cpp CheckerBoard.h
         CheckerLogic.cpp CheckerLogic.h
         CheckerMoveMaps.cpp CheckerMoveMaps.h
-        JumpNode.cpp JumpNode.h)
+        JumpNode.cpp JumpNode.h
+        AiPlayer.cpp AiPlayer.h
+        HumanPlayer.cpp HumanPlayer.h
+        Player.h)
 
 add_executable(MoveExplorer
         ExplorerTester.cpp
@@ -25,7 +28,10 @@ add_executable(MoveExplorer
         CheckerBoard.cpp CheckerBoard.h
         CheckerLogic.cpp CheckerLogic.h
         CheckerMoveMaps.cpp CheckerMoveMaps.h
-        JumpNode.cpp JumpNode.h)
+        JumpNode.cpp JumpNode.h
+        AiPlayer.cpp AiPlayer.h
+        HumanPlayer.cpp HumanPlayer.h
+        Player.h)
 
 add_executable(PlayGame
         PlayVsAI.cpp
@@ -38,7 +44,10 @@ add_executable(PlayGame
         CheckerBoard.cpp CheckerBoard.h
         CheckerLogic.cpp CheckerLogic.h
         CheckerMoveMaps.cpp CheckerMoveMaps.h
-        JumpNode.cpp JumpNode.h)
+        JumpNode.cpp JumpNode.h
+        AiPlayer.cpp AiPlayer.h
+        HumanPlayer.cpp HumanPlayer.h
+        Player.h)
 
 add_executable(AITest
         AIvsAI.cpp
@@ -50,4 +59,7 @@ add_executable(AITest
         CheckerBoard.cpp CheckerBoard.h
         CheckerLogic.cpp CheckerLogic.h
         CheckerMoveMaps.cpp CheckerMoveMaps.h
-        JumpNode.cpp JumpNode.h)
+        JumpNode.cpp JumpNode.h
+        AiPlayer.cpp AiPlayer.h
+        HumanPlayer.cpp HumanPlayer.h
+        Player.h)

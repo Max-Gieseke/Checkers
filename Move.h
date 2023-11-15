@@ -22,6 +22,7 @@ public:
     small getEnd() const;
     std::vector<small> getRemove() const;
     friend std::ostream& operator<<(std::ostream& out, const Move& m);
+    bool isCapture() const;
     Move& operator=(const Move&);
     bool equals(const Move&);
 };

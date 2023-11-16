@@ -37,6 +37,99 @@ small CheckerBoard::getPiece(small square) const {
     return 0;
 }
 
+small CheckerBoard::getColor(small piece) {
+    if(piece == 1 || piece == 3){
+        return 1;
+    }
+    else if(piece == 2 || piece == 4){
+        return 0;
+    }
+    return -1;
+}
+
+int CheckerBoard::finalJump(small start, small capt) {
+    int sub = start - capt;
+    //Even row is 0, odd row is 1
+    int t = capt % 8;
+    // if(start == 25 && capt == 28){
+    //     std::cout << "In finalJump, t = " << t << std::endl;
+    // }
+    if(t == 0 || t == 7){
+        return 64;
+    }
+    //cout << "Start: " << (int)start << " Capture: " << (int)capt << endl;
+    small even = (start / 4) % 2;
+    if(sub == 3 || sub == 5){
+        return capt - 4;
+    }
+    else if(sub == 4){
+        if(even == 0){
+            return capt - 3;
+        }
+        else{
+            return capt - 5;
+        }
+    }
+    else if (sub == -3 || sub == -5){
+        return capt + 4;
+    }
+    else{
+        if(even == 0){
+            return capt + 5;
+        }
+        else{
+            return capt + 3;
+        }
+    }
+}
+
+CheckerBoard CheckerBoard::doSingleJump(small start, small end, small remove, bool &newKing) {
+    CheckerBoard cBoard = *this;
+    newKing = cBoard.movePiece(start, end);
+    cBoard.removePiece(remove);
+    return cBoard;
+}
+
+double CheckerBoard::scoreBoard(const Scores& points) {
+    double curBlack = 0;
+    double curWhite = 0;
+    int pieceDif = 0;
+    for(int i = 0; i < 32; i ++){
+        //black pawn
+        small curPiece = getPiece(i);
+        if(curPiece == 1){
+            pieceDif++;
+            curBlack += points.blackPawnVal;
+            curBlack += points.blackPawnPerSquare[i];
+        }
+            //white pawn
+        else if(curPiece == 2){
+            pieceDif--;
+            curWhite += points.whitePawnVal;
+            curWhite += points.whitePawnPerSquare[i];
+        }
+            //black king
+        else if(curPiece == 3){
+            pieceDif++;
+            curBlack += points.blackKingVal;
+            curBlack += points.blackKingPerSquare[i];
+        }
+            //white king
+        else if(curPiece == 4){
+            pieceDif--;
+            curWhite += points.whiteKingVal;
+            curWhite += points.whiteKingPerSquare[i];
+        }
+    }
+    if(curBlack == 0){
+        return -points.winVal;
+    }
+    if(curWhite == 0){
+        return points.winVal;
+    }
+    return curBlack - curWhite + pieceDif * points.pieceDifference;
+}
+
 CheckerBoard &CheckerBoard::operator=(const CheckerBoard &other) {
     if(this != &other) {
 //        for(int i = 0; i < 4; i++){
@@ -50,6 +143,11 @@ CheckerBoard &CheckerBoard::operator=(const CheckerBoard &other) {
         this->currentPlayer = other.currentPlayer;
     }
     return *this;
+}
+
+bool CheckerBoard::gameOver(){
+    return (((getPieceSet(1) == 0) && (getPieceSet(3) == 0)) ||
+            ((getPieceSet(2) == 0) && (getPieceSet(4) == 0)));
 }
 
 std::ostream &operator<<(std::ostream& out, CheckerBoard board) {
@@ -154,4 +252,14 @@ int CheckerBoard::getPieceSet(int pieceType) const {
         return blackKings;
     }
     return whiteKings;
+}
+
+CheckerBoard CheckerBoard::doTurn(const Move& move) {
+    CheckerBoard nBoard = *this;
+    nBoard.movePiece(move.getStart(), move.getEnd());
+    for(const small& sq : move.getRemove()){
+        nBoard.removePiece(sq);
+    }
+    nBoard.switchPlayer();
+    return nBoard;
 }

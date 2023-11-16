@@ -5,7 +5,7 @@
 #ifndef CHECKERS_HUMANPLAYER_H
 #define CHECKERS_HUMANPLAYER_H
 #include "Player.h"
-#include "CheckerLogic.h"
+#include "JumpTree.h"
 
 class HumanPlayer : public Player {
 public:

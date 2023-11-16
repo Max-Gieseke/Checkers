@@ -4,14 +4,14 @@
 
 #ifndef CHECKERS_PLAYER_H
 #define CHECKERS_PLAYER_H
-#include "CheckerLogic.h"
+#include "CheckerBoard.h"
 
 class Player {
 public:
     virtual Move getPlay(const CheckerBoard&) = 0;
-    virtual void doTurn(CheckerBoard& board) {
+    virtual void completeTurn(CheckerBoard& board) {
         Move m = getPlay(board);
-        board = CheckerLogic::doTurn(m, board);
+        board = board.doTurn(m);
     }
 };
 

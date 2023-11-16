@@ -8,6 +8,8 @@
 #include <vector>
 #include "Scores.h"
 #include "Move.h"
+#include "CheckerMoveMaps.h"
+#include "queue"
 #include <iostream>
 
 class CheckerBoard {
@@ -30,7 +32,22 @@ public:
     small getPlayer() const;
     void removePiece(small square);
     void switchPlayer();
+    static small getColor(small);
+    static int finalJump(small, small);
 
+    /**
+     * Do a single jump on curBoard and return a new board with the completed jump
+     * and whether a king was made
+     * @param start the square the move started from
+     * @param end the square the piece ends up on
+     * @param remove the square that should be removed
+     * @param curBoard the board that is being used
+     * @return a new CheckerBoard with the jump done
+     */
+    CheckerBoard doSingleJump(small start, small end, small remove, bool& newKing);
+    double scoreBoard(const Scores&);
+    bool gameOver();
+    CheckerBoard doTurn(const Move&);
     int getPieceSet(int pieceType) const;
 };
 

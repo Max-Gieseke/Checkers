@@ -6,7 +6,7 @@
 
 Move HumanPlayer::getPlay(const CheckerBoard& board) {
     int tmp = -1;
-    std::vector<Move> moves = CheckerLogic::possibleMoves(board);
+    std::vector<Move> moves = JumpTree::possibleMoves(board);
     while(tmp < 0 || tmp > moves.size()){
         std::cout << "Choose an option:\n";
         for(int i = 0; i < moves.size(); i++){

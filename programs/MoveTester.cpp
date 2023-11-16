@@ -3,7 +3,7 @@
 //
 
 #include "../include/CheckerBoard.h"
-#include "../include/CheckerLogic.h"
+#include "../include/JumpTree.h"
 #include <ctime>
 using small = unsigned char;
 template <typename S>
@@ -24,10 +24,10 @@ int main(){
     small b1[32];
     CheckerBoard normal = CheckerBoard();
     std::cout << normal;
-    std::cout << "Evaluation: " << CheckerLogic::scoreBoard(normal)  << std::endl;
+    std::cout << "Evaluation: " << normal.scoreBoard(Scores())  << std::endl;
 
 
-    std::vector<Move> m1 = CheckerLogic::possibleMoves(normal);
+    std::vector<Move> m1 = JumpTree::possibleMoves(normal);
     std::cout << "Num Moves: " << m1.size() << std::endl;
     for(Move m : m1){
         std::cout << m;

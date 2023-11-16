@@ -2,7 +2,6 @@
 // Created by maxgi on 8/23/2023.
 //
 #include <iostream>
-#include "../include/CheckerLogic.h"
 #include "../include/AiPlayer.h"
 int main(){
     AiPlayer ai = AiPlayer(11);
@@ -13,22 +12,22 @@ int main(){
     int move = 0;
         while(eval < 99 && eval > -99){
             std::cout << "------------------------------------\n";
-            ai.doTurn(board);
+            ai.completeTurn(board);
             move++;
             std::cout << board;
-            eval = CheckerLogic::scoreBoard(board);
+            eval = board.scoreBoard(ai.getScoring());
             //only black can win on its turn
             std::cout << "Board above is " << eval << std::endl;
-            if(CheckerLogic::gameOver(board)){
+            if(board.gameOver()){
                 std::cout << "black won\n";
                 return 0;
             }
             //White Move
-            ai.doTurn(board);
+            ai.completeTurn(board);
             std::cout << board;
-            eval = CheckerLogic::scoreBoard(board);
+            eval = board.scoreBoard(ai.getScoring());
             std::cout << "Board above is " << eval << std::endl;
-            if(CheckerLogic::gameOver(board)){
+            if(board.gameOver()){
                 std::cout << "white won\n";
                 return 0;
             }

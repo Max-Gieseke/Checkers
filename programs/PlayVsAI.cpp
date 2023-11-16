@@ -2,7 +2,6 @@
 // Created by maxgi on 8/23/2023.
 //
 
-#include "../include/CheckerLogic.h"
 #include "cstdlib"
 #include "../include/AiPlayer.h"
 #include "../include/HumanPlayer.h"
@@ -16,17 +15,17 @@ int main(){
     std::pair<double, Move> temp;
     int tmp;
     while(eval < 99 && eval > -99){
-        human.doTurn(board);
+        human.completeTurn(board);
         std::cout << board;
-        if(CheckerLogic::gameOver(board)){
+        if(board.gameOver()){
             std::cout << "You win!\n";
             break;
         }
-        ai.doTurn(board);
+        ai.completeTurn(board);
         std::cout << "------------------------------------\n";
-        std::cout << "Evaluation: " << CheckerLogic::scoreBoard(board) << std::endl;
+        std::cout << "Evaluation: " << board.scoreBoard(ai.getScoring()) << std::endl;
         std::cout << board;
-        if(CheckerLogic::gameOver(board)){
+        if(board.gameOver()){
             std::cout << "You lost\n";
             break;
         }

@@ -63,7 +63,7 @@ add_executable(AITest
         src/HumanPlayer.cpp include/HumanPlayer.h
         include/Player.h json.hpp src/MCPlayer.cpp include/MCPlayer.h)
 
-add_executable(GeneticAlgorithm
+add_executable(WebServer
         web/server.cpp
         src/JumpTree.cpp include/JumpTree.h
         src/Move.cpp include/Move.h
@@ -76,6 +76,5 @@ add_executable(GeneticAlgorithm
         src/AiPlayer.cpp include/AiPlayer.h
         src/HumanPlayer.cpp include/HumanPlayer.h
         include/Player.h
-        json.hpp src/MCPlayer.cpp include/MCPlayer.h)
-
-
+        json.hpp src/MCPlayer.cpp include/MCPlayer.h
+        httplib.h)

@@ -3,8 +3,9 @@
 //
 #include <iostream>
 #include "../include/AiPlayer.h"
+#include "../include/MCPlayer.h"
 int main(){
-    AiPlayer ai = AiPlayer(11);
+    MCPlayer ai = MCPlayer(1);
     CheckerBoard board;
     double eval = 0;
     std::cout << board;

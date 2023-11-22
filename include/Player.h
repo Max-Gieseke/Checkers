@@ -11,6 +11,7 @@ public:
     virtual Move getPlay(const CheckerBoard&) = 0;
     virtual void completeTurn(CheckerBoard& board) {
         Move m = getPlay(board);
+        std::cout << m;
         board = board.doTurn(m);
     }
 };

@@ -13,15 +13,15 @@ MCNode::MCNode(CheckerBoard board) {
     this->board = board;
 }
 
-MCNode::MCNode() {
+MCNode::MCNode() : children() {
     this->parent = nullptr;
-    this->UCB = 0;
+    this->UCB = -1;
     timesVisited = 0;
     wins = 0;
     board = CheckerBoard();
 }
 
-MCNode::MCNode(CheckerBoard board, std::shared_ptr<MCNode> parent) {
+MCNode::MCNode(CheckerBoard board, std::shared_ptr<MCNode> parent) : children() {
     this->board = board;
     this->parent = parent;
     this->UCB = -1;
@@ -29,14 +29,14 @@ MCNode::MCNode(CheckerBoard board, std::shared_ptr<MCNode> parent) {
     wins = 0;
 }
 
-MCNode::MCNode(float UCB, std::shared_ptr<MCNode> parent) {
+MCNode::MCNode(float UCB, std::shared_ptr<MCNode> parent) : children() {
     this->parent = parent;
     this->UCB = UCB;
     wins = 0;
     timesVisited = 0;
 }
 
-MCNode::MCNode(float UCB) {
+MCNode::MCNode(float UCB) : children() {
     this->parent = nullptr;
     this->UCB = UCB;
     wins = 0;
@@ -54,9 +54,9 @@ void MCNode::playOutGame(double timeAllowed) {
         computeResults(result, player);
         duration = std::chrono::duration_cast<std::chrono::microseconds>(
                 std::chrono::high_resolution_clock::now() - start).count();
-        std::cout << "Played " << MCNode::timesPlayed << " games\n";
         MCNode::timesPlayed++;
     }
+    std::cout << "Played " << MCNode::timesPlayed << " games\n";
 }
 
 /*
@@ -77,10 +77,15 @@ int MCNode::findBestUnexplored(int numMoves, const short& ogPlayer) {
         return 0;
     }
     std::shared_ptr<MCNode> next;
-    float best_UCB;
+    float best_UCB = -1;
     int result;
     if (children.empty()) {
         std::vector<Move> moves = JumpTree::possibleMoves(board);
+        if(moves.empty()){
+            int result = -2 * board.getPlayer() + 1;
+            computeResults(result, ogPlayer);
+            return result;
+        }
         for(auto& m : moves) {
             children.push_back(std::make_shared<MCNode>(
                     MCNode(board.doTurn(m), std::make_shared<MCNode>(*this))));
@@ -115,6 +120,12 @@ int MCNode::rollout(int numMoves, const short& ogPlayer) {
         return 0;
     }
     std::vector<Move> moves = JumpTree::possibleMoves(board);
+    if(moves.empty()){
+        int result = -2 * board.getPlayer() + 1;
+        //black was og and won or white was and won
+        computeResults(result, ogPlayer);
+        return result;
+    }
     for(auto& m : moves){
         children.push_back(std::make_shared<MCNode>(
                 MCNode(board.doTurn(m), std::make_shared<MCNode>(*this))));
@@ -126,34 +137,39 @@ int MCNode::rollout(int numMoves, const short& ogPlayer) {
 
 }
 
-float MCNode::calcUCB() {
+void MCNode::calcUCB() {
     if(parent == nullptr){ //if we are root node, no parent
-        return 0;
+        return;
     }
-    return wins / MCNode::timesPlayed +
-            std::sqrt(std::log(parent->timesVisited) / MCNode::timesPlayed);
+    float tmp = (static_cast<float>(wins) / static_cast<float>(MCNode::timesPlayed)) +
+            std::sqrt(std::log(static_cast<float>(parent->timesVisited)) / static_cast<float>(MCNode::timesPlayed));
+    //std::cout << "New UCB: " << tmp << std::endl;
+    this->UCB = tmp;
+
 }
 
 
 void MCNode::computeResults(const short & result, const short & ogPlayer) {
     if(result == 0){
         this->wins += 0.5;
-        this->UCB = this->calcUCB();
+        this->calcUCB();
     }
     else if ((ogPlayer == result) || (ogPlayer == result + 1)){
         this->wins++;
-        this->UCB = this->calcUCB();
+        this->calcUCB();
     }
     else {
-        this->UCB = this->calcUCB();
+        this->calcUCB();
     }
 }
 //Got to change board to move
 Move MCNode::getBestChild() {
     float bestUCB = 0;
-    Move bestMove;
+    
     std::vector<Move> moves = JumpTree::possibleMoves(board);
+    Move bestMove = moves[0];
     for(const auto& child : this->children){
+        //std::cout << "UCB: " << child->UCB << std::endl;
         if (child->UCB > bestUCB){
             bestUCB = child->UCB;
             for(const Move& m : moves) {

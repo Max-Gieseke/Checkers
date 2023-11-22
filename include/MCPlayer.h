@@ -31,7 +31,7 @@ public:
     static int timesPlayed;
     static int player;
     void computeResults(const short&, const short&);
-    float calcUCB();
+    void calcUCB();
     Move getBestChild();
     void clearNode();
 

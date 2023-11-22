@@ -4,15 +4,16 @@
 
 #include "cstdlib"
 #include "../include/AiPlayer.h"
+#include "../include/MCPlayer.h"
 #include "../include/HumanPlayer.h"
 
-json loadFromLatestGen();
+//json loadFromLatestGen();
 int DEPTH = 12;
 
 int main(){
     HumanPlayer human;
-    json vals = loadFromLatestGen();
-    AiPlayer ai = AiPlayer(12);
+    //json vals = loadFromLatestGen();
+    MCPlayer ai = MCPlayer(2);
     CheckerBoard board;
     double eval = 0;
     std::cout << board;

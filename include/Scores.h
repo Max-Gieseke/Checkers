@@ -14,7 +14,8 @@ private:
 
 public:
     Scores();
-    Scores(const json&);
+    explicit Scores(const json&);
+    json scoresToJson();
 //    static Scores& getInstance();
 //    double kingVal;
 //    double pawnVal;

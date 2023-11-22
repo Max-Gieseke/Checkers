@@ -6,12 +6,14 @@
 #include <chrono>
 #include "../include/Move.h"
 #include "../include/AiPlayer.h"
+#include "../include/MCPlayer.h"
 
 int main(){
    // MoveTree start = MoveTree(Board::randomBoard());
+   srand(std::time(nullptr));
     CheckerBoard board;
     std::cout << board;
-    AiPlayer ai = AiPlayer(16);
+    MCPlayer ai = MCPlayer(1);
 
     auto begin = std::chrono::high_resolution_clock::now();
     Move m = ai.getPlay(board);

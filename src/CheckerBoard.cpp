@@ -90,9 +90,9 @@ CheckerBoard CheckerBoard::doSingleJump(small start, small end, small remove, bo
     return cBoard;
 }
 
-double CheckerBoard::scoreBoard(const Scores& points) {
-    double curBlack = 0;
-    double curWhite = 0;
+float CheckerBoard::scoreBoard(const Scores& points) const {
+    float curBlack = 0;
+    float curWhite = 0;
     int pieceDif = 0;
     for(int i = 0; i < 32; i ++){
         //black pawn
@@ -145,7 +145,7 @@ CheckerBoard &CheckerBoard::operator=(const CheckerBoard &other) {
     return *this;
 }
 
-bool CheckerBoard::gameOver(){
+bool CheckerBoard::gameOver() const{
     return (((getPieceSet(1) == 0) && (getPieceSet(3) == 0)) ||
             ((getPieceSet(2) == 0) && (getPieceSet(4) == 0)));
 }
@@ -254,7 +254,7 @@ int CheckerBoard::getPieceSet(int pieceType) const {
     return whiteKings;
 }
 
-CheckerBoard CheckerBoard::doTurn(const Move& move) {
+CheckerBoard CheckerBoard::doTurn(const Move& move) const {
     CheckerBoard nBoard = *this;
     nBoard.movePiece(move.getStart(), move.getEnd());
     for(const small& sq : move.getRemove()){
@@ -262,4 +262,21 @@ CheckerBoard CheckerBoard::doTurn(const Move& move) {
     }
     nBoard.switchPlayer();
     return nBoard;
+}
+
+void CheckerBoard::updateBoard(const Move& move) {
+    movePiece(move.getStart(), move.getEnd());
+    for(const small& sq : move.getRemove()){
+        removePiece(sq);
+    }
+    switchPlayer();
+}
+
+
+bool CheckerBoard::operator==(const CheckerBoard& other){
+    if(this->whitePieces != other.whitePieces) {return false;}
+    if(this->blackPieces != other.blackPieces) {return false;}
+    if(this->whiteKings != other.whiteKings) {return false;}
+    if(this->blackKings != other.blackKings) {return false;}
+    return this->currentPlayer == other.currentPlayer;
 }

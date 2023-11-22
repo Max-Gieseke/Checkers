@@ -8,9 +8,10 @@ TranspositionTable::TranspositionTable() {
     hash = ZobristHash();
 }
 
-void TranspositionTable::addValue(const CheckerBoard& board, int depth, double eval) {
+void TranspositionTable::addValue(const CheckerBoard& board, int depth, float eval) {
     unsigned long long int key = hash.calcHash(board);
     Datum tmp = {eval, depth, board};
+    std::lock_guard<std::shared_mutex> lock(mutex);
     table[key] = tmp;
 }
 
@@ -33,8 +34,22 @@ bool TranspositionTable::isIn(CheckerBoard b, int depth) {
     return true;
 }
 
-double TranspositionTable::getEvaluation(CheckerBoard b) {
+float TranspositionTable::getEvaluation(CheckerBoard b) {
     return table[hash.calcHash(b)].evaluation;
+}
+
+
+TranspositionTable& TranspositionTable::operator=(const TranspositionTable& other) {
+    if(this != &other){
+        this->table = other.table;
+        this->hash = other.hash;
+    }
+    return *this;
+}
+
+TranspositionTable::TranspositionTable(const TranspositionTable& other) {
+    this->table = other.table;
+    this->hash = other.hash;
 }
 
 

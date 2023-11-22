@@ -3,6 +3,7 @@
 //
 
 #include "../include/Scores.h"
+#include <iostream>
 //Temporary testing scores
 Scores::Scores() {
     blackPawnVal = 1;
@@ -10,11 +11,11 @@ Scores::Scores() {
     blackKingVal = 2;
     whiteKingVal = 2;
     pieceDifference = 1;
-    winVal = 100;
-    blackPawnPerSquare = std::vector<float>(32);
-    whitePawnPerSquare = std::vector<float>(32);
-    blackKingPerSquare = std::vector<float>(32);
-    whiteKingPerSquare = std::vector<float>(32);
+    winVal = 1000;
+    blackPawnPerSquare = std::vector<float>(32, 0);
+    whitePawnPerSquare = std::vector<float>(32, 0);
+    blackKingPerSquare = std::vector<float>(32, 0);
+    whiteKingPerSquare = std::vector<float>(32, 0);
 }
 
 
@@ -29,5 +30,19 @@ Scores::Scores(const json& data) {
     whitePawnPerSquare = data["whitePawnPerSquare"].template get<std::vector<float>>();
     blackKingPerSquare = data["blackKingPerSquare"].template get<std::vector<float>>();
     whiteKingPerSquare = data["whiteKingPerSquare"].template get<std::vector<float>>();
+}
 
+json Scores::scoresToJson() {
+    json data;
+    data["blackPawnVal"] = blackPawnVal;
+    data["whitePawnVal"] = whitePawnVal;
+    data["blackKingVal"] = blackKingVal;
+    data["whiteKingVal"] = whiteKingVal;
+    data["pieceDifference"] = pieceDifference;
+    data["winVal"] = winVal;
+    data["blackPawnPerSquare"] = blackPawnPerSquare;
+    data["whitePawnPerSquare"] = whitePawnPerSquare;
+    data["blackKingPerSquare"] = blackKingPerSquare;
+    data["whiteKingPerSquare"] = whiteKingPerSquare;
+    return data;
 }

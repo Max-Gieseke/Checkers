@@ -12,7 +12,6 @@ class JumpTree {
 private:
      std::shared_ptr<JumpNode> root;
 public:
-    JumpTree();
     JumpTree(small, CheckerBoard);
     std::vector<Move> jumpMoves();
     std::shared_ptr<JumpNode> getRoot();

@@ -23,11 +23,11 @@ public:
     JumpNode(small, small, std::shared_ptr<JumpNode>, CheckerBoard);
     JumpNode(small, small, small, std::shared_ptr<JumpNode>, CheckerBoard);
 
-    small getDepth() const;
-    small getSquare() const;
+    [[nodiscard]] small getDepth() const;
+    [[nodiscard]] small getSquare() const;
     std::vector<std::shared_ptr<JumpNode>> getNext();
 
-    void addChild(std::shared_ptr<JumpNode> child);
+    void addChild(const std::shared_ptr<JumpNode>& child);
 
     std::shared_ptr<JumpNode> getParent();
 

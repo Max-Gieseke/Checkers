@@ -6,24 +6,28 @@
 #define CHECKERS_TRANSPOSITIONTABLE_H
 #include "ZobristHash.h"
 #include <unordered_map>
+#include <shared_mutex>
 
 
 class TranspositionTable {
     struct Datum {
-        double evaluation;
+        float evaluation;
         int depth;
         CheckerBoard board;
     };
 private:
+    mutable std::shared_mutex mutex;
     ZobristHash hash;
     std::unordered_map<unsigned long long int, Datum> table;
 public:
     TranspositionTable();
+    TranspositionTable(const TranspositionTable&);
     double getValue(unsigned long long int);
-    void addValue(const CheckerBoard&, int, double);
+    void addValue(const CheckerBoard&, int, float);
     unsigned long long int computeHash(CheckerBoard);
     bool isIn(CheckerBoard, int);
-    double getEvaluation(CheckerBoard);
+    float getEvaluation(CheckerBoard);
+    TranspositionTable& operator=(const TranspositionTable& other);
 
 };
 

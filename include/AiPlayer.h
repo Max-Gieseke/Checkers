@@ -8,6 +8,7 @@
 #include "TranspositionTable.h"
 #include "JumpTree.h"
 #include "Scores.h"
+#include <cfloat>
 
 
 class AiPlayer : public Player {
@@ -15,15 +16,18 @@ private:
     Scores scoring;
     TranspositionTable pastMoves;
     int depth;
-    Scores values;
 public:
     AiPlayer();
-    AiPlayer(int);
-    Move getPlay(const CheckerBoard&);
-    double explore(int left, CheckerBoard board, double alpha, double beta);
-    double handleExpanded(CheckerBoard board);
-    std::pair<double, Move>exploreMoves(int, CheckerBoard);
-    Scores getScoring();
+    explicit AiPlayer(int);
+    AiPlayer(int, Scores);
+    Move getPlay(const CheckerBoard&) override;
+    float explore(int left, CheckerBoard board, float alpha, float beta);
+    float handleExpanded(CheckerBoard board);
+    std::pair<float, Move>exploreMoves(int, CheckerBoard);
+    Scores getScoring() const;
+    AiPlayer& operator=(const AiPlayer&);
+
+    AiPlayer(const AiPlayer& player);
 };
 
 

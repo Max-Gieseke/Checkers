@@ -17,7 +17,7 @@ std::shared_ptr<JumpNode> JumpTree::getRoot() {
 std::vector<Move> JumpTree::jumpMoves() {
     small longest = root->maxDepth();
     if(longest == 0){
-        return std::vector<Move>();
+        return {};
     }
     std::vector<std::vector<small>> invertedJumps;
     root->maxSequences(longest, invertedJumps);
@@ -47,10 +47,10 @@ std::vector<std::pair<small, small>> JumpTree::singleJump(small square, const Ch
     const std::vector<small> moveMap = squareMap[square];
     small color = (piece + 1) % 2;
     for(const unsigned char& sq : moveMap){
-        if(board.getColor(board.getPiece(sq)) == color){
-            int end = board.finalJump(square, sq);
+        if(CheckerBoard::getColor(board.getPiece(sq)) == color){
+            int end = CheckerBoard::finalJump(square, sq);
             if(end >= 0 && end < 32 && board.getPiece(end) == 0){
-                small e = small(end);
+                auto e = small(end);
                 result.emplace_back(sq, e);
             }
         }

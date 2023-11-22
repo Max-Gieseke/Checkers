@@ -16,7 +16,7 @@ add_executable(MoveTester
         src/JumpNode.cpp include/JumpNode.h
         src/AiPlayer.cpp include/AiPlayer.h
         src/HumanPlayer.cpp include/HumanPlayer.h
-        include/Player.h json.hpp)
+        include/Player.h json.hpp src/MCPlayer.cpp include/MCPlayer.h)
 
 add_executable(MoveExplorer
         programs/ExplorerTester.cpp
@@ -31,7 +31,7 @@ add_executable(MoveExplorer
         src/JumpNode.cpp include/JumpNode.h
         src/AiPlayer.cpp include/AiPlayer.h
         src/HumanPlayer.cpp include/HumanPlayer.h
-        include/Player.h json.hpp)
+        include/Player.h json.hpp src/MCPlayer.cpp include/MCPlayer.h)
 
 add_executable(PlayGame
         programs/PlayVsAI.cpp
@@ -46,7 +46,7 @@ add_executable(PlayGame
         src/JumpNode.cpp include/JumpNode.h
         src/AiPlayer.cpp include/AiPlayer.h
         src/HumanPlayer.cpp include/HumanPlayer.h
-        include/Player.h json.hpp)
+        include/Player.h json.hpp src/MCPlayer.cpp include/MCPlayer.h)
 
 add_executable(AITest
         programs/AIvsAI.cpp
@@ -60,10 +60,10 @@ add_executable(AITest
         src/JumpNode.cpp include/JumpNode.h
         src/AiPlayer.cpp include/AiPlayer.h
         src/HumanPlayer.cpp include/HumanPlayer.h
-        include/Player.h json.hpp)
+        include/Player.h json.hpp src/MCPlayer.cpp include/MCPlayer.h)
 
 add_executable(GeneticAlgorithm
-        programs/AIvsAI.cpp
+        programs/GeneticAlgorithm.cpp
         src/JumpTree.cpp include/JumpTree.h
         src/Move.cpp include/Move.h
         src/ZobristHash.cpp include/ZobristHash.h
@@ -75,5 +75,4 @@ add_executable(GeneticAlgorithm
         src/AiPlayer.cpp include/AiPlayer.h
         src/HumanPlayer.cpp include/HumanPlayer.h
         include/Player.h
-        json.hpp
-        programs/GeneticAlgorithm.cpp)
+        json.hpp src/MCPlayer.cpp include/MCPlayer.h)

@@ -25,11 +25,11 @@ public:
      * Returns what kind of piece is at a square
      * @return 0 for blank, 1 for black piece, 2 for white piece, 3 for black king, 4 for white king
      */
-    small getPiece(small) const;
+    [[nodiscard]] small getPiece(small) const;
     CheckerBoard& operator=(const CheckerBoard& other);
     friend std::ostream& operator<<(std::ostream&, CheckerBoard);
     bool movePiece(small start, small end);
-    small getPlayer() const;
+    [[nodiscard]] small getPlayer() const;
     void removePiece(small square);
     void switchPlayer();
     static small getColor(small);
@@ -45,10 +45,12 @@ public:
      * @return a new CheckerBoard with the jump done
      */
     CheckerBoard doSingleJump(small start, small end, small remove, bool& newKing);
-    double scoreBoard(const Scores&);
-    bool gameOver();
-    CheckerBoard doTurn(const Move&);
-    int getPieceSet(int pieceType) const;
+    [[nodiscard]] float scoreBoard(const Scores&) const;
+    [[nodiscard]] bool gameOver() const;
+    void updateBoard(const Move&);
+    CheckerBoard doTurn(const Move&) const ;
+    [[nodiscard]] int getPieceSet(int pieceType) const;
+    bool operator==(const CheckerBoard&);
 };
 
 

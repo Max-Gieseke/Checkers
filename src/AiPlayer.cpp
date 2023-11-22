@@ -2,6 +2,8 @@
 // Created by maxgi on 11/15/2023.
 //
 
+#include <utility>
+
 #include "../include/AiPlayer.h"
 
 AiPlayer::AiPlayer() {
@@ -12,13 +14,18 @@ AiPlayer::AiPlayer(int depth) {
     this->depth = depth;
 }
 
+AiPlayer::AiPlayer(int depth, Scores scores) {
+    scoring = std::move(scores);
+    this->depth = depth;
+}
+
 Move AiPlayer::getPlay(const CheckerBoard& board) {
-    std::pair<double, Move> tmp = exploreMoves(depth, board);
+    std::pair<float, Move> tmp = exploreMoves(depth, board);
     //std::cout << "Move "<< tmp.second << " Evaluation: " << tmp.first << std::endl;
     return tmp.second;
 }
 
-double AiPlayer::explore(int left, CheckerBoard board, double alpha, double beta){
+float AiPlayer::explore(int left, CheckerBoard board, float alpha, float beta){
     int multiply = 1;
     if (board.getPlayer() == 0) {
         multiply = -1;
@@ -28,24 +35,24 @@ double AiPlayer::explore(int left, CheckerBoard board, double alpha, double beta
     }
     if (board.gameOver()){
         if(board.getPlayer() == 0){
-            return 100 - left;
+            return scoring.winVal - left;
         }
-        return -100 + left;
+        return -scoring.winVal + left;
     }
     std::vector<Move> moves = JumpTree::possibleMoves(board);
     if(moves.empty()){
         if(board.getPlayer() == 0){
-            return 100 - left;
+            return scoring.winVal - left;
         }
-        return -100 + left;
+        return -scoring.winVal + left;
     }
 //    int multiply = 1;
 //    if (board.getPlayer() == 0) {
 //        multiply = -1;
 //    }
-    double max = -INT32_MAX;
+    float max = -FLT_MAX;
     for(const auto& m : moves){
-        double score;
+        float score;
         CheckerBoard tmpBoard = board.doTurn(m);
         if(pastMoves.isIn(tmpBoard, left)){
             score = pastMoves.getEvaluation(tmpBoard);
@@ -77,21 +84,21 @@ double AiPlayer::explore(int left, CheckerBoard board, double alpha, double beta
 
 }
 
-double AiPlayer::handleExpanded(CheckerBoard board){
+float AiPlayer::handleExpanded(CheckerBoard board){
     int multiply = 1; //if 1, then black's turn, -1 then white's turn
     if(board.getPlayer() == 0){
         multiply = -1;
     }
     std::vector<Move> jumpMoves = JumpTree::possibleMoves(board);
     if(jumpMoves.empty()){
-        return multiply * -100;
+        return multiply * -scoring.winVal;
     }
     else {
         if (jumpMoves[0].isCapture()){
-            double max = -INT32_MAX;
+            float max = -FLT_MAX;
             for(const auto& m : jumpMoves){
                 CheckerBoard tmpBoard = board.doTurn(m);
-                double score = handleExpanded(tmpBoard) * multiply;
+                float score = handleExpanded(tmpBoard) * multiply;
                 if(score > max){
                     max = score;
                 }
@@ -104,7 +111,7 @@ double AiPlayer::handleExpanded(CheckerBoard board){
     }
 }
 
-std::pair<double, Move> AiPlayer::exploreMoves(int left, CheckerBoard board) {
+std::pair<float, Move> AiPlayer::exploreMoves(int left, CheckerBoard board) {
     //When first passed in, we should not have 0 moves or a game over state
     if(left == 0 || board.gameOver()){
         if(board.getPlayer() == 0){
@@ -118,11 +125,11 @@ std::pair<double, Move> AiPlayer::exploreMoves(int left, CheckerBoard board) {
         multiply = -1;
     }
     Move best;
-    double max = -INT32_MAX;
-    double alpha = -INT32_MAX;
-    double beta = INT32_MAX;
+    float max = -FLT_MAX;
+    float alpha = -FLT_MAX;
+    float beta = FLT_MAX;
     for(const auto& m : moves){
-        double score;
+        float score;
         CheckerBoard tmpBoard = board.doTurn(m);
         if(pastMoves.isIn(tmpBoard, left)){
             score = pastMoves.getEvaluation(tmpBoard);
@@ -154,10 +161,27 @@ std::pair<double, Move> AiPlayer::exploreMoves(int left, CheckerBoard board) {
         }
 
     }
-    std::cout << "Best: " << best;
+    //std::cout << "Best: " << best;
     return {max, best};
 }
 
-Scores AiPlayer::getScoring() {
+Scores AiPlayer::getScoring() const {
     return scoring;
+}
+
+AiPlayer& AiPlayer::operator=(const AiPlayer& other) {
+    if(this != &other){
+        this->scoring = other.scoring;
+        this->depth = other.depth;
+        this->pastMoves = other.pastMoves;
+    }
+    return *this;
+}
+
+AiPlayer::AiPlayer(const AiPlayer &other) {
+    if(this != &other){
+        this->scoring = other.scoring;
+        this->depth = other.depth;
+        this->pastMoves = other.pastMoves;
+    }
 }

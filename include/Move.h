@@ -18,11 +18,11 @@ public:
     Move(small, small);
     Move(small, small, std::vector<small>);
     void addJump(small);
-    small getStart() const;
-    small getEnd() const;
-    std::vector<small> getRemove() const;
+    [[nodiscard]] small getStart() const;
+    [[nodiscard]] small getEnd() const;
+    [[nodiscard]] std::vector<small> getRemove() const;
     friend std::ostream& operator<<(std::ostream& out, const Move& m);
-    bool isCapture() const;
+    [[nodiscard]] bool isCapture() const;
     Move& operator=(const Move&);
     bool equals(const Move&);
 };

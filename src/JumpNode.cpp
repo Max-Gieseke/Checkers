@@ -2,6 +2,8 @@
 // Created by maxgi on 10/31/2023.
 //
 
+#include <utility>
+
 #include "../include/JumpNode.h"
 
 
@@ -23,7 +25,7 @@ JumpNode::JumpNode(small square, CheckerBoard board) {
 JumpNode::JumpNode(small square, small depth, std::shared_ptr<JumpNode> p, CheckerBoard board) {
     this->square = square;
     this->depth = depth;
-    parent = p;
+    parent = std::move(p);
     next = std::vector<std::shared_ptr<JumpNode>>();
     this->board = board;
 }
@@ -32,7 +34,7 @@ JumpNode::JumpNode(small square, small depth, small jumped, std::shared_ptr<Jump
     this->square = square;
     this->depth = depth;
     this->jumped = jumped;
-    parent = p;
+    parent = std::move(p);
     next = std::vector<std::shared_ptr<JumpNode>>();
     this->board = board;
 }
@@ -57,7 +59,7 @@ std::shared_ptr<JumpNode> JumpNode::getParent() {
     return parent;
 }
 
-void JumpNode::addChild(std::shared_ptr<JumpNode> child) {
+void JumpNode::addChild(const std::shared_ptr<JumpNode>& child) {
     this->next.push_back(child);
 }
 
@@ -66,7 +68,7 @@ small JumpNode::maxDepth() {
         return depth;
     }
     small max = 0;
-    for(std::shared_ptr<JumpNode> n : next){
+    for(const std::shared_ptr<JumpNode>& n : next){
         if(n->maxDepth() > max){
             max = n->maxDepth();
         }
@@ -91,7 +93,7 @@ void JumpNode::maxSequences(small curDepth, std::vector<std::vector<small>>& hol
         getRemainingSequence(holder.back());
     }
     else{
-        for(std::shared_ptr<JumpNode> node : this->next){
+        for(const std::shared_ptr<JumpNode>& node : this->next){
             node->maxSequences(curDepth, holder);
         }
     }

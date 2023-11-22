@@ -13,7 +13,7 @@ int main(){
    srand(std::time(nullptr));
     CheckerBoard board;
     std::cout << board;
-    MCPlayer ai = MCPlayer(1);
+    MCPlayer ai = MCPlayer(2);
 
     auto begin = std::chrono::high_resolution_clock::now();
     Move m = ai.getPlay(board);

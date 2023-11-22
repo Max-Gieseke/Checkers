@@ -141,8 +141,15 @@ void MCNode::calcUCB() {
     if(parent == nullptr){ //if we are root node, no parent
         return;
     }
-    float tmp = (static_cast<float>(wins) / static_cast<float>(MCNode::timesPlayed)) +
-            std::sqrt(std::log(static_cast<float>(parent->timesVisited)) / static_cast<float>(MCNode::timesPlayed));
+    float encTerm = 0;
+    if(timesVisited < 5){
+        encTerm = 3;
+    }
+    float tmp = (static_cast<float>(wins) / static_cast<float>(timesPlayed)) +
+            2 * std::sqrt(std::log(static_cast<float>(parent->timesVisited + encTerm)) / timesPlayed);
+//    if(tmp == 0){
+//        std::cout << "Wins: " << wins << " timesPlayed: " << MCNode::timesPlayed <<  "Parent visited " << parent->timesVisited << std::endl;
+//    }
     //std::cout << "New UCB: " << tmp << std::endl;
     this->UCB = tmp;
 
@@ -169,7 +176,7 @@ Move MCNode::getBestChild() {
     std::vector<Move> moves = JumpTree::possibleMoves(board);
     Move bestMove = moves[0];
     for(const auto& child : this->children){
-        //std::cout << "UCB: " << child->UCB << std::endl;
+        std::cout << "UCB: " << child->UCB << std::endl;
         if (child->UCB > bestUCB){
             bestUCB = child->UCB;
             for(const Move& m : moves) {

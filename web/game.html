@@ -9,7 +9,25 @@
 </head>
 <body>
     <aside id="sidebar">
-        content goes here
+        <form>
+            <p>
+                <label for="blackPlayer">Black Player:</label>
+                <select name="blackPlayer" id="blackPlayer">
+                    <option value="human">Human</option>
+                    <option value="ai">Computer</option>
+                </select>
+            </p>
+            <p>
+                <label for="whitePlayer">White Player:</label>
+                <select name="whitePlayer" id="whitePlayer">
+                    <option value="ai">Computer</option>
+                    <option value="human">Human</option>
+                </select>
+            </p>
+            <p>
+                <input type="button" name="playGame" value="Play" id="playGame">
+            </p>
+        </form>
     </aside>
     <main>
     <div id="GameHolder">  

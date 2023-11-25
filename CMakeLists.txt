@@ -76,5 +76,8 @@ add_executable(WebServer
         src/AiPlayer.cpp include/AiPlayer.h
         src/HumanPlayer.cpp include/HumanPlayer.h
         include/Player.h
-        json.hpp src/MCPlayer.cpp include/MCPlayer.h
+        json.hpp
+        src/MCPlayer.cpp include/MCPlayer.h
         httplib.h)
+
+target_link_libraries(WebServer PRIVATE wsock32 ws2_32)

@@ -9,10 +9,11 @@
     --dark-piece-contrast: #e2d2bd;
     --board-contrast: black;
     --sidebar-color: #323030;
+    --highlight-color: #565e37;
 }
 
 html {
-    font: Inconsolata, Monaco, Consolas, 'Courier New', Courier;
+    font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier, serif;
 }
 
 #sidebar {
@@ -65,9 +66,9 @@ main {
 }
 
 .light-pawn {
-    border-radius: 50%;
     background-color: var(--light-piece);
     border: 1px solid var(--light-piece-contrast);
+    border-radius: 50%;
     box-sizing: border-box;
     width: 73%;
     height: 73%;
@@ -75,8 +76,26 @@ main {
 
 .dark-pawn {
     background-color: var(--dark-piece);
-    border-radius: 50%;
     border: 1px solid var(--dark-piece-contrast);
+    border-radius: 50%;
+    box-sizing: border-box;
+    width: 73%;
+    height: 73%;
+}
+
+.light-king {
+    background-color: var(--light-piece);
+    border: 5px solid var(--light-piece-contrast);
+    border-radius: 50%;
+    box-sizing: border-box;
+    width: 73%;
+    height: 73%;
+}
+
+.dark-king {
+    background-color: var(--dark-piece);
+    border: 5px solid var(--dark-piece-contrast);
+    border-radius: 50%;
     box-sizing: border-box;
     width: 73%;
     height: 73%;
@@ -85,3 +104,9 @@ main {
 #blackPlayer, #whitePlayer, #playGame {
     background-color: var(--light-piece);
 }
+
+.highlight {
+    background-color: var(--highlight-color);
+}
+
+

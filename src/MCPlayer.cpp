@@ -145,8 +145,8 @@ void MCNode::calcUCB() {
     if(parent->timesVisited == 1){
         encTerm = 1;
     }
-    float tmp = (static_cast<float>(wins) / static_cast<float>(timesPlayed)) +
-            3 * std::sqrt(std::log(static_cast<float>(parent->timesVisited + encTerm)) / timesPlayed);
+    float tmp = (static_cast<float>(wins) / static_cast<float>(timesVisited)) +
+            3 * std::sqrt(std::log(static_cast<float>(parent->timesVisited) + encTerm) / timesVisited);
 //    if(tmp == 0){
 //        std::cout << "Wins: " << wins << " timesPlayed: " << MCNode::timesPlayed <<  "Parent visited " << parent->timesVisited << std::endl;
 //    }

@@ -13,7 +13,7 @@ int main(){
    srand(std::time(nullptr));
     CheckerBoard board;
     std::cout << board;
-    MCPlayer ai = MCPlayer(2);
+    MCPlayer ai = MCPlayer(5);
 
     auto begin = std::chrono::high_resolution_clock::now();
     Move m = ai.getPlay(board);
@@ -21,7 +21,5 @@ int main(){
     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count();
     std::cout << "Best move\n" << m;
     std::cout << "Time taken: " << duration << " microseconds (" << duration / 1000000.0 << " seconds)\n";
-    ai.completeTurn(board);
-    std::cout << board;
     return 0;
 }

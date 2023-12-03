@@ -15,7 +15,7 @@ int main()
     using namespace httplib;
     Server svr;
     CheckerBoard board;
-    MCPlayer ai(2);
+    MCPlayer ai(5);
     svr.Get("/", [](const Request& req, Response& res) {
         std::string fileContent = readFile("../web/main.html");
         res.set_content(fileContent, "text/html");

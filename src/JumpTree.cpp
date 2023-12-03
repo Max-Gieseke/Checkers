@@ -106,11 +106,6 @@ std::vector<Move> JumpTree::possibleMoves(const CheckerBoard& board) {
         std::vector<Move> jumps;
         small curPiece = board.getPiece(i);
         if(curPiece != 0 && currentPlayer == curPiece % 2){
-            //cout << i << endl;
-            // if(i == 32){
-            //     std::cout << "I: " << static_cast<int>(square) << std::endl;
-            //     std::cout << board;
-            // }
             jumps = JumpTree::getJumps(i, board);
         }
         else{

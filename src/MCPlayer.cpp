@@ -76,9 +76,6 @@ int MCNode::findBestUnexplored(int numMoves, const short& ogPlayer) {
         computeResults(0, ogPlayer);
         return 0;
     }
-    std::shared_ptr<MCNode> next;
-    float best_UCB = -1;
-    int result;
     if (children.empty()) {
         std::vector<Move> moves = JumpTree::possibleMoves(board);
         if(moves.empty()){
@@ -91,13 +88,20 @@ int MCNode::findBestUnexplored(int numMoves, const short& ogPlayer) {
                     MCNode(board.doTurn(m), std::make_shared<MCNode>(*this))));
         }
     }
+    std::shared_ptr<MCNode> next;
+    float best_UCB = -10000;
+    int result;
+    int mult = -1;
+    if(this->board.getPlayer() == ogPlayer){
+        mult = 1;
+    }
     for(auto& child : children){
         if(child->UCB == -1){
             result = child->rollout(++numMoves, ogPlayer);
             computeResults(result, ogPlayer);
             return result;
         }
-        if(child->UCB > best_UCB){
+        if(child->UCB * mult > best_UCB){
             best_UCB = child->UCB;
             next = child;
         }
@@ -146,7 +150,7 @@ void MCNode::calcUCB() {
         encTerm = 1;
     }
     float tmp = (static_cast<float>(wins) / static_cast<float>(timesVisited)) +
-            3 * std::sqrt(std::log(static_cast<float>(parent->timesVisited) + encTerm) / timesVisited);
+             std::sqrt(2 * std::log(static_cast<float>(parent->timesVisited) + encTerm) / timesVisited);
 //    if(tmp == 0){
 //        std::cout << "Wins: " << wins << " timesPlayed: " << MCNode::timesPlayed <<  "Parent visited " << parent->timesVisited << std::endl;
 //    }

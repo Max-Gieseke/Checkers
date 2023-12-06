@@ -17,22 +17,22 @@ public:
     explicit Scores(const json&);
     json scoresToJson();
 //    static Scores& getInstance();
-//    double kingVal;
-//    double pawnVal;
-//    double noPieces;
-//    double rankBonus;
-    float blackPawnVal;
-    float whitePawnVal;
-    float blackKingVal;
-    float whiteKingVal;
-
-    float pieceDifference;
-    float winVal;
-
-    std::vector<float> blackPawnPerSquare;
-    std::vector<float> whitePawnPerSquare;
-    std::vector<float> blackKingPerSquare;
-    std::vector<float> whiteKingPerSquare;
+    double kingVal;
+    double pawnVal;
+    double win;
+    double rankBonus;
+//    float blackPawnVal;
+//    float whitePawnVal;
+//    float blackKingVal;
+//    float whiteKingVal;
+//
+//    float pieceDifference;
+//    float winVal;
+//
+//    std::vector<float> blackPawnPerSquare;
+//    std::vector<float> whitePawnPerSquare;
+//    std::vector<float> blackKingPerSquare;
+//    std::vector<float> whiteKingPerSquare;
 
 
 };

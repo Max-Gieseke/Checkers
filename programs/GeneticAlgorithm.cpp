@@ -80,67 +80,18 @@ json createNewScores(const Scores& curScore, float range){
     float upperBound;
     float lowerBound;
     json newData;
-
-    //blackpawnVal
-    getUpperAndLower(upperBound, lowerBound, curScore.blackPawnVal, range);
+    //pawnVal
+    getUpperAndLower(upperBound, lowerBound, curScore.pawnVal, range);
     std::uniform_real_distribution<float> uniform(lowerBound,upperBound);
-    newData["blackPawnVal"] = uniform(ENGINE);
-    //whitepawnVal
-    getUpperAndLower(upperBound, lowerBound, curScore.whitePawnVal, range);
+    newData["pawnVal"] = uniform(ENGINE);
+    //kingVal
+    getUpperAndLower(upperBound, lowerBound, curScore.kingVal, range);
     uniform = std::uniform_real_distribution<float>(lowerBound,upperBound);
-    newData["whitePawnVal"] = uniform(ENGINE);
-
-    //blackkingVal
-    getUpperAndLower(upperBound, lowerBound, curScore.blackKingVal, range);
+    newData["kingVal"] = uniform(ENGINE);
+    //rankBonus
+    getUpperAndLower(upperBound, lowerBound, curScore.rankBonus, range);
     uniform = std::uniform_real_distribution<float>(lowerBound,upperBound);
-    newData["blackKingVal"] = uniform(ENGINE);
-
-    //whiteKingVal
-    getUpperAndLower(upperBound, lowerBound, curScore.whiteKingVal, range);
-    uniform = std::uniform_real_distribution<float>(lowerBound,upperBound);
-    newData["whiteKingVal"] = uniform(ENGINE);
-
-    //pieceDifference
-    getUpperAndLower(upperBound, lowerBound, curScore.pieceDifference, range);
-    uniform = std::uniform_real_distribution<float>(lowerBound,upperBound);
-    newData["pieceDifference"] = uniform(ENGINE);
-
-    //winVal
-    newData["winVal"] = FLT_MAX;
-
-    //blackpawnperSquare
-    std::vector<float> values(32);
-    int i = 0;
-    for (const float& pSquare : curScore.blackPawnPerSquare) {
-        getUpperAndLower(upperBound, lowerBound, pSquare, range);
-        uniform = std::uniform_real_distribution<float>(lowerBound,upperBound);
-        values[i++] = uniform(ENGINE);
-    }
-    newData["blackPawnPerSquare"] = values;
-    //whitePawnPerSquare
-    i = 0;
-    for (const float& pSquare : curScore.whitePawnPerSquare) {
-        getUpperAndLower(upperBound, lowerBound, pSquare, range);
-        uniform = std::uniform_real_distribution<float>(lowerBound,upperBound);
-        values[i++] = uniform(ENGINE);
-    }
-    newData["whitePawnPerSquare"] = values;
-    //blackKingPerSquare
-    i = 0;
-    for (const float& pSquare : curScore.blackKingPerSquare) {
-        getUpperAndLower(upperBound, lowerBound, pSquare, range);
-        uniform = std::uniform_real_distribution<float>(lowerBound,upperBound);
-        values[i++] = uniform(ENGINE);
-    }
-    newData["blackKingPerSquare"] = values;
-    //WhiteKingPerSquare
-    i = 0;
-    for (const float& pSquare : curScore.whiteKingPerSquare) {
-        getUpperAndLower(upperBound, lowerBound, pSquare, range);
-        uniform = std::uniform_real_distribution<float>(lowerBound,upperBound);
-        values[i++] = uniform(ENGINE);
-    }
-    newData["whiteKingPerSquare"] = values;
+    newData["rankBonus"] = uniform(ENGINE);
     return newData;
 }
 
@@ -168,34 +119,12 @@ int playGame(AiPlayer& ai1, AiPlayer& ai2){
 
 json generateFullyRandomScores(){
     json newData;
-    std::uniform_real_distribution<float> uniformVal(-10, 20);
-    newData["blackPawnVal"] = uniformVal(ENGINE);
-    newData["whitePawnVal"] = uniformVal(ENGINE);
-    newData["blackKingVal"] = uniformVal(ENGINE);
-    newData["whiteKingVal"] = uniformVal(ENGINE);
+    std::uniform_real_distribution<float> uniformVal(0, 10);
+    newData["pawnVal"] = uniformVal(ENGINE);
+    newData["KingVal"] = uniformVal(ENGINE);
 
-    std::uniform_real_distribution<float> uniformPiece(-1, 10);
-    newData["pieceDifference"] = uniformPiece(ENGINE);
-    std::uniform_real_distribution<float> uniformWin(50, 300);
-    newData["winVal"] = uniformWin(ENGINE);
-    std::vector<float> blackPawn(32);
-    std::vector<float> whitePawn(32);
-    std::vector<float> blackKing(32);
-    std::vector<float> whiteKing(32);
-
-    std::uniform_real_distribution<float> uniformSquare(-10, 10);
-    for(int i = 0; i < 32; i++){
-        blackPawn[i] = uniformSquare(ENGINE);
-        whitePawn[i] = uniformSquare(ENGINE);
-        blackKing[i] = uniformSquare(ENGINE);
-        whiteKing[i] = uniformSquare(ENGINE);
-    }
-
-    newData["blackPawnPerSquare"] = blackPawn;
-    newData["whitePawnPerSquare"] = whitePawn;
-    newData["blackKingPerSquare"] = blackKing;
-    newData["whiteKingPerSquare"] = whiteKing;
-
+    std::uniform_real_distribution<float> uniformBonus(0, 1);
+    newData["rankBonus"] = uniformVal(ENGINE);
     return newData;
 }
 

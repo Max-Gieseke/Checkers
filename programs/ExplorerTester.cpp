@@ -2,18 +2,17 @@
 // Created by maxgi on 8/22/2023.
 //
 #include <iostream>
-#include "../include/Board.h"
 #include <chrono>
 #include "../include/Move.h"
 #include "../include/AiPlayer.h"
 #include "../include/MCPlayer.h"
 
-int main(){
+int main() {
    // MoveTree start = MoveTree(Board::randomBoard());
-   srand(std::time(nullptr));
+    srand(std::time(nullptr));
     CheckerBoard board;
     std::cout << board;
-    MCPlayer ai = MCPlayer(5);
+    AiPlayer ai = AiPlayer(9);
 
     auto begin = std::chrono::high_resolution_clock::now();
     Move m = ai.getPlay(board);

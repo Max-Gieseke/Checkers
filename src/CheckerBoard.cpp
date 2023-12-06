@@ -93,41 +93,34 @@ CheckerBoard CheckerBoard::doSingleJump(small start, small end, small remove, bo
 float CheckerBoard::scoreBoard(const Scores& points) const {
     float curBlack = 0;
     float curWhite = 0;
-    int pieceDif = 0;
     for(int i = 0; i < 32; i ++){
         //black pawn
         small curPiece = getPiece(i);
         if(curPiece == 1){
-            pieceDif++;
-            curBlack += points.blackPawnVal;
-            curBlack += points.blackPawnPerSquare[i];
+            curBlack += points.pawnVal;
+            curBlack += points.rankBonus * (i / 4);
         }
             //white pawn
         else if(curPiece == 2){
-            pieceDif--;
-            curWhite += points.whitePawnVal;
-            curWhite += points.whitePawnPerSquare[i];
+            curWhite += points.pawnVal;
+            curWhite += points.rankBonus * (7 - (i / 4));
         }
             //black king
         else if(curPiece == 3){
-            pieceDif++;
-            curBlack += points.blackKingVal;
-            curBlack += points.blackKingPerSquare[i];
+            curBlack += points.kingVal;
         }
             //white king
         else if(curPiece == 4){
-            pieceDif--;
-            curWhite += points.whiteKingVal;
-            curWhite += points.whiteKingPerSquare[i];
+            curWhite += points.kingVal;
         }
     }
     if(curBlack == 0){
-        return -points.winVal;
+        return -points.win;
     }
     if(curWhite == 0){
-        return points.winVal;
+        return points.win;
     }
-    return curBlack - curWhite + pieceDif * points.pieceDifference;
+    return curBlack - curWhite;
 }
 
 CheckerBoard &CheckerBoard::operator=(const CheckerBoard &other) {

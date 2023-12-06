@@ -6,7 +6,6 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_executable(MoveTester
         programs/MoveTester.cpp
-        include/Board.cpp include/Board.h
         src/JumpTree.cpp include/JumpTree.h
         src/Move.cpp include/Move.h
         src/ZobristHash.cpp include/ZobristHash.h
@@ -21,7 +20,6 @@ add_executable(MoveTester
 
 add_executable(MoveExplorer
         programs/ExplorerTester.cpp
-        include/Board.cpp include/Board.h
         src/JumpTree.cpp include/JumpTree.h
         src/Move.cpp include/Move.h
         src/ZobristHash.cpp include/ZobristHash.h
@@ -36,7 +34,6 @@ add_executable(MoveExplorer
 
 add_executable(PlayGame
         programs/PlayVsAI.cpp
-        include/Board.cpp include/Board.h
         src/JumpTree.cpp include/JumpTree.h
         src/Move.cpp include/Move.h
         src/ZobristHash.cpp include/ZobristHash.h
@@ -61,7 +58,22 @@ add_executable(AITest
         src/JumpNode.cpp include/JumpNode.h
         src/AiPlayer.cpp include/AiPlayer.h
         src/HumanPlayer.cpp include/HumanPlayer.h
-        include/Player.h json.hpp src/MCPlayer.cpp include/MCPlayer.h)
+        include/Player.h json.hpp src/MCPlayer.cpp include/MCPlayer.h
+        src/RandomPlayer.cpp
+        include/RandomPlayer.h)
+
+add_executable(GeneticAlgo
+        programs/GeneticAlgorithm.cpp
+        src/JumpTree.cpp include/JumpTree.h
+        src/Move.cpp include/Move.h
+        src/ZobristHash.cpp include/ZobristHash.h
+        src/TranspositionTable.cpp include/TranspositionTable.h
+        src/Scores.cpp include/Scores.h
+        src/CheckerBoard.cpp include/CheckerBoard.h
+        src/CheckerMoveMaps.cpp include/CheckerMoveMaps.h
+        src/JumpNode.cpp include/JumpNode.h
+        src/AiPlayer.cpp include/AiPlayer.h
+        include/Player.h json.hpp)
 
 add_executable(WebServer
         web/server.cpp
@@ -81,3 +93,4 @@ add_executable(WebServer
         httplib.h)
 
 target_link_libraries(WebServer PRIVATE wsock32 ws2_32)
+target_compile_options(MoveExplorer PRIVATE -O3)

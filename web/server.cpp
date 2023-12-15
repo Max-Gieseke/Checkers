@@ -17,8 +17,8 @@ int main()
     CheckerBoard board;
     TranspositionTable* pastPositions = new TranspositionTable();
     //Change this to change agent
-    MCPlayer ai(4, 3.93);
-    //AiPlayer ai(10, Scores(Scores::loadBestScores()));
+    //MCPlayer ai(4, 3.93);
+    AiPlayer ai(10, Scores(Scores::loadBestScores()));
 
 
     svr.Get("/", [](const Request& req, Response& res) {

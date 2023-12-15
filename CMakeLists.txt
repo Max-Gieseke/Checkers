@@ -32,20 +32,6 @@ add_executable(MoveExplorer
         src/HumanPlayer.cpp include/HumanPlayer.h
         include/Player.h json.hpp src/MCPlayer.cpp include/MCPlayer.h)
 
-add_executable(PlayGame
-        programs/PlayVsAI.cpp
-        src/JumpTree.cpp include/JumpTree.h
-        src/Move.cpp include/Move.h
-        src/ZobristHash.cpp include/ZobristHash.h
-        src/TranspositionTable.cpp include/TranspositionTable.h
-        src/Scores.cpp include/Scores.h
-        src/CheckerBoard.cpp include/CheckerBoard.h
-        src/CheckerMoveMaps.cpp include/CheckerMoveMaps.h
-        src/JumpNode.cpp include/JumpNode.h
-        src/AiPlayer.cpp include/AiPlayer.h
-        src/HumanPlayer.cpp include/HumanPlayer.h
-        include/Player.h json.hpp src/MCPlayer.cpp include/MCPlayer.h)
-
 add_executable(AITest
         programs/AIvsAI.cpp
         src/JumpTree.cpp include/JumpTree.h

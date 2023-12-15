@@ -46,10 +46,11 @@ std::vector<std::pair<small, small>> JumpTree::singleJump(small square, const Ch
     std::vector<std::pair<small, small>> result;
     const std::vector<small> moveMap = squareMap[square];
     small color = (piece + 1) % 2;
+    int otherColors = board.getPieceSet((1 - color) * 2 + color) | board.getPieceSet((1 - color) * 2 + color + 2);
     for(const unsigned char& sq : moveMap){
-        if(CheckerBoard::getColor(board.getPiece(sq)) == color){
-            int end = CheckerBoard::finalJump(square, sq);
-            if(end >= 0 && end < 32 && board.getPiece(end) == 0){
+        if(otherColors & (1 << sq)){
+            short end = CheckerBoard::finalJump(square, sq);
+            if(end >= 0 && end < 32 && board.getPiece(end) == 0) {
                 auto e = small(end);
                 result.emplace_back(sq, e);
             }
@@ -66,19 +67,10 @@ std::vector<Move> JumpTree::getJumps(small square, const CheckerBoard& board) {
         std::shared_ptr<JumpNode> cur = nodes.front();
         nodes.pop();
         std::vector<std::pair<small, small>> jumps = singleJump(cur->getSquare(), cur->getBoard());
-        for(std::pair<small, small> p : jumps){
-            //cout << "here " << (int)p.first << " " << (int)p.second << endl;
+        for(const auto& p : jumps){
             bool newKing = false;
             CheckerBoard b = cur->getBoard().doSingleJump(cur->getSquare(), p.second, p.first, newKing);
-            //JumpTree tmp = JumpTree(p.second, cur->getDepth() + 1, p.first, cur, b);
-            //cout << tmp;
             std::shared_ptr<JumpNode> newChild = std::make_shared<JumpNode>(p.second, cur->getDepth() + 1, p.first, cur, b);
-            if(newChild->getSquare() == 32){
-                std::cout << "Square: " << static_cast<int>(newChild->getSquare()) << std::endl;
-                std::cout << newChild->getBoard();
-                std::cout << "Parent board and square: " << static_cast<int>(cur->getSquare())  << " ::"<< std::endl;
-                std::cout << cur->getBoard();
-            }
             cur->addChild(newChild);
             //cout << cur.getNext().back();
             if(!newKing){

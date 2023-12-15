@@ -21,6 +21,8 @@ public:
     double pawnVal;
     double win;
     double rankBonus;
+    friend std::ostream& operator<<(std::ostream&, Scores);
+    static json loadBestScores();
 //    float blackPawnVal;
 //    float whitePawnVal;
 //    float blackKingVal;

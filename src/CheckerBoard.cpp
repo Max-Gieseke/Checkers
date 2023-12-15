@@ -7,11 +7,6 @@
 
 
 CheckerBoard::CheckerBoard() {
-//    for(int& piece : pieceSet){
-//        piece = 0;
-//    }
-//    pieceSet[0] = pieceSet[0] | 0xFFF;
-//    pieceSet[1] = pieceSet[1] | 0xFFF <<20;
     whiteKings = 0;
     blackKings = 0;
     whitePieces = 0;
@@ -51,13 +46,9 @@ int CheckerBoard::finalJump(small start, small capt) {
     int sub = start - capt;
     //Even row is 0, odd row is 1
     int t = capt % 8;
-    // if(start == 25 && capt == 28){
-    //     std::cout << "In finalJump, t = " << t << std::endl;
-    // }
     if(t == 0 || t == 7){
         return 64;
     }
-    //cout << "Start: " << (int)start << " Capture: " << (int)capt << endl;
     small even = (start / 4) % 2;
     if(sub == 3 || sub == 5){
         return capt - 4;
@@ -90,7 +81,7 @@ CheckerBoard CheckerBoard::doSingleJump(small start, small end, small remove, bo
     return cBoard;
 }
 
-float CheckerBoard::scoreBoard(const Scores& points) const {
+double CheckerBoard::scoreBoard(const Scores& points) const {
     float curBlack = 0;
     float curWhite = 0;
     for(int i = 0; i < 32; i ++){
@@ -125,9 +116,6 @@ float CheckerBoard::scoreBoard(const Scores& points) const {
 
 CheckerBoard &CheckerBoard::operator=(const CheckerBoard &other) {
     if(this != &other) {
-//        for(int i = 0; i < 4; i++){
-//            this->pieceSet[i] = other.pieceSet[i];
-//        }
         this->whitePieces = other.whitePieces;
         this->blackPieces = other.blackPieces;
         this->whiteKings = other.whiteKings;

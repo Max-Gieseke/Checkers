@@ -1,0 +1,17 @@
+{
+    "MonteCarloVsMinimax": {
+        "Draws": 1,
+        "MiniMax": 11,
+        "MonteCarlo": 8
+    },
+    "MonteCarloVsRandom": {
+        "Draws": 0,
+        "MonteCarlo": 20,
+        "Random": 0
+    },
+    "randVsMinimax": {
+        "Draws": 0,
+        "MiniMax": 20,
+        "Random": 0
+    }
+}

@@ -22,11 +22,13 @@ private:
 public:
     TranspositionTable();
     TranspositionTable(const TranspositionTable&);
+    ~TranspositionTable()= default;
     double getValue(unsigned long long int);
     void addValue(const CheckerBoard&, int, float);
     unsigned long long int computeHash(CheckerBoard);
     bool isIn(CheckerBoard, int);
     float getEvaluation(CheckerBoard);
+    int getDepth(CheckerBoard b);
     TranspositionTable& operator=(const TranspositionTable& other);
 
 };

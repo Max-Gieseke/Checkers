@@ -38,6 +38,11 @@ float TranspositionTable::getEvaluation(CheckerBoard b) {
     return table[hash.calcHash(b)].evaluation;
 }
 
+int TranspositionTable::getDepth(CheckerBoard b) {
+    return table[hash.calcHash(b)].depth;
+}
+
+
 
 TranspositionTable& TranspositionTable::operator=(const TranspositionTable& other) {
     if(this != &other){

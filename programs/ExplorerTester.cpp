@@ -12,13 +12,15 @@ int main() {
     srand(std::time(nullptr));
     CheckerBoard board;
     std::cout << board;
-    AiPlayer ai = AiPlayer(9);
-
+    MCPlayer ai = MCPlayer(1, 1);
+    TranspositionTable past;
     auto begin = std::chrono::high_resolution_clock::now();
-    Move m = ai.getPlay(board);
+    Move m = ai.getPlay(board, past);
+    m = ai.getPlay(board, past);
+    m = ai.getPlay(board, past);
     auto end = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count();
     std::cout << "Best move\n" << m;
-    std::cout << "Time taken: " << duration << " microseconds (" << duration / 1000000.0 << " seconds)\n";
+    std::cout << "Time taken: " << duration << " microseconds (" << duration / 1000000.0 << " seconds)\n(" << duration / (3 * 1000000.0) << ") average\n";
     return 0;
 }

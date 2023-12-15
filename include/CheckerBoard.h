@@ -45,7 +45,7 @@ public:
      * @return a new CheckerBoard with the jump done
      */
     CheckerBoard doSingleJump(small start, small end, small remove, bool& newKing);
-    [[nodiscard]] float scoreBoard(const Scores&) const;
+    [[nodiscard]] double scoreBoard(const Scores&) const;
     [[nodiscard]] bool gameOver() const;
     void updateBoard(const Move&);
     CheckerBoard doTurn(const Move&) const ;

@@ -29,15 +29,15 @@ public:
     MCNode(CheckerBoard, std::shared_ptr<MCNode>);
     MCNode(float, std::shared_ptr<MCNode>);
     MCNode(float);
-    void playOutGame(double);
-    int findBestUnexplored(int& numMoves, const short& ogPlayer);
+    void playOutGame(double, TranspositionTable&);
+    int findBestUnexplored(int& numMoves, const short& ogPlayer, TranspositionTable&);
     /**
      * Randomly plays out a game, creating the tree as it goes
      * @param numMoves how many moves have currently been played
      * @param ogPlayer The player who has the first move (0 for white, 1 for black)
      * @return An int,
      */
-    int rollout(int& numMoves, const short& ogPlayer);
+    int rollout(int& numMoves, const short& ogPlayer, TranspositionTable&);
     static int timesPlayed;
     static int player;
     void computeResults(const int&, const short&, const int& numMoves);
@@ -54,9 +54,9 @@ private:
     float coefficient;
     double timeAllowed;
 public:
-    MCPlayer(double);
+    explicit MCPlayer(double);
     MCPlayer(double, float);
-    Move getPlay(const CheckerBoard&) override;
+    Move getPlay(const CheckerBoard&, TranspositionTable&) override;
 };
 
 

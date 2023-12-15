@@ -19,17 +19,16 @@ AiPlayer::AiPlayer(int depth, Scores scores) {
     this->depth = depth;
 }
 
-Move AiPlayer::getPlay(const CheckerBoard& board) {
-    std::pair<float, Move> tmp = exploreMoves(depth, board);
-    std::cout << "Move "<< tmp.second << " Evaluation: " << tmp.first << std::endl;
+Move AiPlayer::getPlay(const CheckerBoard& board, TranspositionTable& pastPositions) {
+    std::pair<double, Move> tmp = exploreMoves(depth, board, pastPositions);
     return tmp.second;
 }
 
-float AiPlayer::explore(int left, CheckerBoard board, float alpha, float beta){
+double AiPlayer::explore(int left, CheckerBoard board, double alpha, double beta, TranspositionTable& pastPositions){
     if (left == 0) {
-        return handleExpanded(board);
+        return handleExpanded(board, pastPositions);
     }
-    float multiply = (2 * board.getPlayer() - 1);
+    double multiply = (2 * board.getPlayer() - 1);
     if (board.gameOver()) {
         //Current player lost, so inverse multiply
         return  -multiply * scoring.win + multiply * left;
@@ -38,50 +37,59 @@ float AiPlayer::explore(int left, CheckerBoard board, float alpha, float beta){
     if (moves.empty()) {
         return  -multiply * scoring.win + multiply * left;
     }
-    float best = FLT_MIN;
+    double best = -INT32_MAX;
     for(const auto& m : moves) {
         CheckerBoard tmpBoard = board.doTurn(m);
-        float val;
-        if(pastMoves.isIn(tmpBoard, left)) {
+        double val;
+        if (pastPositions.getDepth(tmpBoard) >= 3) { //draw
+            val = 0;
+        }
+        else if(pastMoves.isIn(tmpBoard, left)) {
             val = pastMoves.getEvaluation(tmpBoard);
         }
         else {
-            val = explore(left - 1, tmpBoard, alpha, beta);
+            val = explore(left - 1, tmpBoard, alpha, beta, pastPositions);
+            pastMoves.addValue(tmpBoard, left, val);
         }
 
         best = std::max(best, val * multiply);
-        if (multiply == 1){
+        if (multiply == 1) {
             alpha = std::max(alpha, best);
         }
         else {
             beta = std::min(beta, best * multiply);
         }
 
-        if(beta <= alpha) {
+        if (beta <= alpha) {
             break;
         }
 
     }
+    //remove multiplication
     return best * multiply;
 }
 
-float AiPlayer::handleExpanded(CheckerBoard board){
-    float multiply = 2 * board.getPlayer() - 1; //if 1, then black's turn, -1 then white's turn
+double AiPlayer::handleExpanded(CheckerBoard board, TranspositionTable& pastPositions){
+    double multiply = 2 * board.getPlayer() - 1; //if 1, then black's turn, -1 then white's turn
     std::vector<Move> jumpMoves = JumpTree::possibleMoves(board);
     if(jumpMoves.empty()){
         return -multiply * scoring.win;
     }
     else {
         if (jumpMoves[0].isCapture()){
-            float max = -FLT_MAX;
+            double max = -INT32_MAX;
             for(const auto& m : jumpMoves){
                 CheckerBoard tmpBoard = board.doTurn(m);
-                float score = handleExpanded(tmpBoard) * multiply;
-                if(score > max){
-                    max = score;
+                double score = 0;
+                if (pastPositions.getDepth(tmpBoard) < 3) {
+                    score = handleExpanded(tmpBoard, pastPositions);
+                }
+                if(score * multiply > max) {
+                    max = score * multiply;
                 }
             }
-            return max;
+            //remove multiplicity
+            return max * multiply;
         }
         else {
             return board.scoreBoard(scoring);
@@ -89,7 +97,7 @@ float AiPlayer::handleExpanded(CheckerBoard board){
     }
 }
 
-std::pair<float, Move> AiPlayer::exploreMoves(int left, CheckerBoard board) {
+std::pair<double, Move> AiPlayer::exploreMoves(int left, CheckerBoard board, TranspositionTable& pastPositions) {
     //When first passed in, we should not have 0 moves or a game over state
     if(left == 0 || board.gameOver()){
         return {board.scoreBoard(scoring), Move()};
@@ -98,20 +106,22 @@ std::pair<float, Move> AiPlayer::exploreMoves(int left, CheckerBoard board) {
      //if 1, then black's turn, -1 then white's turn
     int multiply = 2 * board.getPlayer() - 1;
     Move bestMove;
-    float alpha = -FLT_MAX;
-    float beta = FLT_MAX;
-    float best = -FLT_MAX;
+    double alpha = -FLT_MAX;
+    double beta = FLT_MAX;
+    double best = -FLT_MAX;
     for(const auto& m : moves) {
         CheckerBoard tmpBoard = board.doTurn(m);
-        float val;
-        if(pastMoves.isIn(tmpBoard, left)) {
+        double val;
+        if(pastPositions.getDepth(tmpBoard) >= 3) {
+            val = 0;
+        }
+        else if(pastMoves.isIn(tmpBoard, left)) {
             val = pastMoves.getEvaluation(tmpBoard);
         }
         else {
-            val = explore(left - 1, tmpBoard, alpha, beta);
+            val = explore(left - 1, tmpBoard, alpha, beta, pastPositions);
+            pastMoves.addValue(tmpBoard, left, val);
         }
-//            std::cout << m;
-//            std::cout << val << std::endl;
         if (val * multiply > best){
             best = val * multiply;
             bestMove = m;

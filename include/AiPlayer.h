@@ -20,10 +20,10 @@ public:
     AiPlayer();
     explicit AiPlayer(int);
     AiPlayer(int, Scores);
-    Move getPlay(const CheckerBoard&) override;
-    float explore(int left, CheckerBoard board, float alpha, float beta);
-    float handleExpanded(CheckerBoard board);
-    std::pair<float, Move>exploreMoves(int, CheckerBoard);
+    Move getPlay(const CheckerBoard&, TranspositionTable&) override;
+    double explore(int left, CheckerBoard board, double alpha, double beta, TranspositionTable&);
+    double handleExpanded(CheckerBoard board, TranspositionTable&);
+    std::pair<double, Move>exploreMoves(int, CheckerBoard, TranspositionTable&);
     Scores getScoring() const;
     AiPlayer& operator=(const AiPlayer&);
 

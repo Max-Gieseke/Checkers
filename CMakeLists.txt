@@ -92,5 +92,36 @@ add_executable(WebServer
         src/MCPlayer.cpp include/MCPlayer.h
         httplib.h)
 
-target_link_libraries(WebServer PRIVATE wsock32 ws2_32)
+add_executable(CoefficientFinder
+        programs/CoefficientFinder.cpp
+        src/JumpTree.cpp include/JumpTree.h
+        src/Move.cpp include/Move.h
+        src/ZobristHash.cpp include/ZobristHash.h
+        src/TranspositionTable.cpp include/TranspositionTable.h
+        src/Scores.cpp include/Scores.h
+        src/CheckerBoard.cpp include/CheckerBoard.h
+        src/CheckerMoveMaps.cpp include/CheckerMoveMaps.h
+        src/JumpNode.cpp include/JumpNode.h
+        src/AiPlayer.cpp include/AiPlayer.h
+        src/MCPlayer.cpp include/MCPlayer.h
+        include/Player.h json.hpp)
+
+add_executable(Tournament
+        programs/Tournament.cpp
+        src/JumpTree.cpp include/JumpTree.h
+        src/Move.cpp include/Move.h
+        src/ZobristHash.cpp include/ZobristHash.h
+        src/TranspositionTable.cpp include/TranspositionTable.h
+        src/Scores.cpp include/Scores.h
+        src/CheckerBoard.cpp include/CheckerBoard.h
+        src/CheckerMoveMaps.cpp include/CheckerMoveMaps.h
+        src/JumpNode.cpp include/JumpNode.h
+        src/AiPlayer.cpp include/AiPlayer.h
+        src/MCPlayer.cpp include/MCPlayer.h
+        src/RandomPlayer.cpp include/RandomPlayer.h
+        include/Player.h json.hpp)
+
+if (WIN32)
+    target_link_libraries(WebServer PRIVATE wsock32 ws2_32)
+endif()
 target_compile_options(MoveExplorer PRIVATE -O3)

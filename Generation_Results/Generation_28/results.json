@@ -1,0 +1,227 @@
+{
+    "Player_1": {
+        "Parameters": {
+            "kingVal": 169.65171813964844,
+            "pawnVal": 98.51216888427734,
+            "rankBonus": 2.9461095333099365,
+            "win": 2147483647.0
+        },
+        "Result": 32.0
+    },
+    "Player_10": {
+        "Parameters": {
+            "kingVal": 2.4837257862091064,
+            "pawnVal": 28.05009651184082,
+            "rankBonus": 2.486846685409546,
+            "win": 2147483647.0
+        },
+        "Result": 18.0
+    },
+    "Player_11": {
+        "Parameters": {
+            "kingVal": 52.767120361328125,
+            "pawnVal": 119.4802474975586,
+            "rankBonus": 0.006850548554211855,
+            "win": 2147483647.0
+        },
+        "Result": 19.0
+    },
+    "Player_12": {
+        "Parameters": {
+            "kingVal": 52.2509880065918,
+            "pawnVal": 63.487911224365234,
+            "rankBonus": 0.3383428156375885,
+            "win": 2147483647.0
+        },
+        "Result": 22.0
+    },
+    "Player_13": {
+        "Parameters": {
+            "kingVal": 30.15557289123535,
+            "pawnVal": 37.8804817199707,
+            "rankBonus": 0.6919583082199097,
+            "win": 2147483647.0
+        },
+        "Result": 15.0
+    },
+    "Player_14": {
+        "Parameters": {
+            "kingVal": 7.956648826599121,
+            "pawnVal": 17.100601196289063,
+            "rankBonus": 0.5436692833900452,
+            "win": 2147483647.0
+        },
+        "Result": 24.0
+    },
+    "Player_15": {
+        "Parameters": {
+            "kingVal": 41.108642578125,
+            "pawnVal": 8.420104026794434,
+            "rankBonus": 1.0241544246673584,
+            "win": 2147483647.0
+        },
+        "Result": 19.0
+    },
+    "Player_16": {
+        "Parameters": {
+            "kingVal": 29.707645416259766,
+            "pawnVal": 3.8900787830352783,
+            "rankBonus": 0.7771964073181152,
+            "win": 2147483647.0
+        },
+        "Result": 15.0
+    },
+    "Player_17": {
+        "Parameters": {
+            "kingVal": 83.51443481445313,
+            "pawnVal": 75.47499084472656,
+            "rankBonus": 0.804085373878479,
+            "win": 2147483647.0
+        },
+        "Result": 33.0
+    },
+    "Player_18": {
+        "Parameters": {
+            "kingVal": 66.94136047363281,
+            "pawnVal": 22.443490982055664,
+            "rankBonus": 5.142245769500732,
+            "win": 2147483647.0
+        },
+        "Result": 29.0
+    },
+    "Player_19": {
+        "Parameters": {
+            "kingVal": 150.1094207763672,
+            "pawnVal": 36.7060432434082,
+            "rankBonus": 2.117421865463257,
+            "win": 2147483647.0
+        },
+        "Result": 20.0
+    },
+    "Player_2": {
+        "Parameters": {
+            "kingVal": 153.35665893554688,
+            "pawnVal": 89.01707458496094,
+            "rankBonus": 2.1697635650634766,
+            "win": 2147483647.0
+        },
+        "Result": 29.0
+    },
+    "Player_20": {
+        "Parameters": {
+            "kingVal": 29.753585815429688,
+            "pawnVal": 43.79375457763672,
+            "rankBonus": 2.277662992477417,
+            "win": 2147483647.0
+        },
+        "Result": 21.0
+    },
+    "Player_21": {
+        "Parameters": {
+            "kingVal": 58.79937744140625,
+            "pawnVal": 25.973400115966797,
+            "rankBonus": 2.2559773921966553,
+            "win": 2147483647.0
+        },
+        "Result": 30.0
+    },
+    "Player_22": {
+        "Parameters": {
+            "kingVal": 51.562225341796875,
+            "pawnVal": 87.70653533935547,
+            "rankBonus": 0.9080896973609924,
+            "win": 2147483647.0
+        },
+        "Result": 21.0
+    },
+    "Player_23": {
+        "Parameters": {
+            "kingVal": 61.47736358642578,
+            "pawnVal": 54.08582305908203,
+            "rankBonus": 2.7615582942962646,
+            "win": 2147483647.0
+        },
+        "Result": 40.0
+    },
+    "Player_24": {
+        "Parameters": {
+            "kingVal": 102.96712493896484,
+            "pawnVal": 19.59920883178711,
+            "rankBonus": 1.2049503326416016,
+            "win": 2147483647.0
+        },
+        "Result": 16.0
+    },
+    "Player_25": {
+        "Parameters": {
+            "kingVal": 80.4536361694336,
+            "pawnVal": 66.2496566772461,
+            "rankBonus": 2.7703709602355957,
+            "win": 2147483647.0
+        },
+        "Result": 26.0
+    },
+    "Player_3": {
+        "Parameters": {
+            "kingVal": 159.58486938476563,
+            "pawnVal": 91.53997039794922,
+            "rankBonus": 3.3607420921325684,
+            "win": 2147483647.0
+        },
+        "Result": 33.0
+    },
+    "Player_4": {
+        "Parameters": {
+            "kingVal": 202.60023498535156,
+            "pawnVal": 119.06425476074219,
+            "rankBonus": 2.037299156188965,
+            "win": 2147483647.0
+        },
+        "Result": 33.0
+    },
+    "Player_5": {
+        "Parameters": {
+            "kingVal": 170.52523803710938,
+            "pawnVal": 137.294921875,
+            "rankBonus": 0.6180461645126343,
+            "win": 2147483647.0
+        },
+        "Result": 30.0
+    },
+    "Player_6": {
+        "Parameters": {
+            "kingVal": 93.47578430175781,
+            "pawnVal": 117.04269409179688,
+            "rankBonus": 4.712764739990234,
+            "win": 2147483647.0
+        },
+        "Result": 10.0
+    },
+    "Player_7": {
+        "Parameters": {
+            "kingVal": 59.83537673950195,
+            "pawnVal": 101.73551940917969,
+            "rankBonus": 0.6314663290977478,
+            "win": 2147483647.0
+        },
+        "Result": 23.0
+    },
+    "Player_8": {
+        "Parameters": {
+            "kingVal": 24.859642028808594,
+            "pawnVal": 39.360633850097656,
+            "rankBonus": 0.0704198032617569,
+            "win": 2147483647.0
+        },
+        "Result": 21.0
+    },
+    "Player_9": {
+        "Parameters": {
+            "kingVal": 11.863025665283203,
+            "pawnVal": 80.31866455078125,
+            "rankBonus": 2.3895103931427,
+            "win": 2147483647.0
+        },
+        "Result": 21.0
+    }
+}

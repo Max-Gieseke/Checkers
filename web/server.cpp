@@ -15,13 +15,13 @@ int main()
     using namespace httplib;
     Server svr;
     CheckerBoard board;
-    MCPlayer ai(5);
-    svr.Get("/", [](const Request& req, Response& res) {
-        std::string fileContent = readFile("../web/main.html");
-        res.set_content(fileContent, "text/html");
-    });
+    TranspositionTable* pastPositions = new TranspositionTable();
+    //Change this to change agent
+    MCPlayer ai(4, 3.93);
+    //AiPlayer ai(10, Scores(Scores::loadBestScores()));
 
-    svr.Get("/game", [](const Request& req, Response& res) {
+
+    svr.Get("/", [](const Request& req, Response& res) {
         std::string fileContent = readFile("../web/game.html");
         res.set_content(fileContent, "text/html");
     });
@@ -46,13 +46,15 @@ int main()
         res.set_content(moves, "application/json");
     });
 
-    svr.Get("/api/aiTurn", [&board, &ai](const Request& req, Response& res) {
-        Move move = ai.getPlay(board);
+    svr.Get("/api/aiTurn", [&board, &ai, &pastPositions](const Request& req, Response& res) {
+        Move move = ai.getPlay(board, *pastPositions);
         std::string moveS = stringifyMove(move);
         res.set_content(moveS, "application/json");
     });
 
-    svr.Get("/api/restart", [&board](const Request& req, Response& res) {
+    svr.Get("/api/restart", [&board, &pastPositions](const Request& req, Response& res) {
+        delete pastPositions;
+        pastPositions = new TranspositionTable();
         board = CheckerBoard();
     });
 
@@ -64,18 +66,6 @@ int main()
         board = board.doTurn(m);
         std::cout << board;
     });
-
-//    svr.Post("/api/doMove", [&board](const Request& req, Response& res){
-//        json toDo = json::parse(req.body);
-//        std::cout << std::setw(4) << toDo;
-//
-//        Move m(toDo["start"], toDo["end"], toDo["jumps"]);
-//        board = board.doTurn(m);
-//        std::cout << board;
-//        std::string moves = formatMoveResponse(board);
-//        res.set_content(moves, "application/json");
-//    });
-
 
 
     svr.Get("/stop", [&](const Request& req, Response& res) {

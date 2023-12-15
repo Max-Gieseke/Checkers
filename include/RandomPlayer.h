@@ -10,8 +10,9 @@
 
 
 class RandomPlayer : public Player {
+public:
     RandomPlayer();
-    Move GetPlay(const CheckerBoard& board);
+    Move getPlay(const CheckerBoard& board, TranspositionTable&) override;
 
 };
 

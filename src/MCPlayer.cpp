@@ -51,7 +51,7 @@ MCNode::MCNode(float UCB) : children() {
     timesVisited = 0;
 }
 
-void MCNode::playOutGame(double timeAllowed) {
+void MCNode::playOutGame(double timeAllowed, TranspositionTable& pastPositions) {
     MCNode::timesPlayed = 1;
     int toSixth = 1000000;
     short player = this->board.getPlayer();
@@ -59,21 +59,15 @@ void MCNode::playOutGame(double timeAllowed) {
     auto duration = 0;
     while(duration < (timeAllowed * toSixth)) {
         int totMoves = 0;
-        int result = findBestUnexplored(totMoves, player);
+        int result = findBestUnexplored(totMoves, player, pastPositions);
         duration = std::chrono::duration_cast<std::chrono::microseconds>(
                 std::chrono::high_resolution_clock::now() - start).count();
         MCNode::timesPlayed++;
     }
-    std::cout << "Played " << MCNode::timesPlayed << " games\n";
 }
 
-/*
- * TODO:
- * add code to adjust UCB when rollout and unexplored are done
- * (set result to tmp variable, update win and times, UCB = calcCB, return)
- */
 
-int MCNode::findBestUnexplored(int& numMoves, const short& ogPlayer) {
+int MCNode::findBestUnexplored(int& numMoves, const short& ogPlayer, TranspositionTable& pastPositions) {
     this->timesVisited++;
     if(board.gameOver()){
         //Will have 0 for white win, 1 for black
@@ -81,10 +75,10 @@ int MCNode::findBestUnexplored(int& numMoves, const short& ogPlayer) {
         computeResults(result, ogPlayer, numMoves);
         return result;
     }
-//    if(numMoves == 150){
-//        computeResults(0, ogPlayer);
-//        return 0;
-//    }
+    if (pastPositions.getDepth(board) == 3) {
+        computeResults(0, ogPlayer, numMoves);
+        return 0;
+    }
     if (children.empty()) {
         std::vector<Move> moves = JumpTree::possibleMoves(board);
         if(moves.empty()){
@@ -103,7 +97,7 @@ int MCNode::findBestUnexplored(int& numMoves, const short& ogPlayer) {
     int result;
     for(auto& child : children){
         if(child->UCB == -1){
-            result = child->rollout(++numMoves, ogPlayer);
+            result = child->rollout(++numMoves, ogPlayer, pastPositions);
             computeResults(result, ogPlayer, numMoves);
             return result;
         }
@@ -112,13 +106,13 @@ int MCNode::findBestUnexplored(int& numMoves, const short& ogPlayer) {
             next = child;
         }
     }
-    int res =  next->findBestUnexplored(++numMoves, ogPlayer);
+    int res =  next->findBestUnexplored(++numMoves, ogPlayer, pastPositions);
     computeResults(res, ogPlayer, numMoves);
     return res;
 }
 
 
-int MCNode::rollout(int& numMoves, const short& ogPlayer) {
+int MCNode::rollout(int& numMoves, const short& ogPlayer, TranspositionTable& pastPositions) {
     this->timesVisited++;
     if(board.gameOver()){
         //Will have 0 for white win, 1 for black
@@ -127,10 +121,10 @@ int MCNode::rollout(int& numMoves, const short& ogPlayer) {
         computeResults(result, ogPlayer, numMoves);
         return result;
     }
-//    if(numMoves == 150){
-//        computeResults(0, ogPlayer);
-//        return 0;
-//    }
+    if (pastPositions.getDepth(board) == 3) {
+        computeResults(0, ogPlayer, numMoves);
+        return 0;
+    }
     std::vector<Move> moves = JumpTree::possibleMoves(board);
     //No moves mean other player won
     if(moves.empty()){
@@ -145,7 +139,7 @@ int MCNode::rollout(int& numMoves, const short& ogPlayer) {
                 MCNode(board.doTurn(m), std::make_shared<MCNode>(*this))));
     }
     int randomIdx = rand() % children.size();
-    int res = children[randomIdx]->rollout(++numMoves, ogPlayer);
+    int res = children[randomIdx]->rollout(++numMoves, ogPlayer, pastPositions);
     computeResults(res, ogPlayer, numMoves);
     return res;
 
@@ -162,22 +156,18 @@ void MCNode::calcUCB() {
     exploit = (static_cast<float>(wins) / static_cast<float>(timesVisited));
     explore = coefficient * std::sqrt(std::log(static_cast<float>(parent->timesVisited) + encTerm) / timesVisited);
     float tmp = exploit + explore;
-//    if(tmp == 0){
-//        std::cout << "Wins: " << wins << " timesPlayed: " << MCNode::timesPlayed <<  "Parent visited " << parent->timesVisited << std::endl;
-//    }
-    //std::cout << "New UCB: " << tmp << std::endl;
     this->UCB = tmp;
 
 }
 
 
 void MCNode::computeResults(const int & result, const short & ogPlayer, const int& numMoves) {
-//    if(result == 0){
-//        this->wins += 0.5;
-//        this->calcUCB();
-//    }
     //If ogPlayer's turn, then the other player will be choosing move, so UCB should rate games where opp wins as better
-    if (board.getPlayer() == ogPlayer) {
+    if (result == 0) {
+        this->wins += 0.3;
+        this->calcUCB();
+    }
+    else if (board.getPlayer() == ogPlayer) {
         if (ogPlayer == result){
             this->calcUCB();
         }
@@ -204,10 +194,7 @@ Move MCNode::getBestChild() {
     std::vector<Move> moves = JumpTree::possibleMoves(board);
     Move bestMove = moves[0];
     for(const auto& child : this->children){
-        std::cout << "UCB: " << child->UCB << " Times: "<<
-        child->timesVisited << " Wins: "<< child->wins << " Exploit: "<< child->exploit << " Explore: "<< child->explore <<std::endl;
         double rate = static_cast<double>(child->wins) / child->timesVisited;
-        std::cout << "rate: " << rate << std::endl;
         if (rate > bestExploit){
             bestExploit = rate;
             for(const Move& m : moves) {
@@ -245,10 +232,11 @@ MCPlayer::MCPlayer(double timePerMove, float coefficient) {
     this->coefficient = coefficient;
 }
 
-Move MCPlayer::getPlay(const CheckerBoard& board) {
+Move MCPlayer::getPlay(const CheckerBoard& board, TranspositionTable& pastPositions) {
     MCNode start(board, coefficient);
-    start.playOutGame(this->timeAllowed);
+    start.playOutGame(this->timeAllowed, pastPositions);
     Move best = start.getBestChild();
+
     start.clearNode();
     return best;
 }

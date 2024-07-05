@@ -35,9 +35,9 @@ std::vector<small> Move::getRemove() const {
 
 std::ostream &operator<<(std::ostream &out, const Move& m) {
     out << (int)m.start << " ==> " << (int)m.end << std::endl;
-    if(!m.remove.empty()){
+    if (!m.remove.empty()) {
         out << "Captures    ";
-        for(small sq : m.remove){
+        for (small sq : m.remove) {
             out << (int)sq << " ";
         }
         out << std::endl;
@@ -46,7 +46,7 @@ std::ostream &operator<<(std::ostream &out, const Move& m) {
 }
 
 Move& Move::operator=(const Move& other) {
-    if(this != &other){
+    if (this != &other) {
         this->start = other.start;
         this->end = other.end;
         this->remove = other.remove;
@@ -55,17 +55,17 @@ Move& Move::operator=(const Move& other) {
 }
 
 bool Move::equals(const Move& other) {
-    if(this->start != other.start){
+    if (this->start != other.start) {
         return false;
     }
-    if(this->end != other.end){
+    if (this->end != other.end) {
         return false;
     }
-    if(this->remove.size() != other.remove.size()){
+    if (this->remove.size() != other.remove.size()) {
         return false;
     }
-    for(int i = 0; i < this->remove.size(); i++){
-        if(this->remove[i] != other.remove[i]){
+    for (int i = 0; i < this->remove.size(); i++) {
+        if (this->remove[i] != other.remove[i]) {
             return false;
         }
     }

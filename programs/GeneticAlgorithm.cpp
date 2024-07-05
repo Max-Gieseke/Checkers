@@ -60,13 +60,13 @@ int main() {
 
 
 
-void getUpperAndLower(float& upper, float& lower, float start, float range){
+void getUpperAndLower(float& upper, float& lower, float start, float range) {
     //No negative values
-    if(start < 0){
+    if (start < 0) {
         upper = -start;
         lower = 0;
     }
-    else if (start == 0){
+    else if (start == 0) {
         upper = range;
         lower = 0;
     }
@@ -76,7 +76,7 @@ void getUpperAndLower(float& upper, float& lower, float start, float range){
     }
 }
 
-json createNewScores(const Scores& curScore, float range){
+json createNewScores(const Scores& curScore, float range) {
     float upperBound;
     float lowerBound;
     json newData;
@@ -100,18 +100,18 @@ json createNewScores(const Scores& curScore, float range){
     return newData;
 }
 
-double playGame(AiPlayer& ai1, AiPlayer& ai2){
+double playGame(AiPlayer& ai1, AiPlayer& ai2) {
     CheckerBoard board;
     int turns = 0;
     TranspositionTable pastPositions;
-    while(turns < 150){
+    while (turns < 150) {
         ai1.completeTurn(board, pastPositions);
-        if(board.gameOver() || Player::doneGame(board, pastPositions)){
+        if (board.gameOver() || Player::doneGame(board, pastPositions)) {
             return 1;
         }
 
         ai2.completeTurn(board, pastPositions);
-        if(board.gameOver() || Player::doneGame(board, pastPositions)){
+        if (board.gameOver() || Player::doneGame(board, pastPositions)) {
             return -1;
         }
         turns+= 2;
@@ -123,7 +123,7 @@ double playGame(AiPlayer& ai1, AiPlayer& ai2){
 }
 
 
-json generateFullyRandomScores(){
+json generateFullyRandomScores() {
     json newData;
     std::uniform_real_distribution<float> uniformVal(0, 10);
     newData["pawnVal"] = uniformVal(ENGINE);
@@ -136,24 +136,24 @@ json generateFullyRandomScores(){
     return newData;
 }
 
-std::vector<std::pair<float, AiPlayer>> createNextGeneration(std::vector<std::pair<float, AiPlayer>>& pastGen, int numGens){
+std::vector<std::pair<float, AiPlayer>> createNextGeneration(std::vector<std::pair<float, AiPlayer>>& pastGen, int numGens) {
     sort(pastGen.begin(), pastGen.end(), [](const auto& a, const auto& b) {
         return a.first > b.first;
     });
     std::vector<std::pair<float, AiPlayer>> nextGen(GEN_SIZE);
     nextGen[0] = pastGen[0];
     nextGen[0].first = 0;
-    for(int i = 1; i < 4; i++){
+    for (int i = 1; i < 4; i++) {
         nextGen[i] = std::pair<float, AiPlayer>(0, AiPlayer(DEPTH, Scores(createNewScores(pastGen[0].second.getScoring(), 0.2))));
     }
-    for(int i = 4; i < 6; i++){
+    for (int i = 4; i < 6; i++) {
         nextGen[i] = std::pair<float, AiPlayer>(0, AiPlayer(DEPTH, Scores(createNewScores(pastGen[0].second.getScoring(), 0.5))));
     }
-    for(int i = 6; i < 10; i++){
+    for (int i = 6; i < 10; i++) {
         nextGen[i] = std::pair<float, AiPlayer>(0, AiPlayer(DEPTH, Scores(createNewScores(pastGen[1].second.getScoring(), 1))));
     }
-    for(int j = 2; j < 7; j++){
-        for(int i = 0; i < 3; i++){
+    for (int j = 2; j < 7; j++) {
+        for (int i = 0; i < 3; i++) {
             int idx = i + 10 + 3 * (j - 2);
             nextGen[idx] = std::pair<float, AiPlayer>(0, AiPlayer(DEPTH, Scores(createNewScores(pastGen[j].second.getScoring(), 1))));
         }
@@ -161,15 +161,15 @@ std::vector<std::pair<float, AiPlayer>> createNextGeneration(std::vector<std::pa
     return nextGen;
 }
 
-int playRoundForPlayer(std::vector<std::pair<float, AiPlayer>>& allPlayers, int player){
+int playRoundForPlayer(std::vector<std::pair<float, AiPlayer>>& allPlayers, int player) {
     int gamesPlayed = 0;
-    for(int i = player + 1; i < allPlayers.size(); i++){
+    for (int i = player + 1; i < allPlayers.size(); i++) {
         double res = playGame(allPlayers[player].second, allPlayers[i].second);
-        if(res > 0){
+        if (res > 0) {
 //            std::cout << "Black won\n";
             allPlayers[player].first++;
         }
-        else if (res < 0){
+        else if (res < 0) {
             //std::cout << "White won\n";
             allPlayers[i].first++;
         }
@@ -180,11 +180,11 @@ int playRoundForPlayer(std::vector<std::pair<float, AiPlayer>>& allPlayers, int 
         }
         //Where j is black
         res = playGame(allPlayers[i].second, allPlayers[player].second);
-        if(res > 0){
+        if (res > 0) {
             //std::cout << "Black won 2\n";
             allPlayers[i].first++;
         }
-        else if (res < 0){
+        else if (res < 0) {
             //std::cout << "White won 2\n";
             allPlayers[player].first++;
         }
@@ -200,35 +200,35 @@ int playRoundForPlayer(std::vector<std::pair<float, AiPlayer>>& allPlayers, int 
 }
 
 
-void doGeneration(std::vector<std::pair<float, AiPlayer>>& curGen){
+void doGeneration(std::vector<std::pair<float, AiPlayer>>& curGen) {
     // unsigned int threads = std::thread::hardware_concurrency() - 2;
     std::vector<std::future<int>> futures;
     int count = 0;
     float total = curGen.size() * (curGen.size() - 1);
-    for(int i = 0; i < curGen.size(); i++){
+    for (int i = 0; i < curGen.size(); i++) {
        // playRoundForPlayer(curGen, i);
         futures.push_back(std::async(std::launch::async, playRoundForPlayer, std::ref(curGen), i));
     }
-    for(auto& future : futures){
+    for (auto& future : futures) {
         count += future.get();
         std::cout << (count * 1.0) / total << "% done\n";
     }
 }
 
-std::vector<std::pair<float, AiPlayer>> loadGeneration(json lastGen){
+std::vector<std::pair<float, AiPlayer>> loadGeneration(json lastGen) {
     std::vector<std::pair<float, AiPlayer>> generation;
-    for(json& player : lastGen){
+    for (json& player : lastGen) {
         generation.emplace_back(player["Result"], AiPlayer(DEPTH, Scores(player["Parameters"])));
     }
     return generation;
 }
 
 
-void doAllGenerations(){
+void doAllGenerations() {
     int gen = 0;
     std::vector<std::pair<float, AiPlayer>> generation = loadFromPastGeneration(gen);
     gen++;
-    while(true) {
+    while (true) {
         doGeneration(generation);
         recordResults(generation, gen);
         generation = createNextGeneration(generation, gen);
@@ -236,7 +236,7 @@ void doAllGenerations(){
     }
 }
 
-json playerToJson(const std::pair<float, AiPlayer>& player){
+json playerToJson(const std::pair<float, AiPlayer>& player) {
     json newData;
     newData["Result"] = player.first;
     newData["Parameters"] = player.second.getScoring().scoresToJson();
@@ -244,20 +244,20 @@ json playerToJson(const std::pair<float, AiPlayer>& player){
 }
 
 
-void recordResults(std::vector<std::pair<float, AiPlayer>>& gen, int genNumber){
+void recordResults(std::vector<std::pair<float, AiPlayer>>& gen, int genNumber) {
     std::string newDir = "Generation_" + std::to_string(genNumber);
     std::string path = "../Generation_Results/" + newDir;
     std::filesystem::create_directory(path);
     path = path + "/results.json";
 
     json toWrite;
-    for(int i = 0; i < gen.size(); i++){
+    for (int i = 0; i < gen.size(); i++) {
         std::string name = "Player_" + std::to_string(i + 1);
         toWrite[name] = playerToJson(gen[i]);
     }
 
     std::ofstream oFile(path);
-    if(oFile.is_open()){
+    if (oFile.is_open()) {
         oFile << std::setw(4) << toWrite;
     }
     else {
@@ -266,21 +266,21 @@ void recordResults(std::vector<std::pair<float, AiPlayer>>& gen, int genNumber){
 }
 
 
-std::vector<std::pair<float, AiPlayer>> loadFromPastGeneration(int& curGen){
+std::vector<std::pair<float, AiPlayer>> loadFromPastGeneration(int& curGen) {
     std::string pathToGenerations = "../Generation_Results/";
     curGen = 0;
-    for(const auto& entry : std::filesystem::directory_iterator(pathToGenerations)){
+    for (const auto& entry : std::filesystem::directory_iterator(pathToGenerations)) {
         std::string fileName = entry.path().filename().string();
         int num = std::stoi(fileName.substr(fileName.find('_') + 1));
-        if(num > curGen){
+        if (num > curGen) {
             curGen = num;
         }
     }
-    if(curGen == 0){
+    if (curGen == 0) {
         std::cout << "Generating random starting generation\n";
         std::vector<AiPlayer> tmp;
         std::vector<std::pair<float, AiPlayer>> generation;
-        for(int i = 0; i < GEN_SIZE; i++){
+        for (int i = 0; i < GEN_SIZE; i++) {
             tmp.emplace_back(DEPTH, Scores(generateFullyRandomScores()));
             generation.emplace_back(0, AiPlayer(DEPTH, Scores(generateFullyRandomScores())));
         }
@@ -290,7 +290,7 @@ std::vector<std::pair<float, AiPlayer>> loadFromPastGeneration(int& curGen){
     std::ifstream inFile(pathToFile);
     json lastGen;
 
-    if(inFile.is_open()){
+    if (inFile.is_open()) {
         inFile >> lastGen;
     }
     else {

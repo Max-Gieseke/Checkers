@@ -4,7 +4,7 @@
 #include <iostream>
 #include "../include/AiPlayer.h"
 #include "../include/MCPlayer.h"
-int main(){
+int main() {
     AiPlayer ai1 = AiPlayer(8, Scores());
     AiPlayer ai2 = AiPlayer(8, Scores(Scores::loadBestScores()));
     int res = Player::playGame(ai1, ai2);

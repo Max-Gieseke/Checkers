@@ -25,10 +25,10 @@ unsigned long long int TranspositionTable::computeHash(CheckerBoard b) {
 
 bool TranspositionTable::isIn(CheckerBoard b, int depth) {
     unsigned long long int key = hash.calcHash(b);
-    if(table.count(key) == 0){
+    if (table.count(key) == 0) {
         return false;
     }
-    if(table[key].depth < depth){
+    if (table[key].depth < depth) {
         return false;
     }
     return true;
@@ -45,7 +45,7 @@ int TranspositionTable::getDepth(CheckerBoard b) {
 
 
 TranspositionTable& TranspositionTable::operator=(const TranspositionTable& other) {
-    if(this != &other){
+    if (this != &other) {
         this->table = other.table;
         this->hash = other.hash;
     }

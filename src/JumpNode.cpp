@@ -64,36 +64,36 @@ void JumpNode::addChild(const std::shared_ptr<JumpNode>& child) {
 }
 
 small JumpNode::maxDepth() {
-    if(this->next.empty()){
+    if (this->next.empty()) {
         return depth;
     }
     small max = 0;
-    for(const std::shared_ptr<JumpNode>& n : next){
-        if(n->maxDepth() > max){
+    for (const std::shared_ptr<JumpNode>& n : next) {
+        if (n->maxDepth() > max) {
             max = n->maxDepth();
         }
     }
     return max;
 }
 
-void JumpNode::getRemainingSequence(std::vector<small>& holder){
-    if(depth == 0){
+void JumpNode::getRemainingSequence(std::vector<small>& holder) {
+    if (depth == 0) {
         holder.push_back(square);
     }
-    else{
+    else {
         holder.push_back(jumped);
         this->parent->getRemainingSequence(holder);
     }
 }
 
 void JumpNode::maxSequences(small curDepth, std::vector<std::vector<small>>& holder) {
-    if(this->depth == curDepth){
+    if (this->depth == curDepth) {
         holder.emplace_back();
         holder.back().push_back(this->square);
         getRemainingSequence(holder.back());
     }
-    else{
-        for(const std::shared_ptr<JumpNode>& node : this->next){
+    else {
+        for (const std::shared_ptr<JumpNode>& node : this->next) {
             node->maxSequences(curDepth, holder);
         }
     }
@@ -102,10 +102,10 @@ void JumpNode::maxSequences(small curDepth, std::vector<std::vector<small>>& hol
 
 std::ostream &operator<<(std::ostream &out, const JumpNode& m) {
     out << "Current: " << (int)m.square << " Captured " << (int)m.jumped << std::endl;
-    if(m.parent == nullptr){
+    if (m.parent == nullptr) {
         out << "Parent Square " << "none\n";
     }
-    else{
+    else {
         out << "Parent Square " << (int) m.parent->square << std::endl;
 
     }
@@ -114,11 +114,11 @@ std::ostream &operator<<(std::ostream &out, const JumpNode& m) {
 
 
 void JumpNode::clear() {
-    if (next.empty()){
+    if (next.empty()) {
         parent.reset();
         return;
     }
-    for(auto & node : next){
+    for (auto & node : next) {
         node->clear();
     }
     parent.reset();

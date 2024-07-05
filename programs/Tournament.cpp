@@ -49,12 +49,12 @@ int main() {
     recordResults(data);
 }
 
-void recordResults(const json& toWrite){
+void recordResults(const json& toWrite) {
     std::string path = "../Tournament_Results/";
     std::filesystem::create_directory(path);
     path = path + "/results.json";
     std::ofstream oFile(path);
-    if(oFile.is_open()){
+    if (oFile.is_open()) {
         oFile << std::setw(4) << toWrite;
     }
     else {
@@ -67,7 +67,7 @@ json playRound(Player* p1, Player* p2) {
     int p1Losses = 0;
     int draws = 0;
     json tmp;
-    for(int i = 0; i < 10; i++) {
+    for (int i = 0; i < 10; i++) {
         int res = Player::playGame(*p1, *p2);
         if (res > 0) {
             std::cout << "Player 1 won\n";

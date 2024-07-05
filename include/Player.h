@@ -26,19 +26,20 @@ public:
     static bool doneGame(const CheckerBoard& board, TranspositionTable& pastPositions) {
         return JumpTree::possibleMoves(board).empty() || (pastPositions.getDepth(board) >= 3);
     }
-    static int playGame(Player& p1, Player& p2){
+
+    static int playGame(Player& p1, Player& p2) {
         CheckerBoard board;
         TranspositionTable pastPositions;
         int turns = 0;
-        while(turns < 150){
+        while (turns < 150) {
             p1.completeTurn(board, pastPositions);
-            if(board.gameOver() || doneGame(board, pastPositions)){
+            if (board.gameOver() || doneGame(board, pastPositions)) {
                 //player 1 wins
                 return 1;
             }
 
             p2.completeTurn(board, pastPositions);
-            if(board.gameOver()|| doneGame(board, pastPositions)){
+            if (board.gameOver()|| doneGame(board, pastPositions)) {
                 //player 2 wins
                 return -1;
             }

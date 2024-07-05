@@ -23,7 +23,7 @@ int main() {
             std::cout << value1 << " beat " << value2 << std::endl;
             value2 = value2 - (1 - value1 / value2);
             if (value2 <= value1 - 0.01) {
-                if(equalOnce) {
+                if (equalOnce) {
                     finished = true;
                 }
                 equalOnce = true;
@@ -38,7 +38,7 @@ int main() {
             std::cout << value2 << " beat " << value1 << std::endl;
             value1 = value1 + 1 - value1 / value2;
             if (value2 <= value1 - 0.01) {
-                if(equalOnce) {
+                if (equalOnce) {
                     finished = true;
                 }
                 equalOnce = true;
@@ -58,7 +58,7 @@ int main() {
         p2 = new MCPlayer(2, value2);
     }
     json tmp;
-    if(p1won) {
+    if (p1won) {
         std::cout << value1 << " best value\n";
         tmp["best"] = value1;
     }
@@ -71,18 +71,18 @@ int main() {
 }
 
 
-//int playGame(Player& p1, Player& p2){
+//int playGame(Player& p1, Player& p2) {
 //    CheckerBoard board;
 //    int turns = 0;
-//    while(turns < 150){
+//    while (turns < 150) {
 //        p1.completeTurn(board);
-//        if(board.gameOver() || p1.doneGame(board)){
+//        if (board.gameOver() || p1.doneGame(board)) {
 //            //player 1 wins
 //            return 1;
 //        }
 //
 //        p1.completeTurn(board);
-//        if(board.gameOver()|| p2.doneGame(board)){
+//        if (board.gameOver()|| p2.doneGame(board)) {
 //            //player 2 wins
 //            return -1;
 //        }
@@ -92,12 +92,12 @@ int main() {
 //    return 0;
 //}
 
-void recordResults(const json& toWrite){
+void recordResults(const json& toWrite) {
     std::string path = "../Coefficient_Results/";
     std::filesystem::create_directory(path);
     path = path + "/results.json";
     std::ofstream oFile(path);
-    if(oFile.is_open()){
+    if (oFile.is_open()) {
         oFile << std::setw(4) << toWrite;
     }
     else {

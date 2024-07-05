@@ -40,14 +40,14 @@ std::ostream &operator<<(std::ostream& out, Scores scores) {
 json Scores::loadBestScores() {
     std::string pathToGenerations = "../Generation_Results/";
     int curGen = 0;
-    for(const auto& entry : std::filesystem::directory_iterator(pathToGenerations)){
+    for (const auto& entry : std::filesystem::directory_iterator(pathToGenerations)) {
         std::string fileName = entry.path().filename().string();
         int num = std::stoi(fileName.substr(fileName.find('_') + 1));
-        if(num > curGen){
+        if (num > curGen) {
             curGen = num;
         }
     }
-    if(curGen == 0){
+    if (curGen == 0) {
         std::cout << "No Generations exist\n";
         return {};
     }
@@ -55,7 +55,7 @@ json Scores::loadBestScores() {
     std::ifstream inFile(pathToFile);
     json lastGen;
 
-    if(inFile.is_open()){
+    if (inFile.is_open()) {
         inFile >> lastGen;
     }
     else {
